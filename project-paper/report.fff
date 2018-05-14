@@ -1,0 +1,6 @@
+\begin{figure}[!ht]
+  \centering\includegraphics[width=\columnwidth]{../../hid-sample/tex/images/fly.pdf}
+  \caption{Example caption}\label{f:fly}
+\end{figure}
+\efloatseparator
+ 
