@@ -1,369 +1,511 @@
 % status: 100
-% chapter: TBD
+% chapter: Government
 
-\def\paperstatus{0} % a number from 0-100 indicating your status. 100
+\def\paperstatus{100} % a number from 0-100 indicating your status. 100
                 % means completed
-\def\paperchapter{TBD} % This section is typically a single keyword. from
-                   % a small list. Consult with theinstructors about
+\def\paperchapter{Government} % This section is typically a single keyword
+				   % from a small list. Consult with theinstructors about
                    % yours. They typically fill it out once your first
                    % text has been reviewed.
-\def\hid{hid-sp18-000, hid-sp18-999} % all hids of the authors of this
+\def\hid{hid-sp18-709, hid-sp18-711} % all hids of the authors of this
                                 % paper. The paper must only be in one
                                 % authors directory and all other
                                 % authors contribute to it in that
                                 % directory. That authors hid must be
                                 % listed first
-\def\volume{9} % the volume of the proceedings in which this paper is to
+\def\volume{10} % the volume of the proceedings in which this paper is to
            % be included
 
-\def\locator{\hid, Volume: \volume, Chapter: \paperchapter, Status: \paperstatus. \newline}
+\def\locator{%
+\hid, Volume: \volume, Chapter: \paperchapter, Status: \paperstatus. \newline}
 
-\title{Big Data for Edge Computing}
+\title{Big Data Analytics for Municipal Waste Management}
 
-
-\author{Albert Zweistein}
-\orcid{1234-5678-9012}
-\affiliation{%
-  \institution{Institute for Plasma Physics in Documentation}
-  \streetaddress{P.O. Box 1234}
-  \city{Berlin} 
-  \state{Ohio} 
-  \postcode{123456-12345}
-}
-\email{trovato@corporation.com}
-
-\author{Gregor von Laszewski}
+\author{Andres Castro Benavides}
 \affiliation{%
   \institution{Indiana University}
-  \streetaddress{Smith Research Center}
+  \streetaddress{107 S. Indiana Avenue}
   \city{Bloomington} 
-  \state{IN} 
-  \postcode{47408}
-  \country{USA}}
-\email{laszewski@gmail.com}
+  \state{Indiana} 
+  \postcode{43017-6221}
+}
+\email{acastrob@iu.edu}
 
-
+\author{Mani Kumar Kagita}
+\affiliation{%
+  \institution{Indiana University}
+  \streetaddress{107 S. Indiana Avenue}
+  \city{Bloomington} 
+  \state{Indiana} 
+  \postcode{43017-6221}
+}
+\email{mkagita@iu.edu}
 % The default list of authors is too long for headers}
-\renewcommand{\shortauthors}{G. v. Laszewski}
-
+\renewcommand{\shortauthors}{A. Castro, M. K. Kagita}
 
 \begin{abstract}
-This paper provides a sample of a \LaTeX\ document which conforms,
-somewhat loosely, to the formatting guidelines for
-ACM SIG Proceedings.
+Waste management is becoming a greater concern for cities and municipalities 
+around the world because of the continual increase in population and waste. 
+Big data analysis has the potential to not only help assess the current 
+waste management strategies but also provide information that can be used 
+to optimize the systems used in various institutions, local governments, 
+and companies, among others.
 \end{abstract}
 
-\keywords{\locator\ Use up to 5 keywords, keyword1}
+\keywords{Waste Management, Big Data, Local Government, HID305, HID319, i523}
 
 \maketitle
 
-
-\section{Organization}
-
-The instructions are available at 
-
-\url{https://github.com/cloudmesh-community/hid-sample/blob/master/paper-instructions.md}
-
-It will bring you to a link allowing you to easily download the PDF
-version of the instructions. The PDF document is located at 
-
-\url{https://github.com/cloudmesh-community/hid-sample/raw/master/paper-instructions.pdf}
-
-
-The template is located at
-
-\url{https://github.com/cloudmesh-community/hid-sample/tree/master/paper}
-
-
-This sample has some advanced features that may not be offered by
-other \LaTeX\ frameworks. All of these features are accessible at this
-time throug a makefile. These advanced features are optional and
-introduce a number of automated tests for the document. Such tests are
-executed through a Makefile. Such makefiles can be executed on Linux
-or OSX. They are not available on sharelatex. As we have taught you
-how to set up a Linux system in class it is part of the leraning
-experience that you use that to verify the correctness of your
-paper. Alternatively you can set up a docker container and use
-that. It will be your responsibility to create such a container or set
-up the Linux environment with a \textit{full} version of \LaTeX\ and biber
-installed.
-
-The document is organized in a a repository, that needs to be
-replicated into your github repository. {\bf Please make sure that all
-  filenames and directory names but a README.md are all lower case and
-  have no underscore in it. Please make sure they do not contain a
-  space in the filename.} We repeat again: Be mindful about the
-capitalization of filenames and directory names. We only use lower
-case for any file in our directory and we never use spaces or non ASCI
-characters. 
-
-IN order for you to most easily compile the paper you will also need
-to check out the directory hid-sample that includes the formats. 
-
-Your recommended directories should look like
-
-\begin{verbatim}
-~/github/cloudmesh-community/hid-samle
-~/github/cloudmesh-community/hid-sp18-000
-\end{verbatim}
-
-where 000 the number part of your hid. The two hid directories are
-cloned from github. We taught you how to do this and it is a class
-goal that you know how to do it. 
-
-In your hid folder you will find, once it is set up the following
-directory and files:
-
-
-We have the following files that you will modify:
-
-\begin{verbatim}
-paper/content.tex
-paper/report.tex
-paper/report.bib
-images/README.md
-\end{verbatim}
-
-We separated the content from the report format into two different
-files, as we found that students in the past manipulated our format to
-circumvent our page limitation and artificially increased spacing and
-other unnecessary things that we would consider as cheating.
-If you
-
-Thus the only file you are allowed to modify is the content.tex file
-and the report.bib bibliography file and the images directory in which
-you place your images.
-
-Within the text, images and tables are {\bf must} be placed in floats
-as discussed in the handbook. You can place them with \verb|[htb]| at
-any place in the document. However, we will for the submission force
-the placement at the end of the document. You do not have to place
-them at the end. Please keep in mind that tables and figurs and
-programs that are also to be placed in figures do not count towards
-the paper length. Please also be reminded this is not a presentation
-and that lengthy enumerations will lead to point deductions. IN case
-of questions, consult with the TAs.
-
 \section{Introduction}
 
-Put here an introduction about your topic. 
-We just need one sample reference so the paper compiles in \LaTeX\ so we
-put it here~\cite{editor00}.
+In the current fast-paced society,  production of goods continues to 
+increase, and new distribution chains continuously change. The generation 
+of waste and the deprecated goods -from now on referred to as solid waste- 
+has increased over the past ten years, rising from approximately 0.64 kg 
+per person per day of solid waste to approximately 1.2 kg per person per day. 
+Projections estimate that this number is expected to increase to about 
+1.42 kg by 2025~\cite{hoornweg2012}. This continual change and increase make 
+waste management a more complex and more intensive endeavor.  
 
-\section{Figures}
+While the quantity of waste itself can and should be reduced by conscious use 
+and discipline in recycling and reusing items, local governments and waste 
+management companies can also make modifications to their systems to reduce 
+waste in the actual collection and disposal.
 
-In Figure~\ref{f:fly} we show a fly. Please note that because we use
-just columwidth that the size of the figure will change to the
-columnwidth of the paper once we change the layout to final. Changing
-the layout to final should not be done by you. All figures will be
-listed at the end.  Please do not use phrases such as \textit{shown in
-  the figure below}. Instead use such as shown in Figure~\ref{f:fly}.
+Because of this, different local governments and organizations have recognized 
+the need to develop more elaborate regulations to control the different 
+features, segments, processes involved in waste disposal from the moment the 
+material is discarded by the consumer to the moment the material reaches its 
+ultimate destination, such as a recycling plant or landfill. This set of 
+systematic regulations is called solid waste management. Solid waste 
+management has changed over time.  What used to be systems designed and 
+implemented based on local needs and convenient disposal as moved into 
+extensively researched and implemented management systems that consider 
+complex multivariable and dynamic sources of data~\cite{akbarpour2016}.
 
-\begin{figure}[!ht]
-  \centering\includegraphics[width=\columnwidth]{../../hid-sample/tex/images/fly.pdf}
-  \caption{Example caption}\label{f:fly}
-\end{figure}
+Currently, data used in waste management is collected from many sources and 
+varies depending on the types of solid waste and the rate of disposal of a 
+particular population. Because of the diversity of data available
+ (including types of waste, weight collected, the location of collection and 
+disposal), the quality of the data must be continually monitored and 
+assessed~\cite{chandrappa2012}. New management systems that seek to optimize 
+waste management must collect large volumes of data from various data sources 
+on a daily basis in order to compile information essential for optimization.  
+Multivariate data analysis methods provide exploratory data analysis, 
+classification and parameter prediction using this data~\cite{bohm2013}. 
 
-To avoid copying the example figure in each hid directory, we actually
-import it from the hid-sample directory. Lets assume you have a figure
-in the image directory called myfigure.pdf. You can than replace the
-line in the example with
+\section{ Municipal Solid Waste Management}
+%a) the complexities of waste management optimization 
 
-\begin{verbatim}
-\centering\includegraphics[width=\columnwidth]{images/myfigure.pdf}
-\end{verbatim}
+There are various factors that contribute to the complexity of optimizing 
+waste management systems and the types of data needed for analysis to do so.  
+These include differences in composition of waste, environmental and 
+logistic needs for individual communities, the changing forms of handling 
+various materials such as recyclables, and the various ways that waste 
+can be disposed of.  
 
-In case you use png than you must have a png that is at least 300dpi
-(find out what that means and how to do that) and use 
+There are significant differences between the general composition of the 
+waste generated in rural areas and the waste produced in urban areas. The 
+waste produced in the later is profoundly influenced by the culture and 
+the practices of our modern society.  This distinction means that there 
+will inevitably need to be differentiation in waste management practices 
+and systems based on each communities needs, commerce, economy, and 
+practices~\cite{chandrappa2012}.
 
-\begin{verbatim}
-\centering\includegraphics[width=\columnwidth]{images/myotehrfigure.png}
-\end{verbatim}
+Municipal Solid Waste (MSW), commonly known as garbage or trash, consists 
+of items that residential, commercial, institutional and industrial sites 
+generate. This is much different from the type of waste produced, for 
+example, in an agricultural community.  Urban, or municipal, waste can be 
+the result of everyday activities, such as leftover food, plastic bottles, 
+packaging material, wooden furniture, electrical and electronic appliances, 
+glass, medical waste, card boards, waste tires, office wastes, consumer goods, 
+among others.  Each type of waste needs to be handled in distinct manners.  
 
-When modifying the example, please do not check in the images from the
-examples into your images directory as you will not need them for your
-paper. Instead use images that you like to include. If you do not have
-any images, do not palce anything in the images folder. However most
-technologies could benefit for one image. Make sure you do not
-plagiarize the image. Find out from the hand book how to do that. Any
-plagiarism of images will result that we return the paper without
-review as you have not understood how plagiarism works.
+The amounts of solid waste and its composition vary depending on the country, 
+place, and activity performed at the site where the waste is 
+generated~\cite{chandrappa2012}. For this reason, every process related to 
+waste management (transportation, storing and final disposition, among others) 
+must be engineered and tailored to fit the specific needs of community, 
+organization, or local institution. The data collected for analysis will 
+also be specific to the needs and realities of each entity, which is why 
+waste management plans are not universal or easily applied from one 
+community to another.  
 
-\section{Tables}
+The forms of handling waste have also changed over the years, affecting the 
+best ways to manage waste.  One example of this is the increasing ability 
+to separate and recycle various materials. Data on the recyclable material, 
+dividing waste and recyclable material, how materials are sent or how they 
+are disposed of has become significant. According to EPA statistics from 
+2014, Americans generated about 258 million tons of MSW of which more than 
+89 million tons is recycled and composted. This is an equivalent to a 34.6\% 
+recycling rate compared to 6.4\% in 1960. With the increase in recycling 
+capabilities and consciousness, adaptations must be made to the management 
+systems~\cite{epa2014}.  
 
-In case you need to create tables, you can do this with online tools
-(if you do not mind sharing your data) such as
-\url{https://www.tablesgenerator.com/} or other such tools (please
-google for them). They even allow you to manage tables as CSV.
+Another variable that is how waste is disposed of.  Americans have used the 
+energy production process to combust approximately 33 million tons of waste,  
+while as much as 136 million tons of waste ended up in landfills during the 
+same year~\cite{epa2014}. Local governments must determine which form of 
+waste disposal is more efficient and cost-effective based on their unique 
+context. They must take into consideration access to and distance from 
+disposal facilities, types of waste being disposed of, and specific 
+environmental implications of each process based on their geographic, 
+geological, and environmental context.  
 
-or generate them by hand while using the provided template in Table
-\ref{t:mytable}. Note that
-the caption is before the tabular environment.
+In waste management, decision-makers are and will continue to be forced to 
+make choices.  When they develop or implement plans, they have a choice as 
+to what information they will or will not consider for analysis.  They have 
+to choose what factors are influential in their jurisdiction.  They make 
+choices about routes, resources, and all the details between pick up to 
+disposal. These choices can be classified as fortuitous, good, or 
+optimal~\cite{akbarpour2016}.
 
-\begin{table}[htb]
-\centering
-\caption{My caption}
-\label{t:mytabble}
-\begin{tabular}{lll}
-1 & 2 & 3 \\
-\toprule
-4 & 5 & 6 \\
-7 & 8 & 9
-\end{tabular}
-\end{table}
+Fortuitous decision-making has no scientific base; the person who is in 
+charge of making decisions must always try to solve the problem with 
+little or no research or data.   On the other hand, good decision-making 
+is primarily based on experience, comparison of elements and trial and error. 
+ Optimal decision making, however, requires understanding and analysis of 
+ techniques and technologies provided by other fields~\cite{akbarpour2016}. 
 
-\section{Quotes}
+This is where Big Data comes in. 
 
-Do not use double quotes 
+\section{ Big data and waste management}
+%b) why is big data involved
 
-\begin{verbatim}
-"this is a wrong example"~\cite{las2018paper} 
-\end{verbatim}
+Big data has the capacity to facilitate analysis of information so that 
+better decisions can be made.
 
-but use \LaTeX\ quotes
+In Big Data, the expert in charge takes many data sets coming from diverse 
+and dynamic data sources and applies technologies to analyse these data sets.  
+Authors of papers and books like ``The Fourth Paradigm'' state that big data 
+exploration works to find patterns in data by analysing the trends and 
+outliers found in the data sets mentioned above, to generate 
+knowledge~\cite{hey2009fourth}.
 
-\begin{verbatim}
-``This is a right example''~\cite{las2018paper}
-\end{verbatim}
+Characteristics (such as the large volume of data generated in waste 
+management, how dynamically the data is generated, and the variety of 
+formats in which the data comes) make the task of producing knowledge an 
+ideal task for Big Data.  Scientists can interpret the findings of Big Data  
+in a way that allows individuals and institutions involved in waste management 
+to make optimal decisions~\cite{yenkar2014review}. 
 
+\section{Solutions for effective Waste Management}
+%how can big data or analytic of big data help
 
-Quotes {\bf MUST} not be used to highlight works. Quotes are {\bf
-  STRICTLY} used for quoting text from sources with citation
-following. If we find a quote that is not followed by a citation we
-will return the paper without review. Please note that the two single
-quotes at the begining are not the same direction as the single quotes
-at the end. On the US keyboard the beginning quotes are next to the
-keyborad key 1 and the end quotes are next to the ENTER or RETURN
-key. We use them to identify how much you have quoted. If you have
-quoted more than 30\% we will not review your work. Most conferences
-and journals do not allow quoting above 20\%, so consider yourself
-lucky to have such a relaxed standard. 
+\subsection{ Examples of Big data and waste management}
 
-\section{Emphasize}
+Various institutions around the world have explored and implemented Big Data 
+analytic to optimize their waste management systems based on their unique 
+needs.
 
-To emphasize a text you do not use double or single quotes you use
-\emph{emph}.
+In Manchester, England, the Greater Manchester Waste Disposal Authority, 
+England's most significant waste management institution, has started to 
+use Big Data to better orchestrate the waste management services they 
+provide. To get the most out of their Big Data approach, the Greater 
+Manchester Waste Disposal Authority is working in collaboration with the 
+research done by the University of Manchester. Together, they are trying 
+to create environmentally sustainable solutions for Manchester, and are 
+attempting to develop optimal solutions to the 1.1 million tons of waste 
+that Manchester produces every year.   While their work has not been 
+implemented yet, they have recognized the need for both research and 
+partnership with research institutions to compile and analyse 
+data~\cite{markvan2016}.
 
-See the Handbook for more details.
+Another example of a local government implementing Big Data Solutions is 
+the city of  Songdo, South Korea. In said city, every citizen needs to use 
+a chip card while disposing of their garbage. Data collected from these 
+chip cards is being used to analysing on the quantity of disposed waste and 
+their locations. Each trash bin is incorporated with sensors to provide the 
+height of the garbage accumulated in the reciprocal, temperature, and air 
+pollution levels. These multiple parameters help municipal authorities 
+forecast ideal times to collect the trash and optimize the routes to save 
+time and expenses~\cite{markvan2016}.
 
+Researchers in Ethiopia are combining socioeconomic data alongside geographic 
+data in order to get a clearer understanding of the patterns of how household 
+waste is being collected and distributed. This study helped local authorities 
+to better manage waste practices in urban areas~\cite{markvan2016}. 
 
-\section{Labels}
+A group of researchers from the University of Stockholm is using Big Data to 
+identify how to optimize waste management routes in their city. By using a 
+wide variety of data sets collected from various sources, roughly around half 
+a million entries including trash bin locations, weights, and truck routes, 
+researchers have developed waste generation maps of Stockholm. This research 
+has helped reveal various inefficiencies in the current waste management 
+system and will be integral in helping them improve their local waste 
+management~\cite{markvan2016}.
 
-Do not use actual numbers in the taxt after you write for example
-Figure 1 use the ref for the figure while using its label. In our
-example it is Figure~\ref{f:fly} and Table Figure~\ref{t:mytabble}.
-See the source for the example.
+\subsubsection{Vehicle Routing Problem}
+Vehicle route optimization is one of the primary concerns in waste management. 
+It is termed as Vehicle Routing Problem (VRP)~\cite{dantzig1959}.  
+While routes may be designed based on geography, merely looking at a map and 
+designing what seems to be functional movement through the city, this is 
+underestimating the extent of the factors involved.  There are multiple 
+factors that either directly or indirectly affect waste collection that can 
+also be analyzed and considered while designing routes. Common known factors 
+that influence vehicle routing are the type of vehicle, vehicle capacity, 
+number of collection stops, volume per capita and the route length. 
 
-\section{Footnotes}
+Two of the most fundamental VRPs are the Travelling Salesman Problem (TSP) 
+and the Chinese Postman Problem (CPP)~\cite{belien2012}. However, when too 
+many constraints and attributes are considered, both of the TSP and CPP become 
+more difficult problems to solve. Many researchers have studied and published 
+articles on waste management vehicle routing problem VRPs, and yet it is a 
+persistent problem. Mathematical models need to be developed to provide city 
+administrators with tools to make effective long-and short-term decisions 
+relating to their municipal disposal system~\cite{bhat1996}. 
 
-Footnotes must be avoided in papers. All URLs must be included as full
-references and citations and used with the \verb|\cite| command
-\footnote{do not use footnotes}. You {\bf must} not use urls in the
-text or paper.
+In addition to the typical known factors causing VRP problems, indirect 
+attributes must also be taken into consideration.  Time of day, traffic, 
+weather patterns, energy prices, demand fluctuations, vehicle health, 
+dump site inventory also have potential to affect route efficiency. 
 
-\section{Plagiarism}
+A research team at OSI came up with a better solution for solving VRP 
+problems using Big Data technologies. Mixed Integer Programming (MIP) 
+formulation was designed to interact with millions of attributes in live 
+environments providing real-time decisions to optimize the VRP. Big Data 
+technologies are being used to enable prediction of travel times and 
+forecast and address demand on a tactical time line. This approach has 
+helped improve VRP forecasting between  5\% to 10\%~\cite{vijay2013}. 
+Any improvement, even less than 5\% created on VRP is a significant 
+improvement~\cite{hasle2007}.
 
-The class includes a section about plagiarism which you must adhere
-to. Copying text without proper citation is considered cheating and we
-will assign the grade ``F'' for the paper if we find you do it. It is
-in your responsibility to make sure plagiarism does not occur. Please
-be aware that our checks are better than the once provided by turnitin
-or other online checkers. Excuses such as ``I did not have time'' or
-``I forgot'' can not apply as you have enough time to prepare the
-paper and must not forget. 
+Scientists and engineers have designed a system to collect data that 
+communicates between waste reciprocals, waste collection vehicles and a 
+central system using sensors that measure how full containers are and can 
+send real-time data~\cite{faccio2011}.
 
-\section{Check}
+The data collected can be used to optimize routes and space in the waste 
+collection vehicles.  Sensors can identify which containers do not need 
+to be collected, allowing them to shorten routes when containers do not 
+have sufficient volume to be collected.  In addition, sensors can measure 
+the remaining capacity of collection vehicles, allowing them to extend routes 
+when they still have cargo space, ensuring that they return to the disposal 
+center only when they are carrying a full load.  After the implementation 
+of this system, the city was able minimize inefficient travel and fewer 
+collection vehicles were needed.  It was estimated that in three years, 
+the expense of purchasing and implementing this system would be 
+recovered~\cite{shahrokni2014big}.
 
-make sure just as in previous assignments that you check your paper
-with chktex and lacheck. Fix the errors that you see. Some of the
-errors may be ok, but in general make sure you address all of them. If
-in doubt work with the TA. Simply use
+In addition to the real-time data collection that helps optimize collection 
+and routes, remote self-diagnostics are also helping optimize vehicle use. 
+By being able to monitor the vehicles use and health, maintenance and repair 
+are more efficiently managed.  Through this system, managers are made aware 
+of parts that need to be ordered in advance, limiting the time that the 
+vehicles may be out of service.  Hand held devices have been developed for 
+service verification, further helping minimize external providers or 
+assessments, optimizing asset management and costs~\cite{megan2017}.
 
-\begin{verbatim}
-make check
-\end{verbatim}
+\subsubsection{Problem of Landfill Disposal}
 
-We include in the handbook a list with common issues that we see when
-students submit papers. One particular important issue is not to use
-the underscore in bibtex labels. It is your responsibility to check
-the paper for the issues indicated.
+A municipal solid waste landfill (MSWLF) is an individually isolated area 
+of land or a trench where the household waste is collected and stored. 
+These landfills are designed to store municipal solid waste as well as other 
+wastes like construction and industrial waste. These landfills can be 
+open-pits or below ground refuse chambers. In recent years, it's becoming 
+more expensive to operate and maintain these landfills as well as to 
+protect the environment liquid pollutants that drain from the waste and 
+which can cause water and surface contamination. These liquid pollutants 
+are commonly called as leachate. Leachate forms when water originating 
+from rainfall or groundwater dissolves gradually through a porous surface 
+and dissolves the chemicals from the refuse especially if the protective 
+layer of the landfill allows liquid or gases to pass through it. 
 
-To check bibliographies simply use
+Leachate contamination problems have become more problematic in older 
+landfill sites where they lacked appropriate barriers above or below the 
+landfills.  This contamination has been found to cause pollution which may 
+be a cause of  diseases affecting the citizens residing in close proximity 
+to these landfills. In modern days, Governments across the world are 
+motivated to prevent environmental contamination due to waste disposal and 
+to reduce the size and expansion of landfill deposits. Steps are taken to 
+reduce the number of landfill areas and to extend landfill capacity at 
+current sites. 
 
-\begin{verbatim}
-pdflatex report
-bibtex report
-\end{verbatim}
+Landfill disposal, in itself, has its own set of complex factors including 
+measurement and control of gases, management of waste water, and precipitation 
+patterns affecting water volume and run off  in the geological basin.  
 
-You will see the errors and warning son the screen address them
+Identifying these factors creates an opportunity to develop sensors that 
+could collect meaningful data that would be an asset to optimizing landfill 
+disposal.  Sensors could measure gas emission, water volume in disposed 
+waste, and precipitation.  Having this information would allow data 
+scientists to develop systems that would identify when disposal would need 
+to be varied, how water treatment plants could efficiently manage run-off 
+and basin water and how to communicate with water treatment plants to use 
+more or less of their mechanical resources based on real-time needs. 
 
-TA's will in addition use a special test checking for additional
-format issues such as detecting if you used labels and refs for
-floats. You are welcome to also try this test, but we provide it
-without explanation as no explanation is needed since if you followed
-the instructions on floats there should be no issues. If you like to
-do that test, you can use  
+Manual calculation would be time-consuming subject to human error and 
+physical observation opens space for inefficiency and delay.  In order 
+to compute these calculations promptly so that the information could 
+contribute to optimization, it would be ideal to develop a computer program 
+to compute the mathematical operations.  These calculations could translated 
+into real time information that would help manage the systems in place. 
+This would contribute significantly to optimization of water treatment, 
+for example, in landfill disposal~\cite{akbarpour2016}.
 
-\begin{verbatim}
-make check-ta
-\end{verbatim}
+Waste management is already in the process of transforming from using older 
+methodologies to modern Big Data technologies. Big Data has a lot more 
+potential to eradicate many of the problems faced by government in waste 
+disposal. Most of the government organizations are taking a leap to minimize 
+disposal of waste and to achieve ``zero waste'' goals~\cite{rosengren2017}. 
 
-\section{Convenient Setup}
+A program in government of District of Columbia called ``Zero Waste DC'' 
+has initiated developments in order to provide resources that will help 
+its residents move towards zero waste. Its primary motive is to divert 
+80\% of MSW to recycling or source of energy where the remaining 20\% 
+non recoverable waste will be sent to landfills. By collecting vast amounts 
+of data from all sources, they will analyze  the date collected to implement 
+cost-effective strategies for converting waste to re-usable resources, 
+improving environmental conditions, taking measures on human health, 
+reducing greenhouse gas emissions and conserving of natural resources. 
+By obtaining data from the sensors measuring contamination of air with 
+harmful gases, water purification levels from the nearby lakes, physical 
+properties as well as chemical properties of the soil, Big Data will be 
+able to help analyze this data and provide solutions to prevent further 
+pollution and help design better systems in the future~\cite{rosengren2017}.
 
-If you do not have already a paper dir in your repository, here is a
-way to create one. Replace the hid-sp18-000 with your hid.
+One of the reasons for Big Data to have such high volumes of information 
+in these examples, is that the sensors that collect the data gather it on 
+a daily basis and from different sources like digital meters, sensors and 
+social media. 
 
-\begin{verbatim}
-export HID=hid-sp18-000
-mkdir -p ~/github/cloudmesh-community
-cd ~/github/cloudmesh-community
-git clone https://github.com/cloudmesh-community/hid-sample.git
-git clone https://github.com/cloudmesh-community/$HID.git
-\end{verbatim}
+In some cases it is possible to read information from the sensors placed in 
+recycle bins, the data they provide allows the company in charge to identify 
+the type of waste is being disposed in the trash bins and which resident does 
+it. If somebody places hazardous materials in the bins, authorities can detect 
+them before  being collected by the waste management vehicles. Besides 
+preventing unwanted incidents, this kind of information can be used to 
+develop tailored waste management training for the public. Big Data Analysis 
+can also be employed in other areas of education, to encourage citizens to 
+use food scraps as fertilizer and even develop strategies like 
+``farm to farm'' practices where the public institution can promote 
+urban organic farming~\cite{james2012}.
 
-Next copy the paper example
+On the same line, the use of Big Data technologies employed in the  waste 
+disposal process, provides visibility to the amounts and characteristics 
+of the organic waste, particularly when it comes to food waste. 
+Identifying inefficiencies in food management, can be used to plan and 
+improve the food production and transportation chains. These and other 
+applications of Big Data, enable food related companies to make effective 
+decisions in their purchase and procurement departments, as well as their 
+management of their own organic waste~\cite{frank2016}.
 
-\begin{verbatim}
-cp -r hid-sample/paper $HID
-cd $HID
-git add paper
-git commit -m "add the paper directory" paper
-git push
-\end{verbatim}
+United States' Environmental Protection Agency (EPA) is using Big Data in 
+their waste management and recycle research. Big Data Analysis is used to 
+identify quantities of solid waste being recycled and informing the public 
+about the benefits they may receive when they recycle. A Municipal Solid 
+Waste Characterization Report issued by the EPA in 2007, contains the data 
+collected on generation and disposal of waste in the United States within 
+the 30 years prior to the release of said report. This data is being 
+analysed to measure waste reduction and plan recycling programs across the 
+country~\cite{epaRecycleBenefits2007}.
 
-Make sure there is no \verb|/| behind the paper in the cp command or you mess up the
-copy process.
+\subsection{Statistics and Waste Management}
 
+The data collected from the different activities related to Municipal Waste 
+Management, can be run through mathematical models developed to predict 
+behaviour and understand causes to complex issues. In other words, these 
+data and applying statistics can be used by Big Data professionals to draw 
+conclusions and foresee possible outcomes as related to effective policy 
+making and actual waste production, collection, and disposal patterns. 
 
-\section{Creating the PDF}
+In the field of statistics and probability, there are many data analysis 
+methods that are used to  study waste management and production, but the 
+two most popular are: PCA (Principal Component Analysis) and PLS1
+ (or Partial Least Squares Regression). The Principal Component Analysis  
+reveals relevant parameters within a large parameter set. This allows the 
+researcher to find the most significant and essential properties of a sample 
+when studying a particular question. On the other hand, scientists use the 
+Partial Least Squares Regression to identify in two matrices, the major 
+internal and external correlations~\cite{bohm2013}.
 
-The PDF\ can be created simply with 
+There are many applications tools and packages that are well known in 
+statistics that can be applied to waste management, some of them are 
+SPSS, Canoco, The Unscrambler and R~\cite{bohm2013}.
+There is also  a mathematical modeling language developed  particularly 
+for formulating and solving  optimization problems using linear programming, 
+called Lingo. Lingo optimization software uses the branch and bound methods 
+to solve problems similar to the ones found when studying waste 
+management~\cite{akbarpour2016}.
 
-\begin{verbatim}
-make clean
-\end{verbatim}
+These resources are valuable to the continual analysis of data being 
+collected, continually helping in waste management optimization.
 
+\subsection{GIS Analytics}
 
+When it comes to Geographical Information Systems (From now on GIS), 
+there are multiple software and hardware options in the market. From 
+paid software like ArcGIS to Open and free software like GVSIG, some 
+solutions can help interpret large data sets, apply statistics and 
+algorithms of different kinds and display them in a way that refers 
+to a geographical space. 
 
-{\bf UNDER NO CIRCUMSTANCES ARE YOU ALLOWED TO CHECK IN YOUR PDF OR
-  TEMPORARY LATEX FILES INTO GITHUB. GIT NEEDS TO STAY CLEAN AND ONLY
-  CONTAIN THE SOURCES.}
+Two optimal routing algorithms have been used to calculate routes for 
+waste collection; Solomon's insertion algorithm and a clustering algorithm.  
+Data was used to help create more efficient routes by minimizing driving 
+distance while taking into consideration factors like lunch breaks
+ (time windows) that affected the distribution of human resources and 
+time/vehicle management. By adding vehicle depots, by rerouting, 
+and by sharing various routes, they predicted that they would be able 
+to shorten vehicle expenditure by as much as 10,000 km.  
 
-We will deduct points if you do violate this.
+An additional routing algorithm was used to present information on 
+the environmental significance for optimizing waste collection routes. 
+The study assessed the use of roll-on/roll-off containers while also 
+considering schedules and lunch breaks.  Through the utilization of an 
+adaptive large neighborhood search algorithm, alongside a clustering method, 
+a residential waste collection was analysed, taking into consideration 
+actual pick up points and employee lunch breaks.  Using this information, 
+time windows and starting conditions were adapted alongside the routes to 
+reduce the total distance by as much as forty-five 
+percent~\cite{shahrokni2014big}.
 
 \section{Conclusion}
+Waste management has been a growing concern and will continue to be an 
+important area for optimization as both consumer waste and population 
+increase. As institutions, governments, and individuals look to assess 
+and optimize resources, minimize cost and create less of an environmental 
+impact of waste management, Big Data has the potential to continue to help 
+provide the information needed for future advancement.
 
-Put here an conclusion. Conclusion and abstracts must not have any
-citations in the section.
+There are various tools being used to optimize the different waste 
+management practices, and there is space to develop additional tools 
+to continue to the information available to decision makers.
 
+One of the main reasons to use Big data in Municipal Waste Management is 
+to provide local governments with tools that would facilitate the 
+implementation of systems to more efficiently manage how much, where and 
+the growth rate of the material that the community dispossess. Optimizing 
+the waste management systems can help minimize the environmental impact of 
+the community's actions, reduce pollution, increase rates of recycled 
+materials, optimize routes to reduce time and expenses, among others.
+By using Big data, local governments can also track the number and quantity 
+or weight of disposals at different locations; this information can be 
+mapped to reveal the locations of the most significant waste generators. 
+This information will help entities develop specific strategies to reduce 
+waste and help implement permanent solutions for better environments. 
 
+Waste Management is not only government issue. Citizens should take the 
+initiative and educate others on how to recycle and reduce waste. With the 
+help of the collected data, governments can notify the different entities
+ (individuals, communities, companies and other organizations) a equip them 
+through education and awareness, and also share valuable information about 
+the importance of waste management through different media, such as mobile 
+phones, email, among others.
+
+Local governments have just started to adopt Big Data technologies for 
+solving problems involved in MSW, but there is plenty of room for growth 
+and further use and development.  By using Big Data Analytic, large amounts 
+of data sets pertaining to specific communities waste, routes, and disposal 
+can be used to identify trends and patterns that could highlight opportunities 
+for improvement. Big Data can play a significant role in managing cities more 
+efficiently, benefiting not only those managing the systems, but the 
+communities in which they are implemented as well.
 \begin{acks}
 
-  The authors would like to thank Dr.~Gregor~von~Laszewski for his
-  support and suggestions to write this paper.
+The authors would like to thank Dr.\ Gregor von Laszewski for his support 
+and suggestions in writing this paper.
 
 \end{acks}
-
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{report} 
-
