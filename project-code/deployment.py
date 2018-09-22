@@ -11,12 +11,12 @@ class AbstractDeplyment(ABC):
 	 pass
 
     @abstractmethod
-    def deploy
+    def deploy(self):
          """deployes the package or software"""
 	pass
 
     @abstractmethod	
-    def configure(self)
+    def configure(self):
         """does som configurations"""
 	pass
 
