@@ -27,6 +27,14 @@ endif
 #>> report-latex.log 2>&1
 #	make -f Makefile check >> report-latex.log 2>&1
 
+quick:
+		$(LATEX) ${FLAGS} ${FILE}
+		$(BIBTEX) ${FILE}
+		$(LATEX) ${FLAGS} ${FILE}
+		$(LATEX) ${FLAGS} ${FILE}
+
+pandoc:
+	pandoc ${FILE}.tex -o test.md
 
 all: prepare
 	make -f Makefile generate
