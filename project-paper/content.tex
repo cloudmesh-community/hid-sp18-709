@@ -1,4 +1,4 @@
-% status: 100
+% status: 90
 % chapter:
 
 \title{CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs}
@@ -52,6 +52,9 @@
 	
 \section{Introduction}
 	
+\TODO{THERE ARE TOO MANY () IN TEXT}
+
+
 \subsection{Docker: Swarm mode, Current Use, Installation and
   Configuration}
 
@@ -66,7 +69,7 @@ and Windows are supported by Docker.
 Docker Swarm is a clustering and scheduling tool for Docker
 containers. A swarm is nothing but multiple Docker hosts which run in
 swarm mode and act as managers to manage delegation and workers will
-run swarm services). A given Docker host can be a manager or a worker
+run swarm services. A given Docker host can be a manager or a worker
 or it can perform both roles. If any of the worker node becomes
 unavailable, manager schedules that node's tasks on other nodes.  A
 node is an instance of the docker engine participating in the
@@ -116,8 +119,9 @@ configuration of every node and manager.
 	
 	\begin{figure}
 		\centering
-		\includegraphics[width=1.0\columnwidth]{images/docker_architecture.png}
-		\caption{Docker Architecture~\cite{turnbull2014docker}} \label{fig:figure1} 
+    \TODO{FIGURE IS MISING}
+		% \includegraphics[width=1.0\columnwidth]{images/docker_architecture.png}
+		\caption{Docker Architecture~\cite{turnbull2014docker}}\label{fig:figure1} 
 	\end{figure}
     
 	\paragraph{Docker Images}
@@ -249,7 +253,7 @@ configuration of every node and manager.
   create the new container which reduces the time for replicating the
   same changes to the environment~\cite{hackernoon}.
 	
-	
+
 \subsection{CloudMesh}
 
 CloudMesh is an innovative tool that allows communication and
@@ -273,7 +277,7 @@ Quote von Laszewski:
 $what it currently does and has the potential to do$.  By creating
 CloudMesh plug-ins, it is possible to extend its potential from
 different kinds of cloud based environments interconnection to
-deployment of a container management system, in this case, Docker .
+deployment of a container management system, in this case, Docker.
 	
 Utilizing CloudMesh to Centralize Docker Swarm Installation Cloud Mesh
 does not have a plug in that allows you to deploy container solutions
@@ -281,7 +285,7 @@ on physical networks.  Create a plug in that would allow Cloud Mesh to
 deploy container solutions (in this case, the Swarm mode of Docker) to
 a physical Debian based network (in this case, a series of raspberry
 pies).  Could be used as a model to deploy other types of container
-oriented solutions.  It is taking a simple network (Debian based
+oriented solutions.  It is taking a simple network. Debian based
 network and allowing it to centralize resources and assigning tasks
 and optimizing different functions by installing a container
 management system, called Docker Swarm.
@@ -294,7 +298,7 @@ multi cloud environment.
 The cloud mesh allows Methods you to deploy the Docker Swarms (are
 container management tools) to the raspberry pi's.
 	
-\section{What is Raspberry Pi}
+\section{Raspberry Pi as Platform}
 
 The Raspberry Pi is a credit-card-sized computer with ARM processor
 that can run a Linux desktop operating system.  Raspberry PI can plug
@@ -323,14 +327,16 @@ which tends to be more expensive per bit than traditional Magnetic
 Hard drives. Therefore the Raspberry Pi will have a smaller storage
 capacity than a traditional PC.
     
-\section{Docker on Raspberry Pi}
+\subsection{Raspberry Pi as Docker Platform}
 
+\TODO{duplication}
+ 
 Raspberry Pi hardware architecture is called ARM and differs from the
 architecture behind our regular PC, laptop or cloud instance. A binary
 built for either system will not execute on the other. Images or
 binaries that was not created by you or from true source may pose a
 potential threat.  Docker swarm cluster can be built easily on
-Raspberry Pi with just two basic commands : swarm init and swarm
+Raspberry Pi with just two basic commands: swarm init and swarm
 join~\cite{dockrpi}.
 
 \section{Docker and Big Data Platform}
@@ -340,7 +346,7 @@ deployment environment. It is very difficult to identify any issues
 without proper deployment environment. Most of the times, issue can be
 fixed as simple as disabling a service or just uninstalling a software
 or slightly tweaking the environment. This can be easily achieved only
-when we have complete control of the environment \cite{simplebig}. It
+when we have complete control of the environment~\cite{simplebig}. It
 is very difficult to manage a distributed environment whether in cloud
 or not.  There are lot of manual effort whenever there is an
 installation across multiple nodes. Docker allows anyone to quickly
@@ -348,7 +354,7 @@ create, launch and test Docker containers very easily. Container offer
 lightweight isolation and virtualization, yielding reduced overhead,
 faster deployments and restarts, and simplified migration. There are
 lot of frameworks like, Google's Kubernetes, CoreOS, Multi-Container
-orchestration, etc. which comes in handy with Dockers and Docker is
+orchestration, etc\. which comes in handy with Dockers and Docker is
 very lightweight when compared to a Virtual Machine. Even though
 Docker comes very handy in addressing many of these issues, main
 selling point is building consistent environments which are very easy
@@ -362,7 +368,7 @@ services at scale and giving isolation to services that run on the
 same host and improving utilization and we can even use Dockers for
 scheduling batch analytical jobs.
 	
-\section{Docker's Pitfall}
+\section{Docker Critique}
 
 Docker was not designed to support the long-running containers that
 are needed to support production systems. While Docker gets a lot of
@@ -370,20 +376,18 @@ visibility from the development and DevOps communities, its
 operational maturity still leaves a big void. There are no logs from
 containers and hence logging is difficult in a distributed Docker
 environment. Dockers need separate orchestration, provisioning and
-automation \cite{pitfall}. Managing a huge amount of containers is
+automation~\cite{pitfall}. Managing a huge amount of containers is
 challenging, especially when it comes to clustering
 containers. Running a container need root access and due to security
 and governance policy, many companies may not grant root privileges
 for everyone. In some companies, only software from official/trusted
 sources can be installed on their machines. Since Docker is not
 included in Red Hat Enterprise Linux 6, it needs to be installed from
-docker.com, which is an untrusted source \cite{philip}.
+docker.com, which is an untrusted source~\cite{philip}.
 	
 \section{Methods: Proposed Solution}
 	
-About the current solution:
-	
-This solution was created for a specific type of hardware and
+The solution was created for a specific type of hardware and
 software, but is modular enough to be extended to different
 environments with similar features, such as basic architecture -which
 include but is not limited to ARM single boarded computers- and an
@@ -439,7 +443,7 @@ reason that it is required to have at least 16 GB of memory, is
 because there will be several pieces of software installed in the
 devices, each one of them with different requirements:
 	
-Docker Memory Requirements \cite{dockerdoc2017}:
+Docker Memory Requirements~\cite{dockerdoc2017}:
 
 \begin{itemize}
 	\item 8GB of RAM for manager nodes or nodes running DTR.
@@ -448,7 +452,7 @@ Docker Memory Requirements \cite{dockerdoc2017}:
 \end{itemize}
 	
 So at least 12 of the GB would be required for Docker and 4 GB used
-for the proper functioning of Raspbian. \cite{rpicards2017}
+for the proper functioning of Raspbian.~\cite{rpicards2017}
 	
 Taking these requirements in consideration, there should be a minimum
 of 16GB of free space in the MicroSD in order to perform this
@@ -485,6 +489,8 @@ used.
 	
 \subsection{Software}
 	
+
+
 \subsubsection{Raspbian}
 	
 Currently, the default way to deploy the operating system to the
@@ -514,8 +520,8 @@ higher. The Kernel version of the version of Raspbian that was used is
 The version of Raspbian that was used has the following specifications:
 	
 \begin{itemize}
-	\item 	\textbf{Kernel version:} 4.9
-	\item 	\textbf{Release date:} 2017-11-16
+	\item 	Kernel version: 4.9
+	\item 	Release date: 2017-11-16
 \end{itemize}
 	
 \subsubsection{Docker}
@@ -535,7 +541,7 @@ This version of Docker is Community Edition (CE), which means that it
 is available for free and can be installed on bare metal or cloud
 infrastructure. This flexibility is good for the experiment, because
 it will be installed on Raspberry Pi, which are considered physical
-devices or bare metal Machines.  \cite{dockerdoc2017}
+devices or bare metal Machines~\cite{dockerdoc2017}.
 	
 \section{Prerequisites}
 	
@@ -579,7 +585,7 @@ available repositories and then
 
 to upgrade the available packages. The first time that the user runs
 one of these commands, the root password will have to be entered.
-This process might take a few minutes. \cite{debianpackage}
+This process might take a few minutes~\cite{debianpackage}.
 	
 \subsubsection{Remote access setup}
 
@@ -629,7 +635,8 @@ To check if the modification has worked as expected, the user may
 check the hostname of the machine from the Terminal by running the
 command: \verb|hostname -I|
 	
-\section{steps followed}
+
+\section{Steps Followed}
 		
 \subsection{Testing shell commands prior to integrations with Cloudmesh}
 	
@@ -658,15 +665,15 @@ computer equipped with Linux Ubuntu 17.10 (Artful Aardvark).
   
 The components were installed in the following order:
 
-\TODO {SOMETHING MISSING IN THIS SECTION}
+\TODO{SOMETHING MISSING IN THIS SECTION}
 
-Updated the \textbf{Raspbian} packages \textbf{\textit{}} Installed
-\textbf{Python 3.6.2} and \textbf{Python 2.7.13} via PIP and also
-Installed \textbf{Cloudmesh}: following the instructions found in:
+Updated the \textit{Raspbian} packages \textbf{\textit{}} Installed
+\textit{Python 3.6.2} and \textit{Python 2.7.13} via PIP and also
+Installed \textit{Cloudmesh}: following the instructions found in:
 \url{https://github.com/cloudmesh/} Installed
-\textbf{Docker CE ARM} via Terminal using the command
+\textit{Docker CE ARM} via Terminal using the command
 
-\verb|curl -sSL https://get.docker.com PIPE sh|
+\verb=curl -sSL https://get.docker.com | sh=
 
  as suggested
 in
@@ -728,8 +735,8 @@ a lot of time, the team decided to
 postpone this function.
 	
 The second function was called DeployRaspbian and would receive the
-route and name where the image would be deployed (I.e. /dev/bkp) and
-image name and route (i.e. ~/Desktop/raspbian.gz). The shell command
+route and name where the image would be deployed (i.e.\verb|/dev/bkp|) and
+image name and route (i.e.\verb|~/Desktop/raspbian.gz|). The shell command
 that would be wrapped would be: 
 
 \verb|gzip -dc diskNm PIPE sudo dd of=imageName bs=1m conv=noerror,sync|
@@ -785,6 +792,7 @@ the option that was chosen by the team.
   support and suggestions on this project.
 \end{acks}
 	
+
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{report}
 	
@@ -796,12 +804,11 @@ the option that was chosen by the team.
 	
 \begin{description}
 		
-		\item[Introduction-Docker, Docker and Big Data Platform, 
-    Docker's Pitfall, Raspberry Pi, Difference between Pi and Laptop, Dockers on Pi] Uma Kugan.
-		\item[Introduction - Cloudmesh] Andres Castro Benavides.
-		
-		\item[Editing:] Andres Castro Benavides and Uma Kugan.
+		\item[Uma Kugan] Introduction Docker, Docker and Big Data Platform, 
+    Docker's Pitfall, Raspberry Pi, Difference between Pi and Laptop,
+    Dockers on Pi, editing.
+		\item[Andres Castro Benavides] Introduction - Cloudmesh, editing.
+		\item[Gregor von Laszewski] Help with the report, contributing to
+      the code, editing
 		
 \end{description}
-	
-\end{document}
