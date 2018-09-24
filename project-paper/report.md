@@ -65,32 +65,27 @@ based on the available resources and current demands.
 The four main internal components of docker are Docker Client and
 Server, Docker Images, Docker Registries, and Docker Containers.
 
-#### Docker Client and Server
+* **Docker Client and Server**: The docker server gets the request
+  from the docker client and then process it accordingly. Docker
+  server and docker client can either run on the same machine or a
+  local docker client can be connected with a remote server running on
+  another machine [@turnbull2014docker]. Fig. 1 Docker architecture
+  [@turnbull2014docker].
 
-The docker server gets the request from the docker client and then
-process it accordingly. Docker server and docker client can either run
-on the same machine or a local docker client can be connected with a
-remote server running on another machine [@turnbull2014docker]. Fig. 1
-Docker architecture [@turnbull2014docker].
+* **Docker Images**: Base image are the Operating system images such
+  as Ubuntu 14.04 LTS, or Fedora 20 which creates a container to run
+  Operating system. The docker file contains a list of instructions to
+  build an image. When using docker, we start with a base image, boot
+  up, create changes and those changes are saved in layers forming
+  another image [@rad2017introduction].
 
-#### Docker Images
+* **Docker Registries:** Docker images are placed in docker
+  registries. It is same as source code repositories where images can
+  be pushed or pulled from a single source.
 
-Base image are the Operating system images such as Ubuntu 14.04 LTS, or
-Fedora 20 which creates a container to run Operating system. The docker
-file contains a list of instructions to build an image. When using
-docker, we start with a base image, boot up, create changes and those
-changes are saved in layers forming another image
-[@rad2017introduction].
-
-#### Docker Registries
-
-Docker images are placed in docker registries. It is same as source code
-repositories where images can be pushed or pulled from a single source.
-
-#### Docker Containers
-
-Docker image creates a docker container. Containers have everything for
-the application to run on its own.
+* **Docker Containers:** Docker image creates a docker
+  container. Containers have everything for the application to run on
+  its own.
 
 
 
