@@ -7,6 +7,14 @@
 GVL: citation are still done with bibtex in addition to urls in text.
 e.g. [@dockerdoc2017]
 
+
+GVL: see also
+
+* https://github.com/cloudmesh-community/book/blob/master/chapters/pi/clusters/pi-now.md
+* https://github.com/cloudmesh-community/book/blob/master/chapters/pi/clusters/pi-docker.md
+
+I suggest we update those sections also
+ 
 ## Abstract
 
 Information technologies are evolving from mainly one-host
