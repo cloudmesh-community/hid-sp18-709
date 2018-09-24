@@ -2,13 +2,7 @@
 
 - Andres Castro Benavides
 - Uma M Kugan
-- Gregor von Laszewski (i took liberty to add this, if you disagree,
-  please remove, this will make it also easier to do the cloudmesh
-  integration as i than can contribute.)
-
-GVL: please use # for headings and than make sure they  have right
-number there can only be one # for title, everything else must have at
-least two
+- Gregor von Laszewski 
 
 GVL: citation are still done with bibtex in addition to urls in text.
 e.g. [@dockerdoc2017]
@@ -31,7 +25,7 @@ optimized usage of resources.
 ## Introduction
 
 
-### Docker: Swarm mode, Current Use, Installation and Configuration
+### Docker Swarm
 
 
 Docker is the technology used for containerization for software
@@ -65,20 +59,6 @@ and manages tasks in real time. Each computer can contribute its assets
 to complete tasks in the most efficient way. It is dynamic and adapts
 based on the available resources and current demands.
 
-In order to set up a Docker Swarm, there needs to be direct access to
-each machine that will be used as a node (an instance of Docker that
-will be part of the swarm). In order to set up the nodes, the docker
-must be independently installed and configured on each machine. Then,
-each machine must be added to the swarm, allowing it to communicate or
-interact with the other nodes.
-
-This processes not only requires human resources (technicians working on
-installation and configuration) but also demands these actions be
-repeated manually on each individual node or manager. While this can be
-done virtually, it still requires individual attention in the setup of
-each machine. In order to optimize the setup of Docker Swarms, CloudMesh
-could be utilized to centralize installation and configuration of every
-node and manager.
 
 #### Inside Docker
 
@@ -113,13 +93,34 @@ Docker image creates a docker container. Containers have everything for
 the application to run on its own.
 
 
+
+### Docker Swarm Installation and Configuration
+
+In order to set up a Docker Swarm, there needs to be direct access to
+each machine that will integrated as  a node  in the swarm. 
+In order to set up the nodes, docker
+must be independently installed, configured and instantiated on each machine. Then,
+each machine must be added to the swarm with management commands, allowing it to communicate or
+interact with the other nodes.
+
+In its simplest form this processes is often documented to be executed by hand. 
+Naturally for smaller deployments this is not an issue. 
+
+However, it is an issue large scale deployments can not be managed in such a fashion. 
+In our case wi like to manage clusters with hundrets of docker nodes. Such deployments not only require automation through the deployment, but also through the maintenance phase. This includes updates to the operating system, as well as other routine tasks.
+To address these administrative tasks of (a) setting up docker swarm and (b) updating the cluster when needed CloudMesh [@cloudmesh] could be utilized to centralize installation and configuration of every
+node and manager.
+
+
 ### Creating CloudMesh plug-ins
 
 
-$what it currently does and has the potential to do$. By creating
+TODO: what it currently does and has the potential to do. gregor can contribute ... remind him
+
+By creating
 CloudMesh plug-ins, it is possible to extend its potential from diferent
 kinds of cloud based environments interconnection to deployment of a
-container management system, in this case, Docker .
+container management system, in this case, Docker.
 
 Utilizing CloudMesh to Centralize Docker Swarm Installation Cloud Mesh
 does not have a plugin that allows you to deploy container solutions on
@@ -145,22 +146,46 @@ container management tools) to the raspberry pies.
 
 ### Hardware
 
+We intend to test our instalation on four different hardware environments
 
-For the current proposed solution, the different pieces of hardware were
-chosen based on criteria such as Compatibility and Price.
+1. **Wifi network of 3 PIs**: a small scale cluster that can be replicated with modest cost and done by anyone. This cluster contains:
 
-The following is a list of the hardware that was used and below that
-list there is a description of each piece of hardware that was used.
+	* 3 Raspberry Pi 
+	* 3 Micro SD Cards (64 GB) 
+	* 3 USB to Micro USB Cables 
+	* 1 Multiple USB power supply for the 3 PIs
+	* 1 wifi Network
+	* 1 external monitor or TV with HDMI interface (to make the setup easier initially).
 
-3 Raspberry Pi 3 Micro SD Cards (64 GB) 3 USB to Micro USB Cables for
-power supply to the Raspberry Pi's 1 External monitor (for the
-configuration only).
+2. **LAN network of 3 PIs**: The setup is the same as the first setup, but instead of using a wifi, we areusing a wired network. TO do so we add an ethernet switch
 
-#### Raspberry Pi
+	* 1 Ethernet switch with 4 connectors
 
-For this experiment, the 3 machines that were used were Raspberry Pi 3
-Model B. Raspberry Pis are single boarded computers, that come in a
-small presentation. They have been developed with education and
+3. **100 node Raspberry PI 3B cluster**: We replicate setup 3 not just on 3 but 100 nodes of  a raspbery PI 3B
+
+	* 100 Raspberry PI 3B
+	* x network switches
+	* x power plugs
+	* can we use 32GB? SD Card?
+
+3. **100 node Raspberry PI 3B+ cluster**: Since we started the project, a new generation of Pi's has been made available and we replicate the experiemnt on the new PI's to conduct comparative benchmarks.
+
+	* 100 Raspberry PI 3B+
+	* x network switches
+	* x power plugs
+	* * can we use 32GB? SD Card?
+
+
+The hardware was purchased via Amazon and took anywhere between 2 to 5
+days to arrive. However ordering larger quantities of PI's may take more time.
+
+For now we focus on setup 1 and demonstrate what is neede dto execute by hand so we can automatize these steps with cloudmesh.
+
+
+#### Wifi network of 3 Raspberry Pi
+
+For this experiment we use 3  Raspberry Pi 3
+Model B. Raspberry Pis are single inexpensive computer boards. They have been developed with education and
 extension in mind, making them very popular in the academic and
 entrepreneur communities. The specifications of the model that has been
 used for this experiment are the following:
@@ -176,12 +201,9 @@ case 192.168.1.85, 192.168.1.86 and 192.168.1.87.
 
 #### Micro SD Cards
 
-Because of its architecture, Raspberry devices require the use of Micro
-SD Cards to contain the Operative system and other files. They emulate
-the Hard drive resource used on other kinds of computers. The reason
-that it is required to have at least 16 GB of memory, is because there
-will be several pieces of software installed in the devices, each one of
-them with different requirements:
+Because of its architecture, Raspberry devices can use either MicroSD cards or USB devices to hold the operating system. In our case we chose Micro SD Cards.
+They emulate
+the Hard drive resource used on other kinds of computers. The reason we ned them is that the instalation will require at least 16 GB of memory. We will need to install the following detailing its requirements.
 
 Docker Memory Requirements:
 
@@ -189,7 +211,7 @@ Docker Memory Requirements:
 * 4GB of RAM for worker nodes
 * 3GB of free disk space [@dockerdoc2017]
 
-So at least 12 of the GB would be required for Docker and 4 GB used for
+So at least 12GB is required for Docker and 4GB is used for
 the proper functioning of Raspbian. [@rpicards2017]
 
 Taking these requirements in consideration, there should be a minimum of
@@ -224,16 +246,19 @@ initial input devices attached to each computer. For this exercise, a
 USB enabled standard keyboard and a USB enabled standard mouse were
 used.
 
-### Operative system
-
+### System Setup
 
 Currently, the default way to deploy the operating system to the
 Raspberry Pi is by using an Operating System installation Manager called
-Noobs -which stands for "New Out Of Box Software"-. This manager can be
+Noobs -which stands for *New Out Of Box Software*-. 
+
+GVL: WHy do we need NObs and not just Rasbian? WHat is the difference?
+
+This manager can be
 downloaded directly from the Raspberry Pi website and it includes
 several Operating system options, among them:
 
-Raspbian Pidora LibreELEC OSMC RISC OS Arch Linux
+* Raspbian Pidora LibreELEC OSMC RISC OS Arch Linux
 
 Since Raspbian is the default Operating system and most commonly used,
 this experiment decided to use it. This is also helpful because there is
@@ -254,6 +279,8 @@ There are several versions of Docker available. Each version with their
 own advantages and disadvantages. Because of the architecture used by
 Raspberry Pi -ARM instead of AMD-, the Docker version used is *Docker
 for Debian ARM*. With the following Specifications:
+
+GVL: so are ther multiple for pi or is there only one?
 
 Version 17.09.0-ce Release 2017-09-26
 
@@ -277,6 +304,16 @@ page -- This requirement exists because there is a function that is
 being explored to capture Raspberry Pi's images to be deployed later on
 and avoid this pre requisite, but it is not ready yet.
 
+
+#### OS: Password
+
+First we must change the default password. Type in 
+
+```sudo password pi```
+
+and enter a new password, please don't skip this step as otherwise your py will be vulnarable to attack. YOu must do this before you acativate the WiFI network.
+
+
 #### OS: update repositories
 
 In order to ensure that the user is accessing the latest version
@@ -284,7 +321,10 @@ available of the software, it is important to update the Raspbian
 repositories. For example, the user can access the teminal and enter the
 following commands:
 
-sudo apt-get update sudo apt-get upgrade
+```bash
+pi$ sudo apt-get update 
+pi$ sudo apt-get upgrade
+```
 
 The first time that the user runs one of these commands, the user may
 need to enter the root password. This process might take a few minutes.
@@ -294,62 +334,53 @@ need to enter the root password. This process might take a few minutes.
 Enable SSH on the Raspberry Pi's. -- After Raspbian installation, enable
 SSH on all your Raspberry Pi machines.
 
+
+
 #### Changing hostnames
 
-3. Change Raspberry Pi Host Name --
-
-Change the labeled with `127.0.1.1` hostname `raspberrypi` in
+First, we change Raspberry Pi hots name. To do so, we change the labeled with `127.0.1.1` hostname `raspberrypi` in
 `/etc/hosts` file (in most of the cases it is the last line in the
 file). Leave all the other entries as it is. sudo nano /etc/hosts Change
 local Hostname in `/etc/hostname` file. sudo nano /etc/hostname
 Initialize hostname using `hostname.sh` script
 
 ```bash
-sudo /etc/init.d/hostname.sh
+pi$ sudo /etc/init.d/hostname.sh
 ```
 
 Get hostname for your PI
 
 ```console
-hostname -I
-
-sudo nmap -sn 192.168.1.0/24
+pi$ hostname -I
+pi$ sudo nmap -sn 192.168.1.0/24
 ```
 
-5. Install Docker using following command -- For details, you may follow
+Next, we install Docker using following command -- For details, you may follow
 this link --
-https://www.raspberrypi.org/blog/docker-comes-to-raspberry-pi/
+<https://www.raspberrypi.org/blog/docker-comes-to-raspberry-pi/>
+We aslo need to make sure your user account can access the Docker client.
 
 ```console
-curl -sSL https://get.docker.com | sh
-```
-
-Run apt-get update Since Raspbian is Debian based, we will use apt to
-install Docker. But first, we need to update.
-
-```console
-sudo apt-get update
-```
-
-After, make sure your user account can access the Docker client with
-this command:
-
-```console
-usermod pi -aG docker If your username isn't pi then replace pi with
+pi@ curl -sSL https://get.docker.com | sh
+pi@ usermod pi -aG docker If your username isn't pi then replace pi with
 alex for instance.
 ```
 
-6. Change the default password
-
-Type in sudo password pi and enter a new password, please don't skip this
-step!
-
 Repeat Now repeat the above for each of the RPis.
 
-#### Purchasing the hardware
+## Automation of the Parallel Process
 
-The hardware was purchased via Amazon and took anywhere between 2 to 5
-days to arrive.
+It is clear that these steps can easily be automated. There are several abroaches to this. 
+including cloudmesh. For this purpose we recently started a new version of cloudmehs that is managed at 
 
-The authors would like to thank Dr. Gregor von Laszewski for his support
-and suggestions on this project.
+* <https://github.com/cloudmesh-community/cm>
+
+and provides the bare bones structure for executing the steps in parallel. 
+
+Alternative approches coudl include:
+
+* pdsh
+* fabric
+* ansible
+
+
