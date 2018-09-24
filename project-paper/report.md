@@ -1,33 +1,38 @@
----
-Abstract: |
-    Information technologies are evolving from mainly one-host environments
-    to more distributed environment. Docker Swarm makes it possible to avoid
-    having a single point of failure and instead, have multiple nodes that
-    can be properly balanced and contain replicas of the information.
-    Currently, Dockers must be individually downloaded, installed and
-    configured on each physical computer in order for the desired computers
-    to work in swarm mode. This paper details the development of a plug-in
-    that would allow CloudMesh to deploy a Docker Swarm cluster. The
-    creation of this plug-in would be the first step towards the development
-    of a tool which would allow larger debian based networks to work as
-    container oriented virtual environments with optimized usage of
-    resources.
----
+# CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
 
-Authors:
-============
 - Andres Castro Benavides
 - Uma M Kugan
+- Gregor von Laszewski (i took liberty to add this, if you disagree,
+  please remove, this will make it also easier to do the cloudmesh
+  integration as i than can contribute.)
 
-CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
-============
+GVL: please use # for headings and than make sure they  have right
+number there can only be one # for title, everything else must have at
+least two
+
+GVL: citation are still done with bibtex in addition to urls in text.
+e.g. [@dockerdoc2017]
+
+## Abstract
+
+Information technologies are evolving from mainly one-host
+environments to more distributed environment. Docker Swarm makes it
+possible to avoid having a single point of failure and instead, have
+multiple nodes that can be properly balanced and contain replicas of
+the information.  Currently, Dockers must be individually downloaded,
+installed and configured on each physical computer in order for the
+desired computers to work in swarm mode. This paper details the
+development of a plug-in that would allow CloudMesh to deploy a Docker
+Swarm cluster. The creation of this plug-in would be the first step
+towards the development of a tool which would allow larger debian
+based networks to work as container oriented virtual environments with
+optimized usage of resources.
+    
+## Introduction
 
 
-Introduction
-============
+### Docker: Swarm mode, Current Use, Installation and Configuration
 
-Docker: Swarm mode, Current Use, Installation and Configuration
----------------------------------------------------------------
 
 Docker is the technology used for containerization for software
 development. It is an open source tool which makes it easy to deploy
@@ -75,12 +80,12 @@ each machine. In order to optimize the setup of Docker Swarms, CloudMesh
 could be utilized to centralize installation and configuration of every
 node and manager.
 
-### Inside Docker
+#### Inside Docker
 
 The four main internal components of docker are Docker Client and
 Server, Docker Images, Docker Registries, and Docker Containers.
 
-### Docker Client and Server
+#### Docker Client and Server
 
 The docker server gets the request from the docker client and then
 process it accordingly. Docker server and docker client can either run
@@ -88,7 +93,7 @@ on the same machine or a local docker client can be connected with a
 remote server running on another machine [@turnbull2014docker]. Fig. 1
 Docker architecture [@turnbull2014docker].
 
-### Docker Images
+#### Docker Images
 
 Base image are the Operating system images such as Ubuntu 14.04 LTS, or
 Fedora 20 which creates a container to run Operating system. The docker
@@ -97,19 +102,19 @@ docker, we start with a base image, boot up, create changes and those
 changes are saved in layers forming another image
 [@rad2017introduction].
 
-### Docker Registries
+#### Docker Registries
 
 Docker images are placed in docker registries. It is same as source code
 repositories where images can be pushed or pulled from a single source.
 
-### Docker Containers
+#### Docker Containers
 
 Docker image creates a docker container. Containers have everything for
 the application to run on its own.
 
 
-Creating CloudMesh plug-ins
----------------------------
+### Creating CloudMesh plug-ins
+
 
 $what it currently does and has the potential to do$. By creating
 CloudMesh plug-ins, it is possible to extend its potential from diferent
@@ -135,11 +140,11 @@ multi cloud environment.
 The cloud mesh allows Methods you to deploy the Docker Swarms (are
 container management tools) to the raspberry pies.
 
-Methods: Proposed Solution
-==========================
+## Methods: Proposed Solution
 
-Hardware
---------
+
+### Hardware
+
 
 For the current proposed solution, the different pieces of hardware were
 chosen based on criteria such as Compatibility and Price.
@@ -151,7 +156,7 @@ list there is a description of each piece of hardware that was used.
 power supply to the Raspberry Pi's 1 External monitor (for the
 configuration only).
 
-### Raspberry Pi
+#### Raspberry Pi
 
 For this experiment, the 3 machines that were used were Raspberry Pi 3
 Model B. Raspberry Pis are single boarded computers, that come in a
@@ -169,7 +174,7 @@ They are interacting with each other using a private wireless network,
 and they have been assigned static Internet Protocol Addresses. In this
 case 192.168.1.85, 192.168.1.86 and 192.168.1.87.
 
-### Micro SD Cards
+#### Micro SD Cards
 
 Because of its architecture, Raspberry devices require the use of Micro
 SD Cards to contain the Operative system and other files. They emulate
@@ -180,18 +185,19 @@ them with different requirements:
 
 Docker Memory Requirements:
 
-• 8GB of RAM for manager nodes or nodes running DTR • 4GB of RAM for
-worker nodes • 3GB of free disk space  /citedockerdoc2017
+* 8GB of RAM for manager nodes or nodes running DTR
+* 4GB of RAM for worker nodes
+* 3GB of free disk space [@dockerdoc2017]
 
 So at least 12 of the GB would be required for Docker and 4 GB used for
-the proper functioning of Raspbian.  /citerpicards2017
+the proper functioning of Raspbian. [@rpicards2017]
 
 Taking these requirements in consideration, there should be a minimum of
 16GB of free space in the MicroSD in order to perform this experiment.
 
 The MicroSD cards used were SanDisc Memory Cards with a 64GB capacity.
 
-### Micro USB Cables
+#### Micro USB Cables
 
 3 USB to Micro USB Cables for power supply to the Raspberry Pi's Since
 these small computers don't use the regular power supply chords, they
@@ -200,7 +206,7 @@ devices are plugged to a main power outlet that allows to charge
 multiple devices at the same time. There are other options to power the
 devices include, such as attaching them to external batteries.
 
-### External monitor
+#### External monitor
 
 Since the Raspberry Pi's are headless machines, they require to be
 accessed directly for the initial set up and after that it is possible
@@ -211,15 +217,15 @@ initial setup of the RPis was performed on a Toshiba 55 inch HDTV with
 HDMI port. After that they were accessed from a Laptop computer with
 Linux Ubuntu 17.10, using Remmina via ssh (XORG).
 
-### Initial input devices
+#### Initial input devices
 
 In order to set up the devices. The Raspberry Pi will require a set of
 initial input devices attached to each computer. For this exercise, a
 USB enabled standard keyboard and a USB enabled standard mouse were
 used.
 
-Operative system
-----------------
+### Operative system
+
 
 Currently, the default way to deploy the operating system to the
 Raspberry Pi is by using an Operating System installation Manager called
@@ -237,17 +243,17 @@ Another important reason is that Docker has as a requirement that the
 Linux kernel version on which it will be installed is 3.10 or higher.
 The Kernel version of the version of Raspbian that was used is 4.9.
 
-### Raspbian
+#### Raspbian
 
 The version of Raspbian that was used has the following specifications:
-Release date: 2017-11-16 Kernel version: 4.9
+Release date of 2017-11-16 and the kernel version 4.9.
 
-### Docker
+#### Docker
 
 There are several versions of Docker available. Each version with their
 own advantages and disadvantages. Because of the architecture used by
-Raspberry Pi -ARM instead of AMD-, the Docker version used is "Docker
-for Debian ARM". With the following Specifications:
+Raspberry Pi -ARM instead of AMD-, the Docker version used is *Docker
+for Debian ARM*. With the following Specifications:
 
 Version 17.09.0-ce Release 2017-09-26
 
@@ -255,15 +261,15 @@ This version of Docker is Community Edition (CE), which means that it is
 available for free and can be installed on bare metal or cloud
 infrastructure. This flexibility is good for the experiment, because it
 will be installed on Raspberry Pi's, which are considered physical
-devices or bare metal Machines. Cite dockerdoc
+devices or bare metal Machines [@dockerdoc].
 
-Prerequisites
--------------
+### Prerequisites
+
 
 Before using the proposed solution, the user's environment needs to meet
 the following requirements:
 
-### OS: Raspbian
+#### OS: Raspbian
 
 Raspbian must be installed and configured on all MicroSD Cards. -- For
 this, the user may follow the OS installation guide on Raspberry Pi home
@@ -271,7 +277,7 @@ page -- This requirement exists because there is a function that is
 being explored to capture Raspberry Pi's images to be deployed later on
 and avoid this pre requisite, but it is not ready yet.
 
-### OS: update repositories
+#### OS: update repositories
 
 In order to ensure that the user is accessing the latest version
 available of the software, it is important to update the Raspbian
@@ -283,36 +289,39 @@ sudo apt-get update sudo apt-get upgrade
 The first time that the user runs one of these commands, the user may
 need to enter the root password. This process might take a few minutes.
 
-### Remote access setup
+#### Remote access setup
 
 Enable SSH on the Raspberry Pi's. -- After Raspbian installation, enable
 SSH on all your Raspberry Pi machines.
 
-### Changing hostnames
+#### Changing hostnames
 
-3\. Change Raspberry Pi Host Name --
+3. Change Raspberry Pi Host Name --
 
-Change the labeled with "127.0.1.1" hostname "raspberrypi" in
-"/etc/hosts" file (in most of the cases it is the last line in the
+Change the labeled with `127.0.1.1` hostname `raspberrypi` in
+`/etc/hosts` file (in most of the cases it is the last line in the
 file). Leave all the other entries as it is. sudo nano /etc/hosts Change
-local Hostname in "/etc/hostname" file. sudo nano /etc/hostname
-Initialize hostname using "hostname.sh" script sudo
-/etc/init.d/hostname.sh
+local Hostname in `/etc/hostname` file. sudo nano /etc/hostname
+Initialize hostname using `hostname.sh` script
 
-```console
+```bash
+sudo /etc/init.d/hostname.sh
+```
+
 Get hostname for your PI
 
+```console
 hostname -I
 
 sudo nmap -sn 192.168.1.0/24
 ```
 
-5\. Install Docker using following command -- For details, you may follow
+5. Install Docker using following command -- For details, you may follow
 this link --
 https://www.raspberrypi.org/blog/docker-comes-to-raspberry-pi/
 
 ```console
-curl -sSL https://get.docker.com \| sh
+curl -sSL https://get.docker.com | sh
 ```
 
 Run apt-get update Since Raspbian is Debian based, we will use apt to
@@ -330,28 +339,17 @@ usermod pi -aG docker If your username isn't pi then replace pi with
 alex for instance.
 ```
 
-6\. Change the default password
+6. Change the default password
 
 Type in sudo password pi and enter a new password, please don't skip this
 step!
 
 Repeat Now repeat the above for each of the RPis.
 
-### Purchasing the hardware
+#### Purchasing the hardware
 
 The hardware was purchased via Amazon and took anywhere between 2 to 5
 days to arrive.
 
 The authors would like to thank Dr. Gregor von Laszewski for his support
 and suggestions on this project.
-
-==============
-###Authors
-
-:   Uma Kugan.
-
-:   Andres Castro Benavides.
-
-Editing:
-
-:   Andres Castro Benavides and Uma Kugan.
