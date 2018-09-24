@@ -1,4 +1,4 @@
-# CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
+# Docker Swarm Cluster on Raspberry PI's
 
 - Andres Castro Benavides
 - Uma M Kugan
