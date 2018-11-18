@@ -53,67 +53,6 @@ image [@rad2017introduction].
 Docker images are placed in docker registries. It is same as source code
 repositories where images can be pushed or pulled from a single source.
 
-### Docker Containers
-
-Docker image creates a docker container. Containers have everything for
-the application to run on its own.
-
-## Benefits of using Docker
-
-### Open Source Technology
-
-The Docker containers are based on open standards which means that
-anyone can contribute to the Docker tool and at the same time customize
-it for their needs, if the features they are looking for is not already
-available.
-
-### Portability
-
-Docker makes distributed applications to be dynamic and portable which
-can be run anywhere which makes it extremely popular among developers.
-
-### Sharing
-
-Docker is integrated with a software sharing and distribution mechanism
-that allows for sharing and using container content which helps the
-tasks of both the developer and the operations team.
-
-### Elimination of Environmental Inconsistencies
-
-Any changes made in one environment will be shared across other
-environments or all the applications can exist in the single
-environment.
-
-### Resource Isolation
-
-Resource isolation adds to the security of running containers on a given
-host. Docker uses Namespaces technology to isolate work spaces called
-containers. Namespace is created when container is run and access is
-limited to that namespace only. Every container in Docker will have its
-own work space which makes it easier debug if there are issues with any
-particular container.
-
-### Easy Integration
-
-Docker can be easily integrated into a variety of infrastructure tools
-like Amazon Web Services, Ansible, IBM Bluemix, Jenkins, Google Cloud
-Platform, Oracle Container Cloud Service, Microsoft Azure to name a few.
-
-### Better Security
-
-Docker provides a interface for developers and IT teams to define and
-manage their security configurations for applications as it navigates
-from one stage to another.
-
-### Docker - Use Cases
-
-The Docker platform is the only container platform to build, secure and
-manage the variety of applications from development to production both
-on premises and in the cloud. It also creates room for innovation,
-increases time to market, highly agile. Docker supports diverse set of
-applications and infrastructure for both developers and IT. It
-transforms IT without having to re-tool, re-code or re-vamp existing
-applications, policies or staff [@hackernoon].
 
 #### DevOps
 
@@ -177,51 +116,6 @@ copied automatically from old container whenever a new container is
 created. Compose uses the previous configuration to create the new
 container which reduces the time for replicating the same changes to the
 environment [@hackernoon].
-
-# CloudMesh
-
-
-CloudMesh is an innovative tool that allows communication and
-interaction between cloud based solutions. Not all clouds are docker
-based and there are different types of virtual and cloud environments.
-Through CloudMesh, data can be shared and utilized by cloud solutions
-that are not otherwise programed to communicate with each other. Cloud
-mesh does not just manage a series of clouds, but centralizes and
-deploys them as one main system that manages the data resources.
-
-Quote von Laszewski:
-
-*Cloudmesh is a project to easily manage virtual machines and bare metal
-provisioned operating systems in a multicloud environment. We are also
-providing the ability to deploy platforms.*
-
-# Creating CloudMesh plug-ins
-
-## What it currently does and has the potential to do:
-
-By creating
-CloudMesh plug-ins, it is possible to extend its potential from
-different kinds of cloud based environments interconnection to
-deployment of a container management system, in this case, Docker.
-
-Utilizing CloudMesh to Centralize Docker Swarm Installation Cloud Mesh
-does not have a plug in that allows you to deploy container solutions on
-physical networks. Create a plug in that would allow Cloud Mesh to
-deploy container solutions, in this case, the Swarm mode of Docker, to a
-physical Debian based network, in this case, a series of raspberry pies.
-Could be used as a model to deploy other types of container oriented
-solutions. It is taking a simple network. Debian based network and
-allowing it to centralize resources and assigning tasks and optimizing
-different functions by installing a container management system, called
-Docker Swarm.
-
-In order to simulate the deployment of a Docker Swarm cluster, this
-Cloudmesh project develops a Cloudmesh plug in, that deploys a Docker
-Swarm cluster on three Raspberry Pi, allowing them to be part of this
-multi cloud environment.
-
-The cloud mesh allows you to use Methods to deploy the Docker Swarms as
-container management tools, to the raspberry pi's.
 
 ## Raspberry Pi as Platform
 
@@ -440,8 +334,7 @@ infrastructure. This flexibility is good for the experiment, because it
 will be installed on Raspberry Pi, which are considered physical devices
 or bare metal Machines [@dockerdoc2017].
 
-Prerequisites
-=============
+## Prerequisites
 
 There are several reasons to have the pre requisites that the user will
 find in this document. They will be explained in a separate section.
@@ -550,7 +443,6 @@ stores.
 
 ### Additional Research
 
-#### Other functions considered
 
 Initially, for this case, it was considered an option to developed a
 function called CaptureImage and a second function called Deploy
@@ -560,7 +452,11 @@ IP address or hostname of the desired machine and the desired location
 to store the captured image, alongside the corresponding credentials and
 wrap a **dd** shell command similar to the following:
 
->`dd if=/dev/mmcblk0 bs=1M ` gzip -QUOTE \| dd of=imageDir\|
+:o: is the quote correct this is markdown not latex
+
+```
+dd if=/dev/mmcblk0 bs=1M ` gzip -QUOTE \| dd of=imageDir\|
+```
 
 Among the challenges faced, this line was returning an invalid syntax,
 most likely because of the use of the variables. Since there was not a
@@ -585,10 +481,7 @@ addresses that might be stored in different files of the OS.
 ### Final code
 The final version of the code can be found on:
 
-https://github.com/cloudmesh-community/hid-sp18-709/tree/master/project-code
-
-
-### Other options considered
+<https://github.com/cloudmesh-community/hid-sp18-709/tree/master/project-code>
 
 Other options of coding were considered during the development of this
 solution. Since all of the deployment can successfully be done via
@@ -605,25 +498,22 @@ It is possible to create the plug in. Using the SH sub process included in pytho
 
 :o: format wrong
 
->class deployment    
->
->>def prepare
->
->>>prepares installation including downloads and other installs needed
->
->>def deploy
->
->>>deploys the package or software
->
->>def configure
->
->>>does some configurations
->
->>def test(test)
->
->>>does a test wheer a name is passed of a test (you could have multiple)
->
->>>the name all woudl be running all tests
+```
+class deployment
+
+  def prepare
+    # prepares installation including downloads and other installs needed
+
+   def deploy
+     # deploys the package or software
+
+   def configure
+     # does some configurations
+
+   def test(test)
+     # does a test wheer a name is passed of a test (you could have multiple)
+     # the name all woudl be running all tests
+```
 
  
 Since most of this work was working with bash commands tunneled through python scripts and implemented in CMS, Once this is fully functional, it is very possible that the same methodology can be followed to add more layers of complexity, i.e. Kubernetes. 
