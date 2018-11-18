@@ -1,19 +1,24 @@
-# CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
 
-Docker Swarm  :o: is ...
+---
+#Title: CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
 
-Docker swarm makes it possible to avoid
-having a single point of failure and instead, have multiple nodes that
-can be properly balanced and contain replicas of the information.
-Currently, Dockers must be individually downloaded, installed and
-configured on each physical computer that is integreated into a *swarm*. We present a plug-in
-that allows the instalation of docker swarm conveniently with a cloudmesh plug-in. 
+---
+---
+Author:
+
+- Andres Castro Benavides
+
+- Uma M Kugan
+
+- Gregor von Laszweski
 
 ---
 
 > -email for Andres Castro: acastrob@iu.edu
-> -emailfor Uma Kugan: umakugan@iu.edu
-> -emailfor Gregor von Laszweski: umakugan@iu.edu
+
+> -email for Uma Kugan: umakugan@iu.edu
+
+> -email for Gregor von Laszweski: umakugan@iu.edu
 
 ---
 
@@ -23,11 +28,56 @@ Raspberry Pi, Cloudmesh, CMD5, Big Data, Big Data, i523, HID709, HID710
 
 ---
 
+## Abstract:
+ 
+Information technologies are evolving from mainly one-host
+environments to more distributed environment. Docker Swarm makes it
+possible to avoid having a single point of failure and instead, have
+multiple nodes that can be properly balanced and contain replicas of
+the information.  Currently, Dockers must be individually downloaded,
+installed and configured on each physical computer in order for the
+desired computers to work in swarm mode. This paper details the
+development of a plug-in that would allow CloudMesh to deploy a Docker
+Swarm cluster. The creation of this plug-in would be the first step
+towards the development of a tool which would allow larger debian
+based networks to work as container oriented virtual environments with
+optimized usage of resources.
+
 
 ## Introduction
 
-The four main internal components of docker are Docker Client and
-Server, Docker Images, Docker Registries, and Docker Containers.
+
+# Docker
+
+Docker is a technology for containerization mostly used for software
+development. It is an open source tool which makes it easy to deploy
+applications within containers. Applications are packaged in
+containers and then they are shipped to the platforms that they need
+to be executed upon. Applications distributed as containers are
+divided into manageable sizes and all the dependent functions are
+added and individually packaged. Operating systems such as macOS,
+Linux, Windows 10 Education and Windows 10 Pro are supported
+by Docker. However containers do require hardware support that needs
+to be available and activated.
+
+# Docker Swarm
+
+Docker Swarm is a clustering and scheduling tool for Docker
+containers, made up of multiple nodes.  A node is an instance of the
+docker engine participating in the swarm.There are two types of nodes:
+worker nodes and manager nodes. In a swarm multiple managers and
+workers may exist.  If any of the worker nodes become unavailable, the
+managers re-schedules that node's tasks on other
+nodes. [@dockerdoc2017].
+
+# CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
+
+Currently, Dockers must be individually downloaded, installed and
+configured on each physical computer that is integreated into a
+*swarm*. We present a plug-in that allows the instalation of docker
+swarm conveniently with a cloudmesh plug-in.  The four main internal
+components of docker are Docker Client and Server, Docker Images,
+Docker Registries, and Docker Containers.
 
 ### Docker Client and Server
 
@@ -341,8 +391,7 @@ find in this document. They will be explained in a separate section.
 Before using the proposed solution, the user's environment needs to meet
 the following requirements:
 
-### Raspbian Installed
-
+## Raspbian Installed
 Raspbian must be installed and configured on all Micro SD Cards. For
 this, the user may download Noobs from <https://www.raspberrypi.org/>
 and copy it to a formated Micro SD Card. Once the Raspberry Pi has the
@@ -366,12 +415,15 @@ available of the software, it is important to update the Raspbian
 repositories. In this case, the user can access the Terminal and enter
 the following commands:
 
->`sudo apt-get update`
+```bash
+$ sudo apt-get update
+```
+
 
 to update the list of available repositories and then
-
->`sudo apt-get upgrade`
-
+```bash
+$ sudo apt-get upgrade
+```
 to upgrade the available packages. The first time that the user runs one
 of these commands, the root password will have to be entered. This
 process might take a few minutes [@debianpackage].
@@ -411,11 +463,16 @@ Once the file is modified, the user will have to initialize the hostname
 with the `hostname.sh` script this can be done using the following line
 in the Terminal:
 
->`sudo /etc/init.d/hostname.sh`
+```bash
+$ sudo /etc/init.d/hostname.sh
+```
 
 To check if the modification has worked as expected, the user may check
 the hostname of the machine from the Terminal by running the command:
-`hostname -I`
+
+```bash
+$ hostname -I
+```
 
 ## Steps Followed
 
@@ -424,7 +481,7 @@ the hostname of the machine from the Terminal by running the command:
 
 Since Raspberry pi is not currently listed under the supported operative
 systems for Docker or Cloudmesh, The process of deploying Docker and
-configuring the swarm Mode was successfully tested on the Raspberry Pi
+configuring the swarm Mode was successfully tested on the Raspberry 
 first using the commands that are intended for Debian. Once the Swarm
 was configured, the three Raspberry Pi devices were left on for over 24
 hours and it was not observed any kind of abnormal behavior, like
@@ -437,10 +494,6 @@ anywhere between 2 to 5 days to arrive. The different components can
 also be purchased through multiple on line sources or local electronics
 stores.
 
-
-
-
-
 ### Additional Research
 
 
@@ -450,14 +503,16 @@ Raspbian. As their names suggest, the first one intended to capture an
 image or backup of a Raspberry Pi. This first function would receive the
 IP address or hostname of the desired machine and the desired location
 to store the captured image, alongside the corresponding credentials and
-wrap a **dd** shell command similar to the following:
+wrap a **dd** shell command 
+
+
 
 :o: is the quote correct this is markdown not latex
 
-```
-dd if=/dev/mmcblk0 bs=1M ` gzip -QUOTE \| dd of=imageDir\|
-```
 
+```bash
+$ dd if=/dev/mmcblk0 bs=1M gzip -QUOTE \| dd of=imageDir\|
+```
 Among the challenges faced, this line was returning an invalid syntax,
 most likely because of the use of the variables. Since there was not a
 lot of time, the team decided to postpone this function.
@@ -467,7 +522,9 @@ route and name where the image would be deployed, i.e.`/dev/bkp` and
 image name and route, i.e.`~/Desktop/raspbian.gz`. The shell command
 that would be wrapped would be:
 
->`gzip -dc diskNm PIPE sudo dd of=imageName bs=1m conv=noerror,sync`
+```bash
+$ gzip -dc diskNm PIPE sudo dd of=imageName bs=1m conv=noerror,sync
+````
 
 More information on this topic can be found in the section called
 **Backup** ***www.raspberrypi.org***.
@@ -479,6 +536,7 @@ there is a chance that there might be conflicts related to the IP
 addresses that might be stored in different files of the OS.
 
 ### Final code
+
 The final version of the code can be found on:
 
 <https://github.com/cloudmesh-community/hid-sp18-709/tree/master/project-code>
@@ -494,12 +552,16 @@ ben easier to addapt to linux Operating systems other than Raspbian.
 
 ### Conclusions
 
-It is possible to create the plug in. Using the SH sub process included in python 2.5-3.5. The team was able to try the steps one at a time at the level of py scripts, but encountered an error previously mentioned in this document when trying to implement it as part of cms. Also, as the professor suggested, this same system can be implemented as a different  abstraction for deployments such as an abc class similar to the following:
+It is possible to create the plug in. Using the SH sub process
+included in python 2.5-3.5. The team was able to try the steps one at
+a time at the level of py scripts, but encountered an error previously
+mentioned in this document when trying to implement it as part of
+cms. Also, as the professor suggested, this same system can be
+implemented as a different abstraction for deployments such as an
+abc class similar to the following:
 
-:o: format wrong
-
-```
-class deployment
+```python
+class deployment(object):
 
   def prepare
     # prepares installation including downloads and other installs needed
@@ -514,11 +576,17 @@ class deployment
      # does a test wheer a name is passed of a test (you could have multiple)
      # the name all woudl be running all tests
 ```
-
  
-Since most of this work was working with bash commands tunneled through python scripts and implemented in CMS, Once this is fully functional, it is very possible that the same methodology can be followed to add more layers of complexity, i.e. Kubernetes. 
+Since most of this work was working with bash commands tunneled
+through python scripts and implemented in CMS, Once this is fully
+functional, it is very possible that the same methodology can be
+followed to add more layers of complexity, i.e. Kubernetes.
 
-It would be important to consider that the fact that the passwords would have to be either hard coded or transferred in plain text has to be seen as a vulnerability, that has to be addressed either by adding an encryption/decryption module or finding another way to safely access the root of the target device.
+It would be important to consider that the fact that the passwords
+would have to be either hard coded or transferred in plain text has to
+be seen as a vulnerability, that has to be addressed either by adding
+an encryption/decryption module or finding another way to safely
+access the root of the target device.
 
 
 
