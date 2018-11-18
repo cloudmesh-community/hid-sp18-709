@@ -1,10 +1,28 @@
+
+# Docker
+
+Docker is a technology for containerization mostly used for software
+development. It is an open source tool which makes it easy to deploy
+applications within containers. Applications are packaged in
+containers and then they are shipped to the platforms that they need
+to be executed upon. Applications distributed as containers are
+divided into manageable sizes and all the dependent functions are
+added and individually packaged. Operating systems such as macOS,
+Linux, Windows 10 Education and Windows 10 Pro are supported
+by Docker. However containers do require hardware support that needs
+to be available and activated.
+
+# Docker Swarm
+
+Docker Swarm is a clustering and scheduling tool for Docker
+containers, made up of multiple nodes.  A node is an
+instance of the docker engine participating in the swarm.There are two types of nodes: worker nodes
+and manager nodes. In a swarm multiple managers and workers may exist.
+If any of the worker nodes become unavailable, the managers
+re-schedules that node's tasks on other nodes. [@dockerdoc2017]. 
+
 # CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
 
-Docker Swarm  :o: is ...
-
-Docker swarm makes it possible to avoid
-having a single point of failure and instead, have multiple nodes that
-can be properly balanced and contain replicas of the information.
 Currently, Dockers must be individually downloaded, installed and
 configured on each physical computer that is integreated into a *swarm*. We present a plug-in
 that allows the instalation of docker swarm conveniently with a cloudmesh plug-in. 
@@ -12,8 +30,10 @@ that allows the instalation of docker swarm conveniently with a cloudmesh plug-i
 ---
 
 > -email for Andres Castro: acastrob@iu.edu
-> -emailfor Uma Kugan: umakugan@iu.edu
-> -emailfor Gregor von Laszweski: umakugan@iu.edu
+
+> -email for Uma Kugan: umakugan@iu.edu
+
+> -email for Gregor von Laszweski: umakugan@iu.edu
 
 ---
 
