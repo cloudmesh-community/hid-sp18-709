@@ -180,7 +180,6 @@ environment [@hackernoon].
 
 # CloudMesh
 
-
 CloudMesh is an innovative tool that allows communication and
 interaction between cloud based solutions. Not all clouds are docker
 based and there are different types of virtual and cloud environments.
@@ -448,8 +447,7 @@ find in this document. They will be explained in a separate section.
 Before using the proposed solution, the user's environment needs to meet
 the following requirements:
 
-### Raspbian Installed
-
+## Raspbian Installed
 Raspbian must be installed and configured on all Micro SD Cards. For
 this, the user may download Noobs from <https://www.raspberrypi.org/>
 and copy it to a formated Micro SD Card. Once the Raspberry Pi has the
@@ -473,7 +471,10 @@ available of the software, it is important to update the Raspbian
 repositories. In this case, the user can access the Terminal and enter
 the following commands:
 
->`sudo apt-get update`
+```bash
+$ sudo apt-get update
+```
+
 
 to update the list of available repositories and then
 
