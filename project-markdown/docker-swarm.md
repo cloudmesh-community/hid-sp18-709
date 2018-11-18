@@ -84,7 +84,9 @@ a Raspberry Pi was chosen to be the main device, in this case, the
 Raspberry Pi with the IP address 192.168.1.85. The following command
 was run on the Terminal or that device to set it as the manager:
 
->`sudo docker swarm init --advertise-addr 192.168.1.85`
+```bash
+$ sudo docker swarm init --advertise-addr 192.168.1.85
+```
 
 ## Workers
 
@@ -94,13 +96,19 @@ as simple worker nodes.
 
 To define the workers, the following command was used:
 
->`sudo usermod -a -G docker USER`
+```bash
+sudo usermod -a -G docker USER
+```
 
 and to work as part of the swarm the command used was:
 
->`docker swarm join --token *** 198.168.1.85:2377`
+```bash
+docker swarm join --token *** 198.168.1.85:2377`
+```
 
 As a last step, it was confirmed that all the nodes were added by using
 the following command:
 
->`sudo docker node ls`
+```bash
+sudo docker node ls`
+```
