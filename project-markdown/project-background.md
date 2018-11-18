@@ -1,3 +1,24 @@
+ 
+
+---
+
+> -email for Andres Castro: acastrob@iu.edu
+
+> -email for Uma Kugan: umakugan@iu.edu
+
+> -email for Gregor von Laszweski: umakugan@iu.edu
+
+---
+
+Keywords:
+
+Raspberry Pi, Cloudmesh, CMD5, Big Data, Big Data, i523, HID709, HID710
+
+---
+
+
+## Introduction
+
 
 # Docker
 
@@ -25,27 +46,7 @@ re-schedules that node's tasks on other nodes. [@dockerdoc2017].
 
 Currently, Dockers must be individually downloaded, installed and
 configured on each physical computer that is integreated into a *swarm*. We present a plug-in
-that allows the instalation of docker swarm conveniently with a cloudmesh plug-in. 
-
----
-
-> -email for Andres Castro: acastrob@iu.edu
-
-> -email for Uma Kugan: umakugan@iu.edu
-
-> -email for Gregor von Laszweski: umakugan@iu.edu
-
----
-
-Keywords:
-
-Raspberry Pi, Cloudmesh, CMD5, Big Data, Big Data, i523, HID709, HID710
-
----
-
-
-## Introduction
-
+that allows the instalation of docker swarm conveniently with a cloudmesh plug-in.
 The four main internal components of docker are Docker Client and
 Server, Docker Images, Docker Registries, and Docker Containers.
 
