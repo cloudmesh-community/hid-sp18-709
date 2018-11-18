@@ -62,15 +62,21 @@ via PIP and also Installed Cloudmesh: following the instructions found
 in: https://github.com/cloudmesh/ Installed Docker CE ARM via Terminal
 using the following command:
 
->\"curl -sSL https://get.docker.com \| sh=\" as suggested in https://www.raspberrypi.org/
+```bash
+curl -sSL https://get.docker.com \| sh=\" as suggested in https://www.raspberrypi.org/
+```
 
 Started the swarm and assigned a master node
 
->sudo docker swarm init --advertise-addr 192.168.x.x
+```bash
+$ sudo docker swarm init --advertise-addr 192.168.x.x
+```
 
 Created the remaining two nodes, with 
 
->\"curl -sSL https://get.docker.com \| sh=\" as suggested in https://www.raspberrypi.org/
+```bash
+$ curl -sSL https://get.docker.com \| sh=\" as suggested in https://www.raspberrypi.org/
+```
 
 And then, using the docker swarm join command the token generated when the master node was created, they were added to the swarm.
 
