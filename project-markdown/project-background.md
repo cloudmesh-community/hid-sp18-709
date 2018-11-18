@@ -1,4 +1,31 @@
+
+---
+#Title: CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
+
+---
+Abstract:
  
+    Information technologies are evolving from mainly one-host environments
+    to more distributed environment. Docker Swarm makes it possible to avoid
+    having a single point of failure and instead, have multiple nodes that
+    can be properly balanced and contain replicas of the information.
+    Currently, Dockers must be individually downloaded, installed and
+    configured on each physical computer in order for the desired computers
+    to work in swarm mode. This paper details the development of a plug-in
+    that would allow CloudMesh to deploy a Docker Swarm cluster. The
+    creation of this plug-in would be the first step towards the development
+    of a tool which would allow larger debian based networks to work as
+    container oriented virtual environments with optimized usage of
+    resources.
+
+---
+Author:
+
+- Andres Castro Benavides
+
+- Uma M Kugan
+
+- Gregor von Laszweski
 
 ---
 
