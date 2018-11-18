@@ -6,7 +6,7 @@ and a keyboard. It is a little computer which can be used for many of
 the things that desktop PC does, like spreadsheets, word processing,
 browsing the internet, playing games and also to play high-definition
 video. Raspberry is not intended to replace personal computer as its OS
-support, memory etc are limited when compared to Laptop [@Rpi].
+support, memory etc are limited when compared to Laptop [@www-rpi-faq].
 
 ## Differences between Laptop and a Pi
 
@@ -39,7 +39,7 @@ deployment environment. It is very difficult to identify any issues
 without proper deployment environment. Most of the times, issue can be
 fixed as simple as disabling a service or just uninstalling a software
 or slightly tweaking the environment. This can be easily achieved only
-when we have complete control of the environment [@simplebig]. It is
+when we have complete control of the environment [@www-simplebig-docker]. It is
 very difficult to manage a distributed environment whether in cloud or
 not. There are lot of manual effort whenever there is an installation
 across multiple nodes. Docker allows anyone to quickly create, launch
@@ -67,14 +67,14 @@ needed to support production systems. While Docker gets a lot of
 visibility from the development and DevOps communities, its operational
 maturity still leaves a big void. There are no logs from containers and
 hence logging is difficult in a distributed Docker environment. Dockers
-need separate orchestration, provisioning and automation [@pitfall].
+need separate orchestration, provisioning and automation [@www-pitfall-docker].
 Managing a huge amount of containers is challenging, especially when it
 comes to clustering containers. Running a container need root access and
 due to security and governance policy, many companies may not grant root
 privileges for everyone. In some companies, only software from
 official/trusted sources can be installed on their machines. Since
 Docker is not included in Red Hat Enterprise Linux 6, it needs to be
-installed from docker.com, which is an untrusted source [@philip].
+installed from docker.com, which is an untrusted source [@www-philip-discussion].
 
 ## Methods: Proposed Solution
 
@@ -112,7 +112,7 @@ experiment are the following:
 -   USB ports: 4
 -   Network: 10/100 MBPS Ethernet, 802.11n Wireless LAN, Bluetooth 4.0
 
-[@hackaday2016]
+[@www-hackaday-pi]
 
 The Raspberry Pi are interacting with each other using a private
 wireless network, and they have been assigned static Internet Protocol
@@ -257,17 +257,17 @@ $ sudo apt-get upgrade
 ```
 to upgrade the available packages. The first time that the user runs one
 of these commands, the root password will have to be entered. This
-process might take a few minutes [@debianpackage].
+process might take a few minutes [@www-debianpackage].
 
 ### Remote access setup
 
 Enable SSH on the Raspberry Pi. After Raspbian installation, enable SSH
 on all your Raspberry Pi machines.
 
-To do this, the user has to add a line in the file `sshd\_config` found
+To do this, the user has to add a line in the file `sshd_config` found
 in the directory `/etc/ssh/` The line has to go at the end of in the
 `Authentication section`. It has to contain the following string:
->`PermitRootLogin yes`. [@rootSsh]
+>`PermitRootLogin yes` [@www-root-ssh, ].
 
 ### Changing hostnames
 

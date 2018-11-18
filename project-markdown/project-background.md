@@ -78,7 +78,7 @@ repositories where images can be pushed or pulled from a single source.
 The main goal of DevOps is to eliminate the gap between the developers
 and IT operations team. Docker with DevOps get the developers and
 operations team to work together so that they both understand the
-challenges faced by each other, apply DevOps practices [@hackernoon].
+challenges faced by each other, apply DevOps practices [@www-hackernoon-docker].
 
 #### CI/CD
 
@@ -87,7 +87,7 @@ cases of Docker. Continuous Integration testing and Continuous
 Deployment allows developers to build codes, test them in any
 environment. Docker integration with Jenkins and GitHub making it easier
 for developers to build codes, test them in GitHub and trigger a build
-in Jenkins and adding the image in Docker registries [@hackernoon].
+in Jenkins and adding the image in Docker registries [@www-hackernoon-docker].
 
 #### Docker Containers As A Service
 
@@ -97,7 +97,7 @@ of platforms, improving flexibility and maximizing capacity. Best use
 case for Docker installation is the US Government where they enhanced
 their applications and made their components and services of their
 system and easily transportable/shareable with other agencies within the
-government [@hackernoon].
+government [@www-hackernoon-docker].
 
 ### Docker - Services
 
@@ -109,7 +109,7 @@ Linux, Windows, Cloud and Mac OS. It is lightweight, open source and
 integrated with a work flow to build and containerize applications. User
 interface is very simple and it makes the environment easily portable
 from single container on single host to multiple applications on a many
-number of hosts [@hackernoon].
+number of hosts [@www-hackernoon-docker].
 
 #### Docker Enterprise
 
@@ -117,14 +117,14 @@ Docker Enterprise provides an integrated platform for both developers
 and IT operations team where container management and deployment
 services are together for end-to-end agile application portability. It
 is easy to manage, monitor and secure images both within the registry
-and those deployed across various clusters [@hackernoon].
+and those deployed across various clusters [@www-hackernoon-docker].
 
 #### Docker Hub
 
 Docker Hub functions as a hosted registry service that helps you store,
 manage, share and integrate images across various developer work flows.
 Integration testing is done each time when the image is
-shared [@hackernoon].
+shared [@www-hackernoon-docker].
 
 #### Docker Compose
 
@@ -134,5 +134,5 @@ multiple environments, even if they are of the same name. Data volume is
 copied automatically from old container whenever a new container is
 created. Compose uses the previous configuration to create the new
 container which reduces the time for replicating the same changes to the
-environment [@hackernoon].
+environment [@www-hackernoon-docker].
 
