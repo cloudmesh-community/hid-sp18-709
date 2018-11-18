@@ -1,27 +1,47 @@
 # Docker Swarm
 
-Docker is the technology used for containerization for software
+Docker is a technology for containerization mostly used for software
 development. It is an open source tool which makes it easy to deploy
-applications. Applications are packaged in containers and then it is
-shipped to all the platforms that is supposed to work with. Applications
-are divided into manageable sizes and all the dependent functions are
-added and individually packaged. Both Linux and Windows are supported by
-Docker.
+applications within containers. Applications are packaged in
+containers and then they are shipped to the platforms that they need
+to be executed upon. Applications distributed as containers are
+divided into manageable sizes and all the dependent functions are
+added and individually packaged. Operating systems such as macOS,
+Linux, Windows 10 Education and Windows 10 Pro are supported
+by Docker. However containers do require hardware support that needs
+to be available and activated.
 
-Docker Swarm is a clustering and scheduling tool for Docker containers.
-A swarm is nothing but multiple Docker hosts which run in swarm mode and
-act as managers to manage delegation and workers will run swarm
-services. A given Docker host can be a manager or a worker or it can
-perform both roles. If any of the worker node becomes unavailable,
-manager schedules that node's tasks on other nodes. A node is an
-instance of the docker engine participating in the
-swarm [@dockerdoc2017].
+Docker Swarm is a clustering and scheduling tool for Docker
+containers.  A swarm is made up of multiple nodes.  A node is an
+instance of the docker engine participating in the swarm
+[@dockerdoc2017].  A Swarm consists of to types of nodes. Worker nodes
+and manager nodes. In a swarm multiple managers and workers may exist.
+If any of the worker nodes become unavailable, the managers
+re-schedules that node's tasks on other nodes.
 
-A swarm is made up of multiple nodes. We need to execute "docker swarm
-init" to enable swarm mode and to make current machine a swarm manager,
-run docker swarm join on other machines to add them to the swarm as
-workers and run docker node ls on the manager to view the nodes in this
-swarm.
+We need to execute
+
+```bash
+master$ docker swarm init
+```
+
+to enable swarm mode and to make the host on which it is executed a
+swarm manager. On the worker nodes we execute
+
+```bash
+worker$ docker swarm join
+```
+
+to add them to
+the swarm as workers. To see the list of workers we can execute
+
+
+```bash
+master$ docker node ls
+```
+
+:o: yet another introduction? Gregor stopped here
+
 
 Docker Swarms are used to orchestrate processes, optimizing the use or
 resources across clusters. In other words, the use of Docker Swarms
@@ -63,7 +83,7 @@ in: https://github.com/cloudmesh/ Installed Docker CE ARM via Terminal
 using the following command:
 
 ```bash
-curl -sSL https://get.docker.com \| sh=\" as suggested in https://www.raspberrypi.org/
+curl -sSL https://get.docker.com
 ```
 
 Started the swarm and assigned a master node
