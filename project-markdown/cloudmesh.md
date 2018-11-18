@@ -14,13 +14,10 @@ Quote von Laszewski:
 provisioned operating systems in a multicloud environment. We are also
 providing the ability to deploy platforms.*
 
-# Creating CloudMesh plug-ins
+## Creating CloudMesh plug-ins
 
-## What it currently does and has the potential to do:
-
-By creating
-CloudMesh plug-ins, it is possible to extend its potential from
-different kinds of cloud based environments interconnection to
+By creating CloudMesh plug-ins, it is possible to extend its potential
+from different kinds of cloud based environments interconnection to
 deployment of a container management system, in this case, Docker.
 
 Utilizing CloudMesh to Centralize Docker Swarm Installation Cloud Mesh
