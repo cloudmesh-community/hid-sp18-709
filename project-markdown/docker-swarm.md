@@ -1,6 +1,4 @@
-Docker Swarm: Current Use, Installation and Configuration
-
----------------------------------------------------------------
+# Docker Swarm: Current Use, Installation and Configuration
 
 Docker is the technology used for containerization for software
 development. It is an open source tool which makes it easy to deploy
@@ -49,12 +47,7 @@ the setup of each machine. In order to optimize the setup of Docker
 Swarms, CloudMesh could be utilized to centralize installation and
 configuration of every node and manager.
 
-
-
-
-
-Installing the components via ssh into every node.
---------------------------------------------------
+## Installing the components via ssh into every node.
 
 The following steps were followed on each device: Usig the TV as an
 external monitor, the USB input devices: keyboard and mouse, and the
@@ -81,10 +74,7 @@ Created the remaining two nodes, with
 
 And then, using the docker swarm join command the token generated when the master node was created, they were added to the swarm.
 
-
-
-Installing and configuring Docker Swarm
----------------------------------------
+## Installing and configuring Docker Swarm
 
 ### Manager
 
@@ -96,8 +86,7 @@ was run on the Terminal or that device to set it as the manager:
 
 >`sudo docker swarm init --advertise-addr 192.168.1.85`
 
-Workers
--------
+## Workers
 
 The other two Raspberry Pi devices. In this case, the Raspberry Pi with
 the IP address 192.168.1.86 and the one with 192.168.1.86, were defined
