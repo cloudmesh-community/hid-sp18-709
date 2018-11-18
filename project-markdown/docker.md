@@ -62,4 +62,4 @@ on premises and in the cloud. It also creates room for innovation,
 increases time to market, highly agile. Docker supports diverse set of
 applications and infrastructure for both developers and IT. It
 transforms IT without having to re-tool, re-code or re-vamp existing
-applications, policies or staff [@hackernoon].
+applications, policies or staff [@hackernoon].

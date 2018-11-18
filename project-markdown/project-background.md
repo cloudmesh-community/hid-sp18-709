@@ -1,5 +1,6 @@
 # CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
 
+:o: obviously the bibbtex labels are wrong
 
 ---
 
@@ -50,9 +51,9 @@ Docker Registries, and Docker Containers.
 The docker server gets the request from the docker client and then
 process it accordingly. Docker server and docker client can either run
 on the same machine or a local docker client can be connected with a
-remote server running on another machine [@turnbull2014docker].
+remote server running on another machine [@turnbull2014docker].
 
-![Docker Architecture] [@paraiso2016model]](https://github.com/cloudmesh-community/hid-sp18-709/blob/master/project-markdown/images/High-level-overview-of-Docker-architecture.png)
+![Docker Architecture] [@paraiso2016model]](https://github.com/cloudmesh-community/hid-sp18-709/blob/master/project-markdown/images/High-level-overview-of-Docker-architecture.png)
 
 
 ### Docker Images
@@ -62,7 +63,7 @@ Fedora 20 which creates a container to run Operating system. The docker
 file contains a list of instructions to build an image. When using
 docker, we start with a base image, boot up, create changes and those
 changes are saved in layers forming another
-image [@rad2017introduction].
+image [@rad2017introduction].
 
 ### Docker Registries
 
@@ -75,7 +76,7 @@ repositories where images can be pushed or pulled from a single source.
 The main goal of DevOps is to eliminate the gap between the developers
 and IT operations team. Docker with DevOps get the developers and
 operations team to work together so that they both understand the
-challenges faced by each other, apply DevOps practices [@hackernoon].
+challenges faced by each other, apply DevOps practices [@hackernoon].
 
 #### CI/CD
 
@@ -84,7 +85,7 @@ cases of Docker. Continuous Integration testing and Continuous
 Deployment allows developers to build codes, test them in any
 environment. Docker integration with Jenkins and GitHub making it easier
 for developers to build codes, test them in GitHub and trigger a build
-in Jenkins and adding the image in Docker registries [@hackernoon].
+in Jenkins and adding the image in Docker registries [@hackernoon].
 
 #### Docker Containers As A Service
 
@@ -94,7 +95,7 @@ of platforms, improving flexibility and maximizing capacity. Best use
 case for Docker installation is the US Government where they enhanced
 their applications and made their components and services of their
 system and easily transportable/shareable with other agencies within the
-government [@hackernoon].
+government [@hackernoon].
 
 ### Docker - Services
 
@@ -106,7 +107,7 @@ Linux, Windows, Cloud and Mac OS. It is lightweight, open source and
 integrated with a work flow to build and containerize applications. User
 interface is very simple and it makes the environment easily portable
 from single container on single host to multiple applications on a many
-number of hosts [@hackernoon].
+number of hosts [@hackernoon].
 
 #### Docker Enterprise
 
@@ -114,14 +115,14 @@ Docker Enterprise provides an integrated platform for both developers
 and IT operations team where container management and deployment
 services are together for end-to-end agile application portability. It
 is easy to manage, monitor and secure images both within the registry
-and those deployed across various clusters [@hackernoon].
+and those deployed across various clusters [@hackernoon].
 
 #### Docker Hub
 
 Docker Hub functions as a hosted registry service that helps you store,
 manage, share and integrate images across various developer work flows.
 Integration testing is done each time when the image is
-shared [@hackernoon].
+shared [@hackernoon].
 
 #### Docker Compose
 
@@ -131,7 +132,7 @@ multiple environments, even if they are of the same name. Data volume is
 copied automatically from old container whenever a new container is
 created. Compose uses the previous configuration to create the new
 container which reduces the time for replicating the same changes to the
-environment [@hackernoon].
+environment [@hackernoon].
 
 ## Raspberry Pi as Platform
 
@@ -141,7 +142,7 @@ and a keyboard. It is a little computer which can be used for many of
 the things that desktop PC does, like spreadsheets, word processing,
 browsing the internet, playing games and also to play high-definition
 video. Raspberry is not intended to replace personal computer as its OS
-support, memory etc are limited when compared to Laptop [@Rpi].
+support, memory etc are limited when compared to Laptop [@Rpi].
 
 ## Differences between Laptop and a Pi
 
@@ -163,7 +164,7 @@ will have a smaller storage capacity than a traditional PC.A binary
 built for either system will not execute on the other. Images or
 binaries that was not created by you or from true source may pose a
 potential threat. Docker swarm cluster can be built easily on Raspberry
-Pi with just two basic commands: swarm init and swarm join [@dockrpi].
+Pi with just two basic commands: swarm init and swarm join [@dockrpi].
 
 ## Docker and Big Data Platform
 
@@ -174,7 +175,7 @@ deployment environment. It is very difficult to identify any issues
 without proper deployment environment. Most of the times, issue can be
 fixed as simple as disabling a service or just uninstalling a software
 or slightly tweaking the environment. This can be easily achieved only
-when we have complete control of the environment [@simplebig]. It is
+when we have complete control of the environment [@simplebig]. It is
 very difficult to manage a distributed environment whether in cloud or
 not. There are lot of manual effort whenever there is an installation
 across multiple nodes. Docker allows anyone to quickly create, launch
@@ -202,14 +203,14 @@ needed to support production systems. While Docker gets a lot of
 visibility from the development and DevOps communities, its operational
 maturity still leaves a big void. There are no logs from containers and
 hence logging is difficult in a distributed Docker environment. Dockers
-need separate orchestration, provisioning and automation [@pitfall].
+need separate orchestration, provisioning and automation [@pitfall].
 Managing a huge amount of containers is challenging, especially when it
 comes to clustering containers. Running a container need root access and
 due to security and governance policy, many companies may not grant root
 privileges for everyone. In some companies, only software from
 official/trusted sources can be installed on their machines. Since
 Docker is not included in Red Hat Enterprise Linux 6, it needs to be
-installed from docker.com, which is an untrusted source [@philip].
+installed from docker.com, which is an untrusted source [@philip].
 
 ## Methods: Proposed Solution
 
@@ -262,14 +263,14 @@ that it is required to have at least 16 GB of memory, is because there
 will be several pieces of software installed in the devices, each one of
 them with different requirements:
 
-Docker Memory Requirements [@dockerdoc2017]:
+Docker Memory Requirements [@dockerdoc2017]:
 
 -   8GB of RAM for manager nodes or nodes running DTR.
 -   4GB of RAM for worker nodes.
 -   3GB of free disk space.
 
 So at least 12 of the GB would be required for Docker and 4 GB used for
-the proper functioning of Raspbian. [@rpicards2017]
+the proper functioning of Raspbian. [@rpicards2017]
 
 Taking these requirements in consideration, there should be a minimum of
 16GB of free space in the MicroSD in order to perform this experiment.
@@ -348,7 +349,7 @@ This version of Docker is Community Edition, which means that it is
 available for free and can be installed on bare metal or cloud
 infrastructure. This flexibility is good for the experiment, because it
 will be installed on Raspberry Pi, which are considered physical devices
-or bare metal Machines [@dockerdoc2017].
+or bare metal Machines [@dockerdoc2017].
 
 ## Prerequisites
 
@@ -392,7 +393,7 @@ $ sudo apt-get upgrade
 ```
 to upgrade the available packages. The first time that the user runs one
 of these commands, the root password will have to be entered. This
-process might take a few minutes [@debianpackage].
+process might take a few minutes [@debianpackage].
 
 ### Remote access setup
 
@@ -524,12 +525,12 @@ a time at the level of py scripts, but encountered an error previously
 mentioned in this document when trying to implement it as part of
 cms. Also, as the professor suggested, this same system can be
 implemented as a different abstraction for deployments such as an
-abc class similar to the following:
+abc class similar to the following:
 
 ```python
 class deployment(object):
 
-  def prepare
+  def prepare
     # prepares installation including downloads and other installs needed
 
    def deploy
@@ -540,7 +541,7 @@ class deployment(object):
 
    def test(test)
      # does a test wheer a name is passed of a test (you could have multiple)
-     # the name all woudl be running all tests
+     # the name all woudl be running all tests
 ```
  
 Since most of this work was working with bash commands tunneled

@@ -1,6 +1,3 @@
-
-
-
 ## Docker Swarm
 
 Docker Swarm is a clustering and scheduling tool for Docker
