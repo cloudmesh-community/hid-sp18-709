@@ -1,3 +1,18 @@
+# Docker
+
+Docker is a technology for containerization mostly used for software
+development. It is an open source tool which makes it easy to deploy
+applications within containers. Applications are packaged in
+containers and then they are shipped to the platforms that they need
+to be executed upon. Applications distributed as containers are
+divided into manageable sizes and all the dependent functions are
+added and individually packaged. Operating systems such as macOS,
+Linux, Windows 10 Education and Windows 10 Pro are supported
+by Docker. However containers do require hardware support that needs
+to be available and activated.
+
+
+
 ### Docker Containers
 
 Docker image creates a docker container. Containers have everything for
