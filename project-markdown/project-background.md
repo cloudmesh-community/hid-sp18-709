@@ -477,9 +477,9 @@ $ sudo apt-get update
 
 
 to update the list of available repositories and then
-
->`sudo apt-get upgrade`
-
+```bash
+$ sudo apt-get upgrade
+```
 to upgrade the available packages. The first time that the user runs one
 of these commands, the root password will have to be entered. This
 process might take a few minutes [@debianpackage].
@@ -519,11 +519,16 @@ Once the file is modified, the user will have to initialize the hostname
 with the `hostname.sh` script this can be done using the following line
 in the Terminal:
 
->`sudo /etc/init.d/hostname.sh`
+```bash
+$ sudo /etc/init.d/hostname.sh
+```
 
 To check if the modification has worked as expected, the user may check
 the hostname of the machine from the Terminal by running the command:
-`hostname -I`
+
+```bash
+$ hostname -I
+```
 
 ## Steps Followed
 
@@ -561,6 +566,10 @@ IP address or hostname of the desired machine and the desired location
 to store the captured image, alongside the corresponding credentials and
 wrap a **dd** shell command similar to the following:
 
+```bash
+$ hostname -I
+```
+
 >`dd if=/dev/mmcblk0 bs=1M ` gzip -QUOTE \| dd of=imageDir\|
 
 Among the challenges faced, this line was returning an invalid syntax,
@@ -571,6 +580,10 @@ The second function was called DeployRaspbian and would receive the
 route and name where the image would be deployed, i.e.`/dev/bkp` and
 image name and route, i.e.`~/Desktop/raspbian.gz`. The shell command
 that would be wrapped would be:
+
+```bash
+$ hostname -I
+```
 
 >`gzip -dc diskNm PIPE sudo dd of=imageName bs=1m conv=noerror,sync`
 
@@ -604,28 +617,30 @@ ben easier to addapt to linux Operating systems other than Raspbian.
 
 It is possible to create the plug in. Using the SH sub process included in python 2.5-3.5. The team was able to try the steps one at a time at the level of py scripts, but encountered an error previously mentioned in this document when trying to implement it as part of cms. Also, as the professor suggested, this same system can be implemented as a different  abstraction for deployments such as an abc class similar to the following:
 
-:o: format wrong
+```python
 
->class deployment    
->
->>def prepare
->
->>>prepares installation including downloads and other installs needed
->
->>def deploy
->
->>>deploys the package or software
->
->>def configure
->
->>>does some configurations
->
->>def test(test)
->
->>>does a test wheer a name is passed of a test (you could have multiple)
->
->>>the name all woudl be running all tests
 
+class deployment    
+
+    def prepare
+
+        prepares installation including downloads and other installs needed
+
+    def deploy
+
+        deploys the package or software
+
+    def configure
+
+        does some configurations
+
+    def test(test)
+
+        does a test where a name is passed of a test (you could have multiple)
+
+        the name all would be running all tests
+
+```
  
 Since most of this work was working with bash commands tunneled through python scripts and implemented in CMS, Once this is fully functional, it is very possible that the same methodology can be followed to add more layers of complexity, i.e. Kubernetes. 
 
