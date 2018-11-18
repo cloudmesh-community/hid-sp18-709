@@ -1,4 +1,4 @@
-# Docker Swarm: Current Use, Installation and Configuration
+# Docker Swarm
 
 Docker is the technology used for containerization for software
 development. It is an open source tool which makes it easy to deploy
