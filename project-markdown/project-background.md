@@ -537,7 +537,7 @@ $ hostname -I
 
 Since Raspberry pi is not currently listed under the supported operative
 systems for Docker or Cloudmesh, The process of deploying Docker and
-configuring the swarm Mode was successfully tested on the Raspberry Pi
+configuring the swarm Mode was successfully tested on the Raspberry 
 first using the commands that are intended for Debian. Once the Swarm
 was configured, the three Raspberry Pi devices were left on for over 24
 hours and it was not observed any kind of abnormal behavior, like
@@ -550,10 +550,6 @@ anywhere between 2 to 5 days to arrive. The different components can
 also be purchased through multiple on line sources or local electronics
 stores.
 
-
-
-
-
 ### Additional Research
 
 #### Other functions considered
@@ -564,14 +560,15 @@ Raspbian. As their names suggest, the first one intended to capture an
 image or backup of a Raspberry Pi. This first function would receive the
 IP address or hostname of the desired machine and the desired location
 to store the captured image, alongside the corresponding credentials and
-wrap a **dd** shell command similar to the following:
+wrap a **dd** shell command 
+
+
+
+lar to the following:
 
 ```bash
-$ hostname -I
+$ dd if=/dev/mmcblk0 bs=1M gzip -QUOTE \| dd of=imageDir\|
 ```
-
->`dd if=/dev/mmcblk0 bs=1M ` gzip -QUOTE \| dd of=imageDir\|
-
 Among the challenges faced, this line was returning an invalid syntax,
 most likely because of the use of the variables. Since there was not a
 lot of time, the team decided to postpone this function.
@@ -582,10 +579,8 @@ image name and route, i.e.`~/Desktop/raspbian.gz`. The shell command
 that would be wrapped would be:
 
 ```bash
-$ hostname -I
-```
-
->`gzip -dc diskNm PIPE sudo dd of=imageName bs=1m conv=noerror,sync`
+$ gzip -dc diskNm PIPE sudo dd of=imageName bs=1m conv=noerror,sync
+````
 
 More information on this topic can be found in the section called
 **Backup** ***www.raspberrypi.org***.
@@ -622,19 +617,19 @@ It is possible to create the plug in. Using the SH sub process included in pytho
 
 class deployment    
 
-    def prepare
+    def prepare():
 
         prepares installation including downloads and other installs needed
 
-    def deploy
+    def deploy():
 
         deploys the package or software
 
-    def configure
+    def configure():
 
         does some configurations
 
-    def test(test)
+    def test(test):
 
         does a test where a name is passed of a test (you could have multiple)
 
