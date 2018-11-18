@@ -18,10 +18,7 @@ Raspberry Pi, Cloudmesh, CMD5, Big Data, Big Data, i523, HID709, HID710
 
 ---
 
-## Abstract:
- 
-~~Information technologies are evolving from mainly one-host
-environments to more distributed environment. ~~
+## Abstract
 
 Docker Swarm makes it
 possible to avoid having a single point of failure and instead, have
@@ -39,7 +36,7 @@ optimized usage of resources.
 
 
 
-# CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
+## Introduction
 
 Currently, Dockers must be individually downloaded, installed and
 configured on each physical computer that is integreated into a
@@ -55,7 +52,7 @@ process it accordingly. Docker server and docker client can either run
 on the same machine or a local docker client can be connected with a
 remote server running on another machine [@turnbull2014docker].
 
-![Docker Architecture] [@paraiso2016model]](https://github.com/cloudmesh-community/hid-sp18-709/blob/master/project-markdown/images/High-level-overview-of-Docker-architecture.png)
+![Docker Architecture [@paraiso2016model]](images/High-level-overview-of-Docker-architecture.png)
 
 
 ### Docker Images
