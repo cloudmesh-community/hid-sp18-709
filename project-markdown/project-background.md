@@ -1,64 +1,35 @@
-﻿﻿﻿﻿﻿---
-Abstract:
- 
-    Information technologies are evolving from mainly one-host environments
-    to more distributed environment. Docker Swarm makes it possible to avoid
-    having a single point of failure and instead, have multiple nodes that
-    can be properly balanced and contain replicas of the information.
-    Currently, Dockers must be individually downloaded, installed and
-    configured on each physical computer in order for the desired computers
-    to work in swarm mode. This paper details the development of a plug-in
-    that would allow CloudMesh to deploy a Docker Swarm cluster. The
-    creation of this plug-in would be the first step towards the development
-    of a tool which would allow larger debian based networks to work as
-    container oriented virtual environments with optimized usage of
-    resources.
+# CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
+
+Docker Swarm  :o: is ...
+
+Docker swarm makes it possible to avoid
+having a single point of failure and instead, have multiple nodes that
+can be properly balanced and contain replicas of the information.
+Currently, Dockers must be individually downloaded, installed and
+configured on each physical computer that is integreated into a *swarm*. We present a plug-in
+that allows the instalation of docker swarm conveniently with a cloudmesh plug-in. 
 
 ---
-Author:
 
-- Andres Castro Benavides
-
-- Uma M Kugan
-
----
-#Title: CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
-
----
-Affiliation:
-> 
-> -Institution: Indiana University
-> 
-> -Streetaddress: 107 S. Indiana Avenue
-> 
-> -City: Bloomington
-> 
-> -State: Indiana
-> 
-> -Postcode: 43017-6221
->     
 > -email for Andres Castro: acastrob@iu.edu
-> 
 > -emailfor Uma Kugan: umakugan@iu.edu
+> -emailfor Gregor von Laszweski: umakugan@iu.edu
 
+---
 
-keywords:
+Keywords:
 
 Raspberry Pi, Cloudmesh, CMD5, Big Data, Big Data, i523, HID709, HID710
 
 ---
 
 
-Introduction
-============
-
-
-#### Inside Docker
+## Introduction
 
 The four main internal components of docker are Docker Client and
 Server, Docker Images, Docker Registries, and Docker Containers.
 
-#### Docker Client and Server
+### Docker Client and Server
 
 The docker server gets the request from the docker client and then
 process it accordingly. Docker server and docker client can either run
@@ -68,7 +39,7 @@ remote server running on another machine [@turnbull2014docker].
 ![Docker Architecture] [@paraiso2016model]](https://github.com/cloudmesh-community/hid-sp18-709/blob/master/project-markdown/images/High-level-overview-of-Docker-architecture.png)
 
 
-#### Docker Images
+### Docker Images
 
 Base image are the Operating system images such as Ubuntu 14.04 LTS, or
 Fedora 20 which creates a container to run Operating system. The docker
@@ -77,43 +48,43 @@ docker, we start with a base image, boot up, create changes and those
 changes are saved in layers forming another
 image [@rad2017introduction].
 
-#### Docker Registries
+### Docker Registries
 
 Docker images are placed in docker registries. It is same as source code
 repositories where images can be pushed or pulled from a single source.
 
-#### Docker Containers
+### Docker Containers
 
 Docker image creates a docker container. Containers have everything for
 the application to run on its own.
 
-### Benefits of using Docker
+## Benefits of using Docker
 
-#### Open Source Technology
+### Open Source Technology
 
 The Docker containers are based on open standards which means that
 anyone can contribute to the Docker tool and at the same time customize
 it for their needs, if the features they are looking for is not already
 available.
 
-#### Portability
+### Portability
 
 Docker makes distributed applications to be dynamic and portable which
 can be run anywhere which makes it extremely popular among developers.
 
-#### Sharing
+### Sharing
 
 Docker is integrated with a software sharing and distribution mechanism
 that allows for sharing and using container content which helps the
 tasks of both the developer and the operations team.
 
-#### Elimination of Environmental Inconsistencies
+### Elimination of Environmental Inconsistencies
 
 Any changes made in one environment will be shared across other
 environments or all the applications can exist in the single
 environment.
 
-#### Resource Isolation
+### Resource Isolation
 
 Resource isolation adds to the security of running containers on a given
 host. Docker uses Namespaces technology to isolate work spaces called
@@ -122,19 +93,19 @@ limited to that namespace only. Every container in Docker will have its
 own work space which makes it easier debug if there are issues with any
 particular container.
 
-#### Easy Integration
+### Easy Integration
 
 Docker can be easily integrated into a variety of infrastructure tools
 like Amazon Web Services, Ansible, IBM Bluemix, Jenkins, Google Cloud
 Platform, Oracle Container Cloud Service, Microsoft Azure to name a few.
 
-#### Better Security
+### Better Security
 
 Docker provides a interface for developers and IT teams to define and
 manage their security configurations for applications as it navigates
 from one stage to another.
 
-#### Docker - Use Cases
+### Docker - Use Cases
 
 The Docker platform is the only container platform to build, secure and
 manage the variety of applications from development to production both
@@ -170,7 +141,7 @@ their applications and made their components and services of their
 system and easily transportable/shareable with other agencies within the
 government [@hackernoon].
 
-### Docker - Services:
+### Docker - Services
 
 #### Docker Engine
 
@@ -207,8 +178,8 @@ created. Compose uses the previous configuration to create the new
 container which reduces the time for replicating the same changes to the
 environment [@hackernoon].
 
-#CloudMesh
----------
+# CloudMesh
+
 
 CloudMesh is an innovative tool that allows communication and
 interaction between cloud based solutions. Not all clouds are docker
@@ -224,10 +195,9 @@ Quote von Laszewski:
 provisioned operating systems in a multicloud environment. We are also
 providing the ability to deploy platforms.*
 
-Creating CloudMesh plug-ins
----------------------------
+# Creating CloudMesh plug-ins
 
-##What it currently does and has the potential to do:
+## What it currently does and has the potential to do:
 
 By creating
 CloudMesh plug-ins, it is possible to extend its potential from
@@ -253,8 +223,7 @@ multi cloud environment.
 The cloud mesh allows you to use Methods to deploy the Docker Swarms as
 container management tools, to the raspberry pi's.
 
-Raspberry Pi as Platform
-========================
+## Raspberry Pi as Platform
 
 The Raspberry Pi is a credit-card-sized computer with ARM processor that
 can run a Linux desktop operating system. Raspberry PI can plug into TV
@@ -264,8 +233,8 @@ browsing the internet, playing games and also to play high-definition
 video. Raspberry is not intended to replace personal computer as its OS
 support, memory etc are limited when compared to Laptop [@Rpi].
 
-Differences between Laptop and a Pi
------------------------------------
+## Differences between Laptop and a Pi
+
 
 Raspberry Pi uses an ARM based processor like ARM Cortex A7 or A53
 depending upon the model while the traditional PC/Laptop uses a
@@ -286,8 +255,9 @@ binaries that was not created by you or from true source may pose a
 potential threat. Docker swarm cluster can be built easily on Raspberry
 Pi with just two basic commands: swarm init and swarm join [@dockrpi].
 
-Docker and Big Data Platform
-============================
+## Docker and Big Data Platform
+
+:o; yet again duplicated
 
 It is always been a challenge to maintain or even to have a control
 deployment environment. It is very difficult to identify any issues
@@ -315,8 +285,7 @@ a great way of deploying services at scale and giving isolation to
 services that run on the same host and improving utilization and we can
 even use Dockers for scheduling batch analytical jobs.
 
-Docker Critique
-===============
+## Docker Critique
 
 Docker was not designed to support the long-running containers that are
 needed to support production systems. While Docker gets a lot of
@@ -332,8 +301,7 @@ official/trusted sources can be installed on their machines. Since
 Docker is not included in Red Hat Enterprise Linux 6, it needs to be
 installed from docker.com, which is an untrusted source [@philip].
 
-Methods: Proposed Solution
-==========================
+## Methods: Proposed Solution
 
 The solution was created for a specific type of hardware and software,
 but is modular enough to be extended to different environments with
@@ -341,8 +309,7 @@ similar features, such as basic architecture -which include but is not
 limited to ARM single boarded computers- and an operating system based
 on Debian, such as Debian, Raspbian, Ubuntu, etc.
 
-Hardware
---------
+## Hardware
 
 For the current proposed solution, the different pieces of hardware were
 chosen based on criteria such as Compatibility and Price.
@@ -351,11 +318,8 @@ The following is a list of the hardware that was used and below that
 list there is a description of each piece of hardware that was used.
 
 -   3 Raspberry Pi
-
 -   3 Micro SD Cards with a capacity of 64 GB
-
 -   3 USB to Micro USB Cables for power supply to the Raspberry Pi
-
 -   1 External monitor for the configuration step only.
 
 ### Raspberry Pi
@@ -368,13 +332,9 @@ communities. The specifications of the model that has been used for this
 experiment are the following:
 
 -   CPU: 1.2 GHZ quad-core ARM Cortex A53 ARMv8 Instruction Set.
-
 -   GPU: Broadcom VideoCore IV @ 400 MHz
-
 -   Memory: 1 GB LPDDR2-900 SDRAM
-
 -   USB ports: 4
-
 -   Network: 10/100 MBPS Ethernet, 802.11n Wireless LAN, Bluetooth 4.0
 
 [@hackaday2016]
@@ -395,9 +355,7 @@ them with different requirements:
 Docker Memory Requirements [@dockerdoc2017]:
 
 -   8GB of RAM for manager nodes or nodes running DTR.
-
 -   4GB of RAM for worker nodes.
-
 -   3GB of free disk space.
 
 So at least 12 of the GB would be required for Docker and 4 GB used for
@@ -447,15 +405,10 @@ downloaded directly from the Raspberry Pi website and it includes
 several Operating system options, among them:
 
 -   Raspbian
-
 -   Pidora
-
 -   LibreELEC
-
 -   OSMC
-
 -   RISC OS
-
 -   Arch Linux
 
 Since Raspbian is the default Operating system and most commonly used,
@@ -469,7 +422,6 @@ The Kernel version of the version of Raspbian that was used is 4.9.
 The version of Raspbian that was used has the following specifications:
 
 -   Kernel version: 4.9
-
 -   Release date: 2017-11-16
 
 ### Docker
@@ -480,7 +432,6 @@ Raspberry Pi -ARM instead of AMD-, the Docker version used is *Docker
 for Debian ARM*. With the following Specifications:
 
 -   Version 17.09.0-ce
-
 -   Release 2017-09-26
 
 This version of Docker is Community Edition, which means that it is
@@ -548,11 +499,9 @@ In order to keep the three Raspberry Pi organized it is highly advisable
 to assign an exclusive and distinctive hostname to each Raspberry Pi.
 The three Raspberry Pi have the following static IP addresses:
 
->1.  pi85 - 192.168.1.85
->
->2.  pi86 - 192.168.1.86
->
->3.  pi87 - 192.168.1.87
+> 1.  pi85 - 192.168.1.85
+> 2.  pi86 - 192.168.1.86
+> 3.  pi87 - 192.168.1.87
 
 By default, all Raspberry Pi devices will have the same Host Name.
 
@@ -575,11 +524,10 @@ To check if the modification has worked as expected, the user may check
 the hostname of the machine from the Terminal by running the command:
 `hostname -I`
 
-Steps Followed
-==============
+## Steps Followed
 
-Testing shell commands prior to integrations with Cloudmesh
------------------------------------------------------------
+
+### Testing shell commands prior to integrations with Cloudmesh
 
 Since Raspberry pi is not currently listed under the supported operative
 systems for Docker or Cloudmesh, The process of deploying Docker and
@@ -589,8 +537,7 @@ was configured, the three Raspberry Pi devices were left on for over 24
 hours and it was not observed any kind of abnormal behavior, like
 looping services in the OS or overheating.
 
-Purchasing the hardware
------------------------
+### Purchasing the hardware
 
 The different hardware components were purchased via Amazon.com and took
 anywhere between 2 to 5 days to arrive. The different components can
@@ -601,10 +548,9 @@ stores.
 
 
 
-Additional Research
--------------------
+### Additional Research
 
-### Other functions considered
+#### Other functions considered
 
 Initially, for this case, it was considered an option to developed a
 function called CaptureImage and a second function called Deploy
@@ -642,8 +588,7 @@ The final version of the code can be found on:
 https://github.com/cloudmesh-community/hid-sp18-709/tree/master/project-code
 
 
-Other options considered
-========================
+### Other options considered
 
 Other options of coding were considered during the development of this
 solution. Since all of the deployment can successfully be done via
@@ -654,10 +599,11 @@ python. This option would have been less dynamic and wouldn't make the
 best use of the available resources, but at the same time it could have
 ben easier to addapt to linux Operating systems other than Raspbian.
 
-Conclusions
-===========
+### Conclusions
 
--  It is possible to create the plug in. Using the SH sub process included in python 2.5-3.5. The team was able to try the steps one at a time at the level of py scripts, but encountered an error previously mentioned in this document when trying to implement it as part of cms. Also, as the professor suggested, this same system can be implemented as a different  abstraction for deployments such as an abc class similar to the following:
+It is possible to create the plug in. Using the SH sub process included in python 2.5-3.5. The team was able to try the steps one at a time at the level of py scripts, but encountered an error previously mentioned in this document when trying to implement it as part of cms. Also, as the professor suggested, this same system can be implemented as a different  abstraction for deployments such as an abc class similar to the following:
+
+:o: format wrong
 
 >class deployment    
 >
@@ -680,31 +626,9 @@ Conclusions
 >>>the name all woudl be running all tests
 
  
--  Since most of this work was working with bash commands tunneled through python scripts and implemented in CMS, Once this is fully functional, it is very possible that the same methodology can be followed to add more layers of complexity, i.e. Kubernetes. 
+Since most of this work was working with bash commands tunneled through python scripts and implemented in CMS, Once this is fully functional, it is very possible that the same methodology can be followed to add more layers of complexity, i.e. Kubernetes. 
 
--  It would be important to consider that the fact that the passwords would have to be either hard coded or transferred in plain text has to be seen as a vulnerability, that has to be addressed either by adding an encryption/decryption module or finding another way to safely access the root of the target device.
-
-*The authors would like to thank Dr. Gregor von Laszewski for his support
-and suggestions on this project.*
-
-\bibliographystyle{ACM-Reference-Format}
-\newpage
-\appendix
-Work Breakdown
-==============
-
-Uma Kugan
-
-:  50% of the document and codeing.
-
-Andres Castro Benavides
-
-:  50% of the document and testing and reviewing the code
-
-Gregor von Laszewski
-
-:   Help with the report, contributing to the code, editing
-
+It would be important to consider that the fact that the passwords would have to be either hard coded or transferred in plain text has to be seen as a vulnerability, that has to be addressed either by adding an encryption/decryption module or finding another way to safely access the root of the target device.
 
 
 
