@@ -2,6 +2,10 @@
 
 :o: author missing
 
+:o: use the md format
+
+:o: check the TOC
+
 
 ## Introduction
 
