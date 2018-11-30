@@ -1,9 +1,13 @@
-# Title missing
+# CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
+
 
 :o: please update to markdown
 
+:o: see our example <https://github.com/cloudmesh-community/proceedings-fa18/tree/master/project-report>
 
-Abstract:
+:o: the original latex had structural issues so pleas ervisit the section heding levels of all sections.
+
+## Abstract
  
 Information technologies are evolving from mainly one-host environments
 to more distributed environment. Docker Swarm makes it possible to avoid
@@ -21,11 +25,9 @@ resources.
 Author:
 
 - Andres Castro Benavides
-
 - Uma M Kugan
 
 ---
-#Title: CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
 
 ---
 Affiliation:
