@@ -1,27 +1,23 @@
-**THIS DOCUMENT IS OUTDATED AND REPLACD BY AIVITIES DONE IN THE MARKDOWN DIRECTORY
-THE DOCUMENT DOES NOT USE PROPER MARKDOWN AS DOCUMENTED IN THE CLASS NOTES WHERE 
-WE HAVE A SAMPLE. PLEASE DO NOT MODIFY THIS DOCUMENT AS MORIFICATIONS WILL NO LONGER BE 
-REVIEWED AND INTEGRATED. IF MODIFICATIONS ARE NEEDED PLEASE DO IT IN THE MARKDOWN DIRECTORY**
+# Title missing
+
+:o: please update to markdown
 
 
-
----
 Abstract:
  
-    Information technologies are evolving from mainly one-host environments
-    to more distributed environment. Docker Swarm makes it possible to avoid
-    having a single point of failure and instead, have multiple nodes that
-    can be properly balanced and contain replicas of the information.
-    Currently, Dockers must be individually downloaded, installed and
-    configured on each physical computer in order for the desired computers
-    to work in swarm mode. This paper details the development of a plug-in
-    that would allow CloudMesh to deploy a Docker Swarm cluster. The
-    creation of this plug-in would be the first step towards the development
-    of a tool which would allow larger debian based networks to work as
-    container oriented virtual environments with optimized usage of
-    resources.
+Information technologies are evolving from mainly one-host environments
+to more distributed environment. Docker Swarm makes it possible to avoid
+having a single point of failure and instead, have multiple nodes that
+can be properly balanced and contain replicas of the information.
+Currently, Dockers must be individually downloaded, installed and
+configured on each physical computer in order for the desired computers
+to work in swarm mode. This paper details the development of a plug-in
+that would allow CloudMesh to deploy a Docker Swarm cluster. The
+creation of this plug-in would be the first step towards the development
+of a tool which would allow larger debian based networks to work as
+container oriented virtual environments with optimized usage of
+resources.
 
----
 Author:
 
 - Andres Castro Benavides
@@ -35,34 +31,26 @@ Author:
 Affiliation:
 > 
 > -Institution: Indiana University
-> 
 > -Streetaddress: 107 S. Indiana Avenue
-> 
 > -City: Bloomington
-> 
-> -State: Indiana
-> 
+> -State: Indiana 
 > -Postcode: 43017-6221
->     
 > -email for Andres Castro: acastrob@iu.edu
-> 
 > -emailfor Uma Kugan: umakugan@iu.edu
 
+---
 
-keywords:
+Keywords
 
 Raspberry Pi, Cloudmesh, CMD5, Big Data, Big Data, i523, HID709, HID710
 
 ---
 
 
-Introduction
-============
+## Introduction
 
 
-Docker: Swarm mode, Current Use, Installation and Configuration
-
----------------------------------------------------------------
+### Docker: Swarm mode, Current Use, Installation and Configuration
 
 Docker is the technology used for containerization for software
 development. It is an open source tool which makes it easy to deploy
@@ -265,9 +253,8 @@ created. Compose uses the previous configuration to create the new
 container which reduces the time for replicating the same changes to the
 environment [@hackernoon].
 
-#CloudMesh
----------
-
+#@ CloudMesh
+ 
 CloudMesh is an innovative tool that allows communication and
 interaction between cloud based solutions. Not all clouds are docker
 based and there are different types of virtual and cloud environments.
@@ -282,8 +269,7 @@ Quote von Laszewski:
 provisioned operating systems in a multicloud environment. We are also
 providing the ability to deploy platforms.*
 
-Creating CloudMesh plug-ins
----------------------------
+## Creating CloudMesh plug-ins
 
 ##What it currently does and has the potential to do:
 
@@ -311,8 +297,7 @@ multi cloud environment.
 The cloud mesh allows you to use Methods to deploy the Docker Swarms as
 container management tools, to the raspberry pi's.
 
-Raspberry Pi as Platform
-========================
+## Raspberry Pi as Platform
 
 The Raspberry Pi is a credit-card-sized computer with ARM processor that
 can run a Linux desktop operating system. Raspberry PI can plug into TV
@@ -322,8 +307,7 @@ browsing the internet, playing games and also to play high-definition
 video. Raspberry is not intended to replace personal computer as its OS
 support, memory etc are limited when compared to Laptop [@Rpi].
 
-Differences between Laptop and a Pi
------------------------------------
+### Differences between Laptop and a Pi
 
 Raspberry Pi uses an ARM based processor like ARM Cortex A7 or A53
 depending upon the model while the traditional PC/Laptop uses a
@@ -344,8 +328,7 @@ binaries that was not created by you or from true source may pose a
 potential threat. Docker swarm cluster can be built easily on Raspberry
 Pi with just two basic commands: swarm init and swarm join [@dockrpi].
 
-Docker and Big Data Platform
-============================
+## Docker and Big Data Platform
 
 It is always been a challenge to maintain or even to have a control
 deployment environment. It is very difficult to identify any issues
@@ -373,8 +356,7 @@ a great way of deploying services at scale and giving isolation to
 services that run on the same host and improving utilization and we can
 even use Dockers for scheduling batch analytical jobs.
 
-Docker Critique
-===============
+## Docker Critique
 
 Docker was not designed to support the long-running containers that are
 needed to support production systems. While Docker gets a lot of
@@ -390,8 +372,7 @@ official/trusted sources can be installed on their machines. Since
 Docker is not included in Red Hat Enterprise Linux 6, it needs to be
 installed from docker.com, which is an untrusted source [@philip].
 
-Methods: Proposed Solution
-==========================
+## Methods: Proposed Solution
 
 The solution was created for a specific type of hardware and software,
 but is modular enough to be extended to different environments with
@@ -399,8 +380,8 @@ similar features, such as basic architecture -which include but is not
 limited to ARM single boarded computers- and an operating system based
 on Debian, such as Debian, Raspbian, Ubuntu, etc.
 
-Hardware
---------
+### Hardware
+
 
 For the current proposed solution, the different pieces of hardware were
 chosen based on criteria such as Compatibility and Price.
@@ -409,11 +390,8 @@ The following is a list of the hardware that was used and below that
 list there is a description of each piece of hardware that was used.
 
 -   3 Raspberry Pi
-
 -   3 Micro SD Cards with a capacity of 64 GB
-
 -   3 USB to Micro USB Cables for power supply to the Raspberry Pi
-
 -   1 External monitor for the configuration step only.
 
 ### Raspberry Pi
@@ -426,13 +404,9 @@ communities. The specifications of the model that has been used for this
 experiment are the following:
 
 -   CPU: 1.2 GHZ quad-core ARM Cortex A53 ARMv8 Instruction Set.
-
 -   GPU: Broadcom VideoCore IV @ 400 MHz
-
 -   Memory: 1 GB LPDDR2-900 SDRAM
-
 -   USB ports: 4
-
 -   Network: 10/100 MBPS Ethernet, 802.11n Wireless LAN, Bluetooth 4.0
 
 [@hackaday2016]
@@ -453,9 +427,7 @@ them with different requirements:
 Docker Memory Requirements [@dockerdoc2017]:
 
 -   8GB of RAM for manager nodes or nodes running DTR.
-
 -   4GB of RAM for worker nodes.
-
 -   3GB of free disk space.
 
 So at least 12 of the GB would be required for Docker and 4 GB used for
@@ -493,10 +465,9 @@ initial input devices attached to each computer. For this exercise, a
 USB enabled standard keyboard and a USB enabled standard mouse were
 used.
 
-Software
---------
+### Software
 
-### Raspbian
+#### Raspbian
 
 Currently, the default way to deploy the operating system to the
 Raspberry Pi is by using an Operating System installation Manager called
@@ -505,15 +476,10 @@ downloaded directly from the Raspberry Pi website and it includes
 several Operating system options, among them:
 
 -   Raspbian
-
 -   Pidora
-
 -   LibreELEC
-
 -   OSMC
-
 -   RISC OS
-
 -   Arch Linux
 
 Since Raspbian is the default Operating system and most commonly used,
@@ -527,7 +493,6 @@ The Kernel version of the version of Raspbian that was used is 4.9.
 The version of Raspbian that was used has the following specifications:
 
 -   Kernel version: 4.9
-
 -   Release date: 2017-11-16
 
 ### Docker
@@ -538,7 +503,6 @@ Raspberry Pi -ARM instead of AMD-, the Docker version used is *Docker
 for Debian ARM*. With the following Specifications:
 
 -   Version 17.09.0-ce
-
 -   Release 2017-09-26
 
 This version of Docker is Community Edition, which means that it is
@@ -547,8 +511,7 @@ infrastructure. This flexibility is good for the experiment, because it
 will be installed on Raspberry Pi, which are considered physical devices
 or bare metal Machines [@dockerdoc2017].
 
-Prerequisites
-=============
+#### Prerequisites
 
 There are several reasons to have the pre requisites that the user will
 find in this document. They will be explained in a separate section.
@@ -607,9 +570,7 @@ to assign an exclusive and distinctive hostname to each Raspberry Pi.
 The three Raspberry Pi have the following static IP addresses:
 
 >1.  pi85 - 192.168.1.85
->
 >2.  pi86 - 192.168.1.86
->
 >3.  pi87 - 192.168.1.87
 
 By default, all Raspberry Pi devices will have the same Host Name.
@@ -633,11 +594,9 @@ To check if the modification has worked as expected, the user may check
 the hostname of the machine from the Terminal by running the command:
 `hostname -I`
 
-Steps Followed
-==============
+### Steps Followed
 
-Testing shell commands prior to integrations with Cloudmesh
------------------------------------------------------------
+#### Testing shell commands prior to integrations with Cloudmesh
 
 Since Raspberry pi is not currently listed under the supported operative
 systems for Docker or Cloudmesh, The process of deploying Docker and
@@ -647,16 +606,14 @@ was configured, the three Raspberry Pi devices were left on for over 24
 hours and it was not observed any kind of abnormal behavior, like
 looping services in the OS or overheating.
 
-Purchasing the hardware
------------------------
+#### Purchasing the hardware
 
 The different hardware components were purchased via Amazon.com and took
 anywhere between 2 to 5 days to arrive. The different components can
 also be purchased through multiple on line sources or local electronics
 stores.
 
-Installing the components via ssh into every node.
---------------------------------------------------
+#### Installing the components via ssh into every node.
 
 The following steps were followed on each device: Usig the TV as an
 external monitor, the USB input devices: keyboard and mouse, and the
@@ -671,22 +628,27 @@ via PIP and also Installed Cloudmesh: following the instructions found
 in: https://github.com/cloudmesh/ Installed Docker CE ARM via Terminal
 using the following command:
 
->\"curl -sSL https://get.docker.com \| sh=\" as suggested in https://www.raspberrypi.org/
+```
+curl -sSL https://get.docker.com \| sh=\" as suggested in https://www.raspberrypi.org/
+```
 
 Started the swarm and assigned a master node
 
->sudo docker swarm init --advertise-addr 192.168.x.x
+```
+sudo docker swarm init --advertise-addr 192.168.x.x
+```
 
 Created the remaining two nodes, with 
 
->\"curl -sSL https://get.docker.com \| sh=\" as suggested in https://www.raspberrypi.org/
+```
+curl -sSL https://get.docker.com \| sh=\" as suggested in https://www.raspberrypi.org/
+```
 
 And then, using the docker swarm join command the token generated when the master node was created, they were added to the swarm.
 
 
 
-Installing and configuring Docker Swarm
----------------------------------------
+## Installing and configuring Docker Swarm
 
 ### Manager
 
@@ -698,8 +660,7 @@ was run on the Terminal or that device to set it as the manager:
 
 >`sudo docker swarm init --advertise-addr 192.168.1.85`
 
-Workers
--------
+## Workers
 
 The other two Raspberry Pi devices. In this case, the Raspberry Pi with
 the IP address 192.168.1.86 and the one with 192.168.1.86, were defined
@@ -707,19 +668,24 @@ as simple worker nodes.
 
 To define the workers, the following command was used:
 
->`sudo usermod -a -G docker USER`
+```
+sudo usermod -a -G docker USER`
+```
 
 and to work as part of the swarm the command used was:
 
->`docker swarm join --token *** 198.168.1.85:2377`
+```
+docker swarm join --token *** 198.168.1.85:2377`
+```
 
 As a last step, it was confirmed that all the nodes were added by using
 the following command:
 
->`sudo docker node ls`
+```
+sudo docker node ls
+```
 
-Additional Research
--------------------
+## Additional Research
 
 ### Other functions considered
 
@@ -731,7 +697,9 @@ IP address or hostname of the desired machine and the desired location
 to store the captured image, alongside the corresponding credentials and
 wrap a **dd** shell command similar to the following:
 
->`dd if=/dev/mmcblk0 bs=1M ` gzip -QUOTE \| dd of=imageDir\|
+```
+dd if=/dev/mmcblk0 bs=1M ` gzip -QUOTE \| dd of=imageDir\|
+```
 
 Among the challenges faced, this line was returning an invalid syntax,
 most likely because of the use of the variables. Since there was not a
@@ -742,7 +710,9 @@ route and name where the image would be deployed, i.e.`/dev/bkp` and
 image name and route, i.e.`~/Desktop/raspbian.gz`. The shell command
 that would be wrapped would be:
 
->`gzip -dc diskNm PIPE sudo dd of=imageName bs=1m conv=noerror,sync`
+```
+gzip -dc diskNm PIPE sudo dd of=imageName bs=1m conv=noerror,sync
+```
 
 More information on this topic can be found in the section called
 **Backup** ***www.raspberrypi.org***.
@@ -756,11 +726,10 @@ addresses that might be stored in different files of the OS.
 ### Final code
 The final version of the code can be found on:
 
-https://github.com/cloudmesh-community/hid-sp18-709/tree/master/project-code
+<https://github.com/cloudmesh-community/hid-sp18-709/tree/master/project-code>
 
 
-Other options considered
-========================
+## Other options considered
 
 Other options of coding were considered during the development of this
 solution. Since all of the deployment can successfully be done via
@@ -771,53 +740,37 @@ python. This option would have been less dynamic and wouldn't make the
 best use of the available resources, but at the same time it could have
 ben easier to addapt to linux Operating systems other than Raspbian.
 
-Conclusions
-===========
+## Conclusions
 
--  It is possible to create the plug in. Using the SH sub process included in python 2.5-3.5. The team was able to try the steps one at a time at the level of py scripts, but encountered an error previously mentioned in this document when trying to implement it as part of cms. Also, as the professor suggested, this same system can be implemented as a different  abstraction for deployments such as an abc class similar to the following:
+It is possible to create the plug in. Using the SH sub process included in python 2.5-3.5. The team was able to try the steps one at a time at the level of py scripts, but encountered an error previously mentioned in this document when trying to implement it as part of cms. Also, as the professor suggested, this same system can be implemented as a different  abstraction for deployments such as an abc class similar to the following:
 
->class deployment    
->
->>def prepare
->
->>>prepares installation including downloads and other installs needed
->
->>def deploy
->
->>>deploys the package or software
->
->>def configure
->
->>>does some configurations
->
->>def test(test)
->
->>>does a test wheer a name is passed of a test (you could have multiple)
->
->>>the name all woudl be running all tests
+```
+class deployment    
 
+  def prepare
+      prepares installation including downloads and other installs needed
+
+  def deploy
+      deploys the package or software
+
+  def configure
+      does some configurations
+
+  def test(test)
+      does a test wheer a name is passed of a test (you could have multiple)
+      the name all woudl be running all tests
+```
  
--  Since most of this work was working with bash commands tunneled through python scripts and implemented in CMS, Once this is fully functional, it is very possible that the same methodology can be followed to add more layers of complexity, i.e. Kubernetes. 
+Since most of this work was working with bash commands tunneled through python scripts and implemented in CMS, Once this is fully functional, it is very possible that the same methodology can be followed to add more layers of complexity, i.e. Kubernetes. 
 
--  It would be important to consider that the fact that the passwords would have to be either hard coded or transferred in plain text has to be seen as a vulnerability, that has to be addressed either by adding an encryption/decryption module or finding another way to safely access the root of the target device.
+It would be important to consider that the fact that the passwords would have to be either hard coded or transferred in plain text has to be seen as a vulnerability, that has to be addressed either by adding an encryption/decryption module or finding another way to safely access the root of the target device.
 
 *The authors would like to thank Dr. Gregor von Laszewski for his support
 and suggestions on this project.*
 
-\bibliographystyle{ACM-Reference-Format}
-\newpage
-\appendix
-Work Breakdown
-==============
+## Work Breakdown
 
-Uma Kugan
-
-:  50% of the document and codeing.
-
-Andres Castro Benavides
-
-:  50% of the document and testing and reviewing the code
-
-Gregor von Laszewski
-
-:   Help with the report, contributing to the code, editing
+* Uma Kugan  50% of the document and codeing.
+* Andres Castro Benavides 50% of the document and testing and reviewing the code
+* Gregor von Laszewski significant helo with markdown, suggestions to the report, structure, correction of some issue,   
+  contribution of all the cm5 module on which this project relies, transition to markdown
