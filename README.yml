@@ -1,11 +1,24 @@
-# This file will have to be updated by you throughout the semester, for
-# now just fill out the owner.  This is a yaml file and must be validated
-# by you. If you do not know how to do that, your first task is to
-# write a python3 program that does this.
-#
 ---
 owner:
   firstname: Andres
   lastname: Castro
   hid: sp18-709
   community: i523
+  oldhid: hid305
+  year: Fall17
+paper:
+  - title: Big Data Analytics for Municipal Waste Management
+    keyword: Waste Management
+    url: https://github.com/cloudmesh-community/hid-sp18-709/blob/master/paper-andres-mani/content.tex
+    group: hid-sp18-711, hid-sp18-709
+paper:
+  - title: Big Data Security and Privacy
+    keywords: big data, security, privacy
+    url: https://github.com/bigdata-i523/hid305/blob/master/paper2/report.tex
+    group: hid-sp18-710, hid-sp18-709
+project:
+  - title: CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
+    keyword: cmd5, docker, swarm
+    url: https://github.com/cloudmesh-community/hid-sp18-709/blob/master/project-report/report.md
+    group: hid-sp18-710, hid-sp18-709
+    code: https://github.com/cloudmesh-community/hid-sp18-709/tree/master/project-code
