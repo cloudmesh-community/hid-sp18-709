@@ -7,6 +7,19 @@
 :o: check the TOC
 
 
+# Big Data  Security and Privacy :o:  hid-sp18-709, hid-sp18-710
+| Andres Castro, Uma M Kugan
+| andrescastro@iu.edu, umakugan@iu.edu
+| Indiana University
+| hid: sp18-709, sp18-710
+| github: [:cloud:](https://github.com/cloudmesh-community/hid-sp18-709/tree/master/paper/paper.md)
+
+---
+
+Keywords: big data, security, privacy
+
+---
+
 ## Introduction
 
 Each organization has unique needs when it comes to Big Data. These
