@@ -1,12 +1,3 @@
-# Big Data Security and Privacy :o: HID MISSING
-
-:o: author missing
-
-:o: use the md format
-
-:o: check the TOC
-
-
 # Big Data  Security and Privacy :o:  hid-sp18-709, hid-sp18-710
 | Andres Castro, Uma M Kugan
 | andrescastro@iu.edu, umakugan@iu.edu
