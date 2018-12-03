@@ -10,15 +10,15 @@ paper:
   - title: Big Data Analytics for Municipal Waste Management
     keyword: Waste Management
     url: https://github.com/cloudmesh-community/hid-sp18-709/blob/master/paper-andres-mani/content.tex
-    group: hid-sp18-711, hid-sp18-709
+    group: hid-sp18-709 hid-sp18-711
 paper:
   - title: Big Data Security and Privacy
     keywords: big data, security, privacy
     url: https://github.com/bigdata-i523/hid305/blob/master/paper2/report.tex
-    group: hid-sp18-710, hid-sp18-709
+    group: hid-sp18-709 hid-sp18-710
 project:
   - title: CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
     keyword: cmd5, docker, swarm
     url: https://github.com/cloudmesh-community/hid-sp18-709/blob/master/project-report/report.md
-    group: hid-sp18-710, hid-sp18-709
+    group: hid-sp18-709 hid-sp18-710 
     code: https://github.com/cloudmesh-community/hid-sp18-709/tree/master/project-code
