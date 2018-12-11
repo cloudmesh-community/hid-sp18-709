@@ -1,13 +1,22 @@
-# CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs :hand: hid-sp18-709
+# CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs  :hand: hid-sp18-709, hid-sp18-709
 
 :o: please update to markdown
 
 :o: see our example <https://github.com/cloudmesh-community/proceedings-fa18/tree/master/project-report>
-
-
-this report: <https://github.com/cloudmesh-community/hid-sp18-709/edit/master/project-report/report.md>
+     this report: <https://github.com/cloudmesh-community/hid-sp18-709/edit/master/project-report/report.md>
 
 :o: the original latex had structural issues so pleas ervisit the section heding levels of all sections.
+
+| Andres Castro Benavides,  Uma M Kugan
+| Institution: Indiana University
+| Streetaddress: 107 S. Indiana Avenue
+| City: Bloomington
+| State: Indiana 
+| Postcode: 43017-6221
+| email for Andres Castro: acastrob@iu.edu
+| emailfor Uma Kugan: umakugan@iu.edu
+
+
 
 ## Abstract
  
@@ -23,23 +32,6 @@ creation of this plug-in would be the first step towards the development
 of a tool which would allow larger debian based networks to work as
 container oriented virtual environments with optimized usage of
 resources.
-
-Author:
-
-- Andres Castro Benavides
-- Uma M Kugan
-
----
-
----
- 
-| Institution: Indiana University
-| Streetaddress: 107 S. Indiana Avenue
-| City: Bloomington
-| State: Indiana 
-| Postcode: 43017-6221
-| email for Andres Castro: acastrob@iu.edu
-| emailfor Uma Kugan: umakugan@iu.edu
 
 ---
 
@@ -268,9 +260,9 @@ deploys them as one main system that manages the data resources.
 
 Quote von Laszewski:
 
-*Cloudmesh is a project to easily manage virtual machines and bare metal
-provisioned operating systems in a multicloud environment. We are also
-providing the ability to deploy platforms.*
+> *Cloudmesh is a project to easily manage virtual machines and bare metal
+> provisioned operating systems in a multicloud environment. We are also
+> providing the ability to deploy platforms.*
 
 ## Creating CloudMesh plug-ins
 
@@ -564,6 +556,7 @@ on all your Raspberry Pi machines.
 To do this, the user has to add a line in the file `sshd\_config` found
 in the directory `/etc/ssh/` The line has to go at the end of in the
 `Authentication section`. It has to contain the following string:
+
 >`PermitRootLogin yes`. [@rootSsh]
 
 ### Changing hostnames
@@ -572,9 +565,11 @@ In order to keep the three Raspberry Pi organized it is highly advisable
 to assign an exclusive and distinctive hostname to each Raspberry Pi.
 The three Raspberry Pi have the following static IP addresses:
 
->1.  pi85 - 192.168.1.85
->2.  pi86 - 192.168.1.86
->3.  pi87 - 192.168.1.87
+```
+1.  pi85 - 192.168.1.85
+2.  pi86 - 192.168.1.86
+3.  pi87 - 192.168.1.87
+```
 
 By default, all Raspberry Pi devices will have the same Host Name.
 
@@ -647,7 +642,8 @@ Created the remaining two nodes, with
 curl -sSL https://get.docker.com \| sh=\" as suggested in https://www.raspberrypi.org/
 ```
 
-And then, using the docker swarm join command the token generated when the master node was created, they were added to the swarm.
+And then, using the docker swarm join command the token generated when
+the master node was created, they were added to the swarm.
 
 
 
@@ -661,7 +657,9 @@ a Raspberry Pi was chosen to be the main device, in this case, the
 Raspberry Pi with the IP address 192.168.1.85. The following command
 was run on the Terminal or that device to set it as the manager:
 
->`sudo docker swarm init --advertise-addr 192.168.1.85`
+```
+sudo docker swarm init --advertise-addr 192.168.1.85
+```
 
 ## Workers
 
@@ -745,7 +743,13 @@ ben easier to addapt to linux Operating systems other than Raspbian.
 
 ## Conclusions
 
-It is possible to create the plug in. Using the SH sub process included in python 2.5-3.5. The team was able to try the steps one at a time at the level of py scripts, but encountered an error previously mentioned in this document when trying to implement it as part of cms. Also, as the professor suggested, this same system can be implemented as a different  abstraction for deployments such as an abc class similar to the following:
+It is possible to create the plug in. Using the SH sub process
+included in python 2.5-3.5. The team was able to try the steps one at
+a time at the level of py scripts, but encountered an error previously
+mentioned in this document when trying to implement it as part of
+cms. Also, as the professor suggested, this same system can be
+implemented as a different abstraction for deployments such as an
+abc class similar to the following:
 
 ```
 class deployment    
@@ -764,16 +768,23 @@ class deployment    
       the name all woudl be running all tests
 ```
  
-Since most of this work was working with bash commands tunneled through python scripts and implemented in CMS, Once this is fully functional, it is very possible that the same methodology can be followed to add more layers of complexity, i.e. Kubernetes. 
+Since most of this work was working with bash commands tunneled
+through python scripts and implemented in CMS, Once this is fully
+functional, it is very possible that the same methodology can be
+followed to add more layers of complexity, i.e. Kubernetes.
 
-It would be important to consider that the fact that the passwords would have to be either hard coded or transferred in plain text has to be seen as a vulnerability, that has to be addressed either by adding an encryption/decryption module or finding another way to safely access the root of the target device.
+It would be important to consider that the fact that the passwords
+would have to be either hard coded or transferred in plain text has to
+be seen as a vulnerability, that has to be addressed either by adding
+an encryption/decryption module or finding another way to safely
+access the root of the target device.
 
-*The authors would like to thank Dr. Gregor von Laszewski for his support
-and suggestions on this project.*
 
 ## Work Breakdown
 
+* *The authors would like to thank Dr. Gregor von Laszewski for his
+  support and suggestions on this project.*
 * Uma Kugan  50% of the document and codeing.
 * Andres Castro Benavides 50% of the document and testing and reviewing the code
-* Gregor von Laszewski significant helo with markdown, suggestions to the report, structure, correction of some issue,   
+* Gregor von Laszewski significant help with markdown, suggestions to the report, structure, correction of some issue,   
   contribution of all the cm5 module on which this project relies, transition to markdown
