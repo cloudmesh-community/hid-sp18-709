@@ -1,9 +1,11 @@
-# CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
-
+# CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs :hand: hid-sp18-709
 
 :o: please update to markdown
 
 :o: see our example <https://github.com/cloudmesh-community/proceedings-fa18/tree/master/project-report>
+
+
+this report: <https://github.com/cloudmesh-community/hid-sp18-709/edit/master/project-report/report.md>
 
 :o: the original latex had structural issues so pleas ervisit the section heding levels of all sections.
 
@@ -30,15 +32,14 @@ Author:
 ---
 
 ---
-Affiliation:
-> 
-> -Institution: Indiana University
-> -Streetaddress: 107 S. Indiana Avenue
-> -City: Bloomington
-> -State: Indiana 
-> -Postcode: 43017-6221
-> -email for Andres Castro: acastrob@iu.edu
-> -emailfor Uma Kugan: umakugan@iu.edu
+ 
+| Institution: Indiana University
+| Streetaddress: 107 S. Indiana Avenue
+| City: Bloomington
+| State: Indiana 
+| Postcode: 43017-6221
+| email for Andres Castro: acastrob@iu.edu
+| emailfor Uma Kugan: umakugan@iu.edu
 
 ---
 
