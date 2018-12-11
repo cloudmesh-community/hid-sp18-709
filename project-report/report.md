@@ -1,4 +1,4 @@
-# CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs  :hand: hid-sp18-709, hid-sp18-709
+# CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs  :hand: hid-sp18-709, hid-sp18-710
 
 :o: please update to markdown
 
@@ -266,7 +266,7 @@ Quote von Laszewski:
 
 ## Creating CloudMesh plug-ins
 
-##What it currently does and has the potential to do:
+## What it currently does and has the potential to do:
 
 By creating
 CloudMesh plug-ins, it is possible to extend its potential from
