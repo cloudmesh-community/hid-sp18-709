@@ -1,6 +1,6 @@
 # Exploration of Gun Violence in America
 
-| Author: Andres Castro, Uma M Kugan
+| Author: *Andres Castro, Uma M Kugan*
 
 ## Dataset
 
@@ -13,25 +13,23 @@ For this analysis we will use the data set from the gun violence archive which c
 ## Requirements
 
 * Python 3.7
-* Packages: Numpy, Pandas, Matplotlib.pyplot, Seaborn
+* Packages: Numpy, Pandas, Matplotlib.pyplot, Seaborn, Cufflinks
 * Tools: Anaconda, Jupyter notebook
 
 ### Installation
 
+The following python packages need to be installed before we can run the code in the Jupyter Notebooks. 
 
-#### To install Numpy
-```
-pip install Numpy
-```
-#### To install Pandas
-```
-pip install Pandas
-```
-#### To install Matplotlib.pyplot
-```
-pip install Matplotlib.pyplot
-```
-#### To install Seaborn
-```
-pip install Seaborn
-```
+ ```python
+     pip install jupyter
+     pip install scipy
+     pip install numpy
+     pip install pandas
+     pip install sklearn
+     pip install matplotlib
+     pip install seaborn
+     pip install plotly
+     pip install cufflinks
+     conda install basemap
+     
+      ```
