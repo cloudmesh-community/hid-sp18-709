@@ -11,7 +11,6 @@ Keywords: big data, security, privacy
 
 ---
 
-## Introduction
 
 Each organization has unique needs when it comes to Big Data. These
 needs cannot be described with one defined structure alone, and
@@ -457,12 +456,7 @@ providers and local IT departments, will have to diversify their
 security and privacy strategies and policies, in order to keep pace with
 the growth and evolution of this new ecosystem.
 
+## Acknowledgement
+
 The authors would like to thank Dr. Gregor von Laszewski for his support
-and suggestions in writing this paper.
-
-## Work Breakdown
-
-* Uma Kugan  Research for Section Big Data Needs Big Security, Big Data Security
-    and Challenges.
-* Andres Castro Benavides  Research for Section Best practices and Future
-* Editing::   Andres Castro Benavides and Uma Kugan, Gregor von Laszewski
+and suggestions in writing this paper. Gregor also edited the paper.
