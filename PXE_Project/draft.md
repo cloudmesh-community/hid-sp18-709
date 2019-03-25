@@ -1,4 +1,5 @@
 test
+
 test again
 ****
 o: This is just a draft, and contains segents that I have not written, and it is my intention to quote them, referencing appropiately.
@@ -14,7 +15,7 @@ According to the official documentationfor [Raspberry Pi](https://github.com/ras
 
 ## PXE server
 Installation and configuration of the PXE server.
-Created a server in Linux Ubuntu. 
+Created a server in Linux Ubuntu.
 Following these steps: https://docs.oracle.com/cd/E19902-01/html/821-1367/pxeconfig.html
 -   DHCP: to assign and distribute the imges accordingly.
 -   TFTP: to transfer the required files.
@@ -28,14 +29,25 @@ Assigned a Static[DHCP address](https://www.cyberciti.biz/faq/howto-get-linux-st
 Set the[hostname](https://serverfault.com/questions/80909/how-to-change-the-hostname-at-the-end-of-pxe-unattended-installation-on-debian)
 
 **PXE Server Installation**
-I attempted different techniques to achieve this, including the use of complete solutions like  [FOG](https://fogproject.org) 
+I attempted different techniques to achieve this, including the use of complete solutions like  [FOG](https://fogproject.org)
 and the traditional [PXE server](https://docs.oracle.com/cd/E19902-01/html/821-1367/gista.html#scrolltoc)
 
 ## Model endpoint
-Preparation of the model endpoint
+To create an image that looks like the desired state reparation of the model endpoint
 Before capturing the image it is important to set it up so that once it is deployed, it contains all the necessary packages, and at the same time is not bloated with unnecessary packages.
+In my case, I have only made the following changes. Although CMS could be included in the image, and other can be deleted
 
-Created an iso using pibakery, so that it would be ready to run.
+```console
+user@ubuntu:~$ sudo apt-get update
+```
+```console
+sudo apt-get upgrade
+```
+Ensure tthat the USB Boot Mode is enabled. This is the case by default on RPI3 (hacer referencia)
+
+```console
+echo program_usb_boot_mode=1 | sudo tee -a /boot/config.txt
+```
 
 [Back to the begining](#pxe-and-rpi)
 
@@ -46,25 +58,22 @@ Then proceeded to create an image:
 
 Following the instructions presented on [Beebom](https://beebom.com/how-clone-raspberry-pi-sd-card-windows-linux-macos/):
 
-The Raspberry Pi SD Card was opened in the linux computer, in this case, a
+1. The Raspberry Pi SD Card was opened in the linux computer, in this case, a
 Ubuntu Machine, and obtained the list of the filesystems identified by linux,
 using the following command:in a terminal:
 
 ```console
 user@ubuntu:~$ sudo fdisk -l
 ```
-**As a result, the SD Card was found under the name** /dev/sdb corresponding to
-a 32GB usb device.
 
-Once the device was identified, I used the following command to save an img file
-of the disc.
+2. Once the device was identified, the SD Card -a 32GB usb device- was found with the name _/dev/sdb_ ., I used the following command to save the image as an .img file.
 
 ```console
 user@ubuntu:~$ sudo dd if=/dev/sdb of=\~/raspbian.img
 ```
 
 The steps I took are also brought up in [raspberrypi.stackexchange.com](https://raspberrypi.stackexchange.com/questions/69914/how-to-clone-raspberry-pi-sd-card-on-windows-linux-and-macos)
-and more in detail in [raspberrypistarterkits.com](https://www.raspberrypistarterkits.com/how-to/clone-raspberry-pi-sd-card-on-windows-linux-macos/), thi last link includes information on how to 
+and more in detail in [raspberrypistarterkits.com](https://www.raspberrypistarterkits.com/how-to/clone-raspberry-pi-sd-card-on-windows-linux-macos/), this last link includes information on how to save the image using other Operating Systems to capture it.
 
 Successfully performed the back up using Clonezilla as described in [geekanddummy.com](https://geekanddummy.com/how-to-raspberry-pi-tutorial-part-2-sd-card-backuprestore/), generating an image for testing.
 
@@ -82,8 +91,8 @@ filesystem they can be troublesome to mount. try this command when you are
 trying to mount an unknown filesystem:  
 
 ```console
-user@ubuntu:~$ sudo mkdir /tmp/mount/ 
-user@ubuntu:~$ sudo mount -t debugfs /path/to/file.img /tmp/mount/ 
+user@ubuntu:~$ sudo mkdir /tmp/mount/
+user@ubuntu:~$ sudo mount -t debugfs /path/to/file.img /tmp/mount/
 ```
 
 Later attempted [IAT](http://www.pctechtips.org/how-to-convert-img-images-to-iso-in-linux/)
