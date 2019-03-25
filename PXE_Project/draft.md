@@ -1,13 +1,14 @@
 test
 
-test again
+test again a a
 ****
 o: This is just a draft, and contains segents that I have not written, and it is my intention to quote them, referencing appropiately.
-o: This file is also missing the bibliography and references
+o: This file is also missing the bibliography (bibtex) and references
 ****
 # PXE and RPI
 Using PXE to deploy Image to RPI3
 According to the official documentationfor [Raspberry Pi](https://github.com/raspberrypi/documentation), [PXE Servers](http://www.pix.net/software/pxeboot/), and even though partially unrelated, the use of PXE servers to install [Sun Fire X2270](https://docs.oracle.com/cd/E19902-01/html/821-1367/pxeconfig.html), the most suited process  would follow four main stages:
+
 1. [Installation and configuration of the PXE server](#pxe-server)
 2. [Preparation of the model endpoint](#model-endpoint)
 3. [Capturing and storing the image -also known as Imaging-](#capture)
@@ -15,18 +16,63 @@ According to the official documentationfor [Raspberry Pi](https://github.com/ras
 
 ## PXE server
 Installation and configuration of the PXE server.
-Created a server in Linux Ubuntu.
+Created a server in Linux Ubuntu Version....
 Following these steps: https://docs.oracle.com/cd/E19902-01/html/821-1367/pxeconfig.html
--   DHCP: to assign and distribute the imges accordingly.
--   TFTP: to transfer the required files.
--   PXE Server install the imges to the corresponding computers.
--   NFS (Optional): to store the images.
--   Portmap  (Optional- only required if using NFS)
+- DHCP: to assign and distribute the imges accordingly.
+- DNS Settings:
+- TFTP: to transfer the required files.
+- PXE Server install the imges to the corresponding computers.
+- NFS (Optional): to store the images.
+- Portmap  (Optional- only required if using NFS)
 
 **DHCP Setup:**
-Installed a basic instance of[DHCP](https://help.ubuntu.com/lts/serverguide/dhcp.html.en)
-Assigned a Static[DHCP address](https://www.cyberciti.biz/faq/howto-get-linux-static-dhcp-address/)
-Set the[hostname](https://serverfault.com/questions/80909/how-to-change-the-hostname-at-the-end-of-pxe-unattended-installation-on-debian)
+a. Installed a basic instance of [DHCP](https://help.ubuntu.com/lts/serverguide/dhcp.html.en):
+
+```bash
+user@ubuntu:~$ sudo apt install isc-dhcp-server
+```
+b. Then, configured it to assign the IP addresses randomly, by modifying the configuration file:
+
+```bash
+user@ubuntu:~$ sudo vi /etc/dhcp/dhcpd.conf
+```
+```bash
+
+default-lease-time 600;
+max-lease-time 7200;
+
+subnet 10.10.0.0 netmask 255.255.255.0 {
+ range 10.10.0.150 10.10.0.200; #this one will have to be different in the IU environment due to the ammount of RPis or endpoints connected to this DHCP
+ option routers 10.10.0.254;
+ option domain-name-servers 10.10.0.1, 10.10.0.2;
+ option domain-name "PXEtest.test";
+```
+
+
+Assigned a Static IP Address: [DHCP address](https://www.cyberciti.biz/faq/howto-get-linux-static-dhcp-address/)
+Set the [hostname](https://serverfault.com/questions/80909/how-to-change-the-hostname-at-the-end-of-pxe-unattended-installation-on-debian)
+
+and then, restarted the service:
+
+```bash
+user@ubuntu:~$ sudo systemctl restart isc-dhcp-server.service
+```
+
+**DNS Settings:**
+In order to ensure that the DNS is pointed in the right direction, I changed it using vi editor to modify the interfaces configuration file:
+
+```bash
+user@ubuntu:~$ sudo vi /etc/network/interfaces
+```
+
+```bash
+auto eth0
+iface eth0 inet static
+        address 10.10.0.021
+        netmask 255.255.255.0
+        gateway 10.10.0.1
+```
+
 
 **PXE Server Installation**
 I attempted different techniques to achieve this, including the use of complete solutions like  [FOG](https://fogproject.org)
@@ -37,15 +83,15 @@ To create an image that looks like the desired state reparation of the model end
 Before capturing the image it is important to set it up so that once it is deployed, it contains all the necessary packages, and at the same time is not bloated with unnecessary packages.
 In my case, I have only made the following changes. Although CMS could be included in the image, and other can be deleted
 
-```console
+```bash
 user@ubuntu:~$ sudo apt-get update
 ```
-```console
+```bash
 sudo apt-get upgrade
 ```
 Ensure tthat the USB Boot Mode is enabled. This is the case by default on RPI3 (hacer referencia)
 
-```console
+```bash
 echo program_usb_boot_mode=1 | sudo tee -a /boot/config.txt
 ```
 
@@ -62,13 +108,13 @@ Following the instructions presented on [Beebom](https://beebom.com/how-clone-ra
 Ubuntu Machine, and obtained the list of the filesystems identified by linux,
 using the following command:in a terminal:
 
-```console
+```bash
 user@ubuntu:~$ sudo fdisk -l
 ```
 
 2. Once the device was identified, the SD Card -a 32GB usb device- was found with the name _/dev/sdb_ ., I used the following command to save the image as an .img file.
 
-```console
+```bash
 user@ubuntu:~$ sudo dd if=/dev/sdb of=\~/raspbian.img
 ```
 
@@ -90,7 +136,7 @@ the .img is a generic term. it is a binary file and if you don't know the
 filesystem they can be troublesome to mount. try this command when you are
 trying to mount an unknown filesystem:  
 
-```console
+```bash
 user@ubuntu:~$ sudo mkdir /tmp/mount/
 user@ubuntu:~$ sudo mount -t debugfs /path/to/file.img /tmp/mount/
 ```
