@@ -1,9 +1,6 @@
-test
-
-test again a a
 ****
-o: This is just a draft, and contains segents that I have not written, and it is my intention to quote them, referencing appropiately.
-o: This file is also missing the bibliography (bibtex) and references
+:o: Disclaimer: This is just a draft, and contains segents that I have not written, and it is my intention to quote them, referencing appropiately.
+:o: This file is also missing the bibliography (bibtex) and references
 ****
 # PXE and RPI
 Using PXE to deploy Image to RPI3
@@ -196,18 +193,6 @@ Later attempted [IAT](http://www.pctechtips.org/how-to-convert-img-images-to-iso
 Deploying the image
 
 **Method useed:**
-
-As per the professor suggestion I used the **Standard DD command:**
-
-backup:
-```bash
-dd if=/dev/sdb of=sd.img bs=4M
-```
-Maybe://
-restore:
-```bash
-dd if=sd.img of=/dev/sdb bs=4M
-```
 //
 
 [Reply7](https://lifehacker.com/how-to-clone-your-raspberry-pi-sd-card-for-super-easy-r-1261113524)
