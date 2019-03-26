@@ -1,6 +1,9 @@
 ****
+
 :o: Disclaimer: This is just a draft, and contains segents that I have not written, and it is my intention to quote them, referencing appropiately.
+
 :o: This file is also missing the bibliography (bibtex) and references
+
 ****
 # PXE and RPI
 Using PXE to deploy Image to RPI3
@@ -14,6 +17,18 @@ According to the official documentationfor [Raspberry Pi](https://github.com/ras
 4. [Deploying the image](#deployment)
 
 :o: you need to use section links as explained in notation.md, see the first link
+
+:o: diagram of your setup is missing, it is difficult to understand what you do
+
+:o: you could for example improve the NOW instructions and burn the os and have ips
+
+
+than it would be grate to have the following
+
+    cms pxe --server=ipofserver --worker=10.0.0.[1-10] --names=worker[00-10]
+
+that does this all automatically ... ?
+
 
 
 ## PXE server {#sec:pxe-server}
