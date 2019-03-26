@@ -25,7 +25,7 @@ According to the official documentationfor [Raspberry Pi](https://github.com/ras
 
 than it would be grate to have the following
 
-    cms pxe --server=ipofserver --worker=10.0.0.[1-10] --names=worker[00-10]
+    cms pxe --server=ip_of_server --worker=10.0.0.[1-10] --names=worker[00-10]
 
 that does this all automatically ... ?
 
