@@ -63,58 +63,7 @@ Other Project:<https://www.plop.at/en/bootmanager/full.html>
 Clean PXE:
 
 <https://docs.oracle.com/cd/E19902-01/html/821-1367/gjyeo.html>
-
-How to Create a PXE Installation Image for Oracle Enterprise Linux
-------------------------------------------------------------------
-
-When you create a Oracle Linux Preboot Execution Environment (PXE) installation
-image on the same server that is your DHCP server, it will also act as your PXE
-server. The PXE server provides the operating system files to your PXE client.
-
-Before you install a Oracle Enterprise Linux image on your PXE server, you must
-configure your Linux network to support PXE images. See [Overview of PXE
+See [Overview of PXE
 Servers](https://docs.oracle.com/cd/E19902-01/html/821-1367/gisly.html#scrolltoc).
-
-**Before You Begin**
-
-The PXE installation procedure requires the following items:
-
--   A CD/DVD drive on the DHCP server.$ sudo mkdir /tftpboot/1604/
--   Disable the firewall on your PXE server.
-
--   Install a Linux image on your PXE server.
-
--   Connect the PXE client to the same network as your PXE server.
-
-1.  **Power on the PXE client.**
-
->   The PXE client is the target where you are installing Linux from a PXE image
->   on a PXE server.
-
-1.  **When the PXE client prompts you for a network boot, press the F12 key.**
-
->   The PXE client attempts to obtain an IP address from the DHCP server.
-
->   A list of PXE servers appears.
-
-1.  **Select a PXE server from the list.**
-
->   The corresponding Linux installation image downloads onto the PXE client.
-
-1.  **To configure the Linux operating system for your server, refer to the
-    manual that is shipped with your Linux media kit.**
-
-2.  **Update the operating system.**
-
-    -   **For Red Hat Linux, see** [Overview of Red Hat Enterprise Linux
-        Installation](https://docs.oracle.com/cd/E19902-01/html/821-1367/gjtvz.html#scrolltoc)**.**
-
-    -   **For SUSE Linux, perform an Online Software Update to update the
-        operating system files. See** [How to Update the SLES Operating
-        System](https://docs.oracle.com/cd/E19902-01/html/821-1367/gjtnc.html#scrolltoc)**.**
-
-    -   **For Oracle Enterprise Linux, see** [Updating
-        OEL](https://docs.oracle.com/cd/E19902-01/html/821-1367/gjfrg.html#scrolltoc)**.**
-
 https://docs.oracle.com/cd/E19902-01/html/821-1367/pxeconfig.html\#scrolltoc
 
