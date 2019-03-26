@@ -6,15 +6,24 @@
 Using PXE to deploy Image to RPI3
 According to the official documentationfor [Raspberry Pi](https://github.com/raspberrypi/documentation), [PXE Servers](http://www.pix.net/software/pxeboot/), and even though partially unrelated, the use of PXE servers to install [Sun Fire X2270](https://docs.oracle.com/cd/E19902-01/html/821-1367/pxeconfig.html), the most suited process  would follow four main stages:
 
-1. [Installation and configuration of the PXE server](#pxe-server)
+:o: the PXE server must be set up as one of the PIs the above is not clear what you do, alterbnative you can use a Linux server. This must be general and not related to HW, other than if you use a PI as PXE server
+
+1. Installation and configuration of the PXE server (see @sec:pxe-server}
 2. [Preparation of the model endpoint](#model-endpoint)
 3. [Capturing and storing the image -also known as Imaging-](#capture)
 4. [Deploying the image](#deployment)
 
-## PXE server
+:o: you need to use section links as explained in notation.md, see the first link
+
+
+## PXE server {#sec:pxe-server}
+
 Installation and configuration of the PXE server.
 Created a server in Linux Ubuntu Version....
 Following these steps: https://docs.oracle.com/cd/E19902-01/html/821-1367/pxeconfig.html
+
+:o: stand alone links must be in <>
+
 - DHCP: to assign and distribute the imges accordingly.
 - DNS Settings:
 - TFTP: to transfer the required files.
@@ -120,6 +129,7 @@ NetBoot: $ mkdir ~/16-04-netboot
 $ tar zxf 16-04-netboot.tar.gz -C ~/16-04-netboot
 
 ## Model endpoint
+
 **Check** //https://docs.oracle.com/cd/E19902-01/html/821-1367/gjyeo.html#scrolltoc
 
 To create an image that looks like the desired state reparation of the model endpoint
@@ -140,7 +150,9 @@ user@ubuntu:~$ echo program_usb_boot_mode=1 | sudo tee -a /boot/config.txt
 
 [Back to the begining](#pxe-and-rpi)
 Created a bootale ige
+
 ## Capture
+
 Once the image is in the desired state, its time for capturing and storing the image -also known as Imaging-
 
 Then proceeded to create an image:
@@ -188,8 +200,12 @@ after that, we just release the netboot ready version: [pxe netboot](https://wik
 
 Later attempted [IAT](http://www.pctechtips.org/how-to-convert-img-images-to-iso-in-linux/)
 
-[Back to the begining](#pxe-and-rpi)
+[Back to the begining](#pxe-and-rpi) 
+
+:o: we do not need the bck links
+
 ## Deployment
+
 Deploying the image
 
 
