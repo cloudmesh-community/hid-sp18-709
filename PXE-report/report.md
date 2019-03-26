@@ -31,6 +31,9 @@ Following these steps: https://docs.oracle.com/cd/E19902-01/html/821-1367/pxecon
 - NFS (Optional): to store the images.
 - Portmap  (Optional- only required if using NFS)
 
+
+:o: why not develop a simple script and run that installs it. put this in git, git clone it and do sh  on it. Its noice that you explain it but, teh explanation seems to refer to too many external documents?
+
 **DHCP Setup:**
 a. Installed a basic instance of [DHCP](https://help.ubuntu.com/lts/serverguide/dhcp.html.en):
 
