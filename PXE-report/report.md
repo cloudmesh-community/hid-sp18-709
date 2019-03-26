@@ -192,32 +192,6 @@ Later attempted [IAT](http://www.pctechtips.org/how-to-convert-img-images-to-iso
 ## Deployment
 Deploying the image
 
-**Method useed:**
-//
-
-[Reply7](https://lifehacker.com/how-to-clone-your-raspberry-pi-sd-card-for-super-easy-r-1261113524)
-*replies*
-
--   Great way to do it, but a couple notes.
-
-    1) Make sure you know which device the SD card is, or you can mess up our
-    hard drive. Do this by typing "df" and it should show you the SD card and
-    how big it is. Also can be done in Disk Utility
-
-    2) After doing the above, unmount the SD card prior to running "dd". This
-    can be done at the command line or in Disk Utility.
-
-
-On Linux, something like:
-
-dd if=/dev/sdb of=./RaspberryPiCard.img
-
-should do something similar.
-
-Important note, 8GB cards of different brands are often slightly different
-sizes! An 8GB Sandisk is NOT the same as an 8GB Transcend, at least not as far
-as Win32DiskImager is concerned. Alway red lash to the same card / brand to
-avoid problems. I found this the hard way!
 
 [beebom](https://raspberrypi.stackexchange.com/questions/311/how-do-i-backup-my-raspberry-pi)
 
