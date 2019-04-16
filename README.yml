@@ -11,7 +11,6 @@ paper:
     keyword: Waste Management
     url: https://github.com/cloudmesh-community/hid-sp18-709/blob/master/paper-andres-mani/content.tex
     group: hid-sp18-709 hid-sp18-711
-paper:
   - title: Big Data Security and Privacy
     keywords: big data, security, privacy
     url: https://github.com/bigdata-i523/hid305/blob/master/paper2/report.tex
