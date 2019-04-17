@@ -2,7 +2,7 @@
 owner:
   firstname: Andres
   lastname: Castro
-  hid: sp18-709
+  hid: hid-sp18-709
   community: i523
   oldhid: hid305
   year: Fall17
@@ -16,8 +16,8 @@ paper:
     url: https://github.com/bigdata-i523/hid305/blob/master/paper2/report.tex
     group: hid-sp18-709 hid-sp18-710
 project:
-  - title: 
-    keyword: 
+  - title: CMD5 Plugin to Create a Docker Swarm Cluster on 3 Raspberry PIs
+    keyword: Raspberry
     url: https://github.com/cloudmesh-community/hid-sp18-709/blob/master/project-report/report.md
     group: hid-sp18-709 
     code: https://github.com/cloudmesh-community/hid-sp18-709/tree/master/project-code
