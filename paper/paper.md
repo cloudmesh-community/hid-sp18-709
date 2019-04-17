@@ -267,7 +267,7 @@ security solutions within large Data Centers and also to avoid
 incrementing the traffic unnecessarily. Choosing an overbearing
 authentication method can cause both delay and storage issues. Because
 of this, it is important to tailor the security to the needs of the
-specific network [@Thayananthan2015big].
+specific network [@thayananthan2015big].
 
 ### Cryptography
 
