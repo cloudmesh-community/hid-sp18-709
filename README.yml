@@ -21,3 +21,5 @@ project:
     url: https://github.com/cloudmesh-community/hid-sp18-709/blob/master/project-report/report.md
     group: hid-sp18-709 
     code: https://github.com/cloudmesh-community/hid-sp18-709/tree/master/project-code
+    pytest:
+      - TBD
