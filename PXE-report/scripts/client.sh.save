@@ -1,0 +1,35 @@
+The client Raspberry Pi will need a root file system to boot off, so before you do anything else on the server, make a full copy of its file system and put it in a directory called /nfs/client1The client Raspberry Pi will need a root file system to boot off, so before you do anything else on the server, make a full copy of its file system and put it in a directory called /nfs/client1:
+
+sudo mkdir -p /nfs/client1
+sudo apt install rsync
+sudo rsync -xa --progress --exclude /nfs / /nfs/client1
+
+Regenerate SSH host keys on the client filesystem by chrooting into it:
+
+cd /nfs/client1
+sudo mount --bind /dev dev
+sudo mount --bind /sys sys
+sudo mount --bind /proc proc
+sudo chroot .
+rm /etc/ssh/ssh_host_*
+dpkg-reconfigure openssh-server
+exit
+sudo umount dev sys proc
+
+https://www.raspberrypi.org/documentation/hardware/raspberrypi/bootmodes/net_tutorial.md
+
+
+Find the settings of your local network. You need to find the address of your router (or gateway), which can be done with:
+
+ip route | grep default | awk '{print $3}'
+
+Then run:
+
+ip -4 addr show dev eth0 | grep inet
+
+which should give an output like:
+
+inet 10.42.0.211/24 brd 10.42.0.255 scope global eth0
+
+
+
