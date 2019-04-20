@@ -90,11 +90,16 @@ sudo systemctl restart isc-dhcp-server.service --assume-yes #restarts the dhcp u
 #In order to ensure that the DNS is pointed in the right direction, I changed the interfaces configuration file:
 
 sudo bash -c "echo >> /etc/network/interfaces"
-sudo bash -c "echo auto eth0 >> /etc/network/interfaces"
+sudo bash -c "echo auto lo >> /etc/network/interfaces"
+sudo bash -c "echo iface lo inet loopback >> /etc/network/interfaces"
+sudo bash -c "echo >> /etc/network/interfaces"
+
+sudo bash -c "echo auth eth0 >> /etc/network/interfaces"
+sudo bash -c "echo allow-hotplug eth0 >> /etc/network/interfaces"
 sudo bash -c "echo iface eth0 inet static>> /etc/network/interfaces"
 sudo bash -c "echo         address 10.10.0.021 >> /etc/network/interfaces"
 sudo bash -c "echo         netmask 255.255.255.0 >> /etc/network/interfaces"
-sudo bash -c "echo         gateway 10.10.0.1 >> /etc/network/interfaces"
+sudo bash -c "echo         gateway 10.10.1.1 >> /etc/network/interfaces"
 
 sudo systemctl restart isc-dhcp-server.service --assume-yes #to restart te DHCP service
 sudo apt-get install apache2 tftpd-hpa inetutils-inetd --assume-yes #install unattended.
@@ -106,7 +111,7 @@ sudo bash -c "echo OPTIONS="-l -s /var/lib/tftpboot" >> /etc/default/tftpd-hpa"
 
 sudo apt install tftp-hpa --assume-yes #install unattended.
 
-#Create the TFTP
+#Create the TFTP and 
 
 sudo mkdir /tftpboot
 sudo chmod 777 /tftpboot
@@ -114,6 +119,10 @@ sudo systemctl enable dnsmasq.service
 sudo systemctl restart dnsmasq.service
 sudo cp -r /boot/* /tftpboot
 sudo systemctl restart dnsmasq
+
+#Bootloaders for pxelinux https://www.syslinux.org/old/pxe.php
+
+sudo apt-get install -y syslinux-common
 
 #NFS: Make a root available for the clients.
 sudo apt-get install nfs-kernel-server
@@ -126,64 +135,37 @@ sudo systemctl restart nfs-kernel-server
 
 sudo echo "'root=/dev/nfs nfsroot=10.10.0.211:/nfs/client1,vers=3 rw ip=dhcp rootwait elevator=deadline'" >  | sudo tee -a /tftpboot/cmdline.txt #https://www.kernel.org/doc/Documentation/filesystems/nfs/nfsroot.txt
 
-#insall and configure the PXE server itself.
 
-''' NOTES:
-/var/lib/tftpboot/pxelinux.cfg/default
+#############################################################################################
+#PXE among other: http://it-joe.com/linux/pxe_server#
+#insall and configure the PXE server itself. the /tftpboot was already ade in line 116
 
-DISPLAY boot.txt
 
-DEFAULT etch_i386_install
+cp -r /usr/lib/syslinux/* /tftpboot/ #to move the PXE boot files to the tftp that were installed inline 124
 
-LABEL etch_i386_install
-       kernel debian/etch/i386/linux
-       append vga=normal initrd=debian/etch/i386/initrd.gz  --
-LABEL etch_i386_linux
-       kernel debian/etch/i386/linux
-       append vga=normal initrd=debian/etch/i386/initrd.gz  --
+#Configure the PXE menu.
+sudo echo "DEFAULT menu.c32" >  | sudo tee -a /tftpboot/pxelinux.cfg/default #https://wiki.syslinux.org/wiki/index.php?title=Menu
+sudo echo "   PROMPT 0" >>  | sudo tee -a /tftpboot/pxelinux.cfg/default
+sudo echo "" >>  | sudo tee -a /tftpboot/pxelinux.cfg/default
+sudo echo "   MENU TITLE PXE Boot" >>  | sudo tee -a /tftpboot/pxelinux.cfg/default
+sudo echo "" >>  | sudo tee -a /tftpboot/pxelinux.cfg/default
+sudo echo "   LABEL Raspbian" >>  | sudo tee -a /tftpboot/pxelinux.cfg/default
+sudo echo "   MENU LABEL ^Raspbian 4.14" >>  | sudo tee -a /tftpboot/pxelinux.cfg/default  #label for the OS, the ^ symbol is for the hotkey
+sudo echo "   KERNEL nfs/ubuntu/client1/vmlinuz #the kernell mentioned on line 13" >>  | sudo tee -a /tftpboot/pxelinux.cfg/default
+sudo echo "   APPEND initrd=nfs/ubuntu/client1/initrd.lz boot=client1 netboot=nfs nfsroot=10.10.0.211:/tftpboot/nfs/raspbian" >>  | sudo tee -a /tftpboot/pxelinux.cfg/default  #here is where we inlcude the corresponding image we will be pointing to, as well as the bootable kernel and initrd file to point to the root partition.
 
-LABEL etch_i386_expert
-       kernel debian/etch/i386/linux
-       append priority=low vga=normal initrd=debian/etch/i386/initrd.gz  --
-
-LABEL etch_i386_rescue
-       kernel debian/etch/i386/linux
-       append vga=normal initrd=debian/etch/i386/initrd.gz  rescue/enable=true --
-
-PROMPT 1
+###Additional Notes:
+#Ensure that the  SDCard that will be sued on the new RPI is not bootable. Otherwise there will be conflicts due to the  bootable files existing in the card. 
+# there are other ways to configure the menu, like pulling a boot.txt: https://elinux.org/R-Pi_PXE_Server but I decide to keep this scrit as straightforward as possible.
 
 
 
-On boot.txt change: #https://elinux.org/R-Pi_PXE_Server
-- Boot Menu -
-=============
 
-etch_i386_install
-etch_i386_linux
-etch_i386_expert
-etch_i386_rescue
+#Other resources
 
+#https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/chap-installation-server-setup
+#http://www.saminiir.com/boot-arch-linux-from-pxe/
+#http://lig-membres.imag.fr/duble/software/raspberry-pi-netboot/
 
-https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/installation_guide/chap-installation-server-setup
-http://www.saminiir.com/boot-arch-linux-from-pxe/
-http://lig-membres.imag.fr/duble/software/raspberry-pi-netboot/
+#there are other options for net booting/as opposed to network installattion, like Raspberry Pi 3b+'s native "netboot"
 
-Raspberry Pi 3b+ native netboot
-
-Raspberry Pi 3b+ model comes with a network boot procedure enabled by default. It is also possible to enable this bootup procedure on Raspberry Pi 3B model, but it is not enabled by default, and I did not test this activation procedure myself (yet). I just tested the Raspberry Pi 3b+ model.
-
-The major plus of using this procedure is that such a node does not need a SD card anymore. And the SD card is the most frequent point of failure on Raspberry Pi boards.
-
-Note that even if the raspberry pi foundation mentions “PXE booting”, the network boot procedure is not really compatible with a standard PXE setup. Actually, the Raspberry Pi board just tries to retrieve using TFTP the same files it usually finds on the SD card: bootcode.bin, start.elf, config.txt, cmdline.txt, dtb and overlay files, kernel or kernel7.img, etc.
-ISC DHCPd setup
-
-The tutorial written by the raspberry pi foundation is based on dnsmasq on server side. In WalT we use ISC DHCPd. We could however adapt it easily, just by adding the following code on top of our dhcpd.conf file:
-
-class "rpi-pxe" {
-  match if ((binary-to-ascii(16,8,":",substring(hardware,1,3)) = "b8:27:eb") and
-            (option vendor-class-identifier = "PXEClient:Arch:00000:UNDI:002001"));
-  option vendor-class-identifier "PXEClient";
-  option vendor-encapsulated-options "Raspberry Pi Boot";
-}
-
-Actually, if the DHCP server does not respond with this vendor option set to value Raspberry Pi Boot, the Raspberry Pi board will consider its network boot procedure is not implemented on server-side and it will abort its network boot.
