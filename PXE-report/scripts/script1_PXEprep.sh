@@ -114,6 +114,9 @@ sudo apt install tftp-hpa --assume-yes #install unattended.
 #Create the TFTP and 
 
 sudo mkdir /tftpboot
+sudo mkdir /tftpboot/iso #here is where the isos that will be deployed will go
+sudo mkdir /tftpboot/nfs ##Directory where we will create distribution mount folders. 
+mkdir /tftpboot/nfs/raspbian #for this example we will only need the place where the ISO will be mounted if it is just loaded remoretly as opposed to installed.
 sudo chmod 777 /tftpboot
 sudo systemctl enable dnsmasq.service
 sudo systemctl restart dnsmasq.service
@@ -152,7 +155,12 @@ sudo echo "" >>  | sudo tee -a /tftpboot/pxelinux.cfg/default
 sudo echo "   LABEL Raspbian" >>  | sudo tee -a /tftpboot/pxelinux.cfg/default
 sudo echo "   MENU LABEL ^Raspbian 4.14" >>  | sudo tee -a /tftpboot/pxelinux.cfg/default  #label for the OS, the ^ symbol is for the hotkey
 sudo echo "   KERNEL nfs/ubuntu/client1/vmlinuz #the kernell mentioned on line 13" >>  | sudo tee -a /tftpboot/pxelinux.cfg/default
-sudo echo "   APPEND initrd=nfs/ubuntu/client1/initrd.lz boot=client1 netboot=nfs nfsroot=10.10.0.211:/tftpboot/nfs/raspbian" >>  | sudo tee -a /tftpboot/pxelinux.cfg/default  #here is where we inlcude the corresponding image we will be pointing to, as well as the bootable kernel and initrd file to point to the root partition.
+sudo echo "   APPEND initrd=/mnt/tmp/2017-11-29-raspbian-stretch-lite.img #using the original image.
+
+
+<server>/initrd.img vmkopts=debugLogToSerial:1 mem=512M quiet
+
+initrd=nfs/ubuntu/client1/initrd.lz boot=client1 install=nfs nfsroot=10.10.0.211:/tftpboot/nfs/raspbian" >>  | sudo tee -a /tftpboot/pxelinux.cfg/default  #here is where we inlcude the corresponding image we will be pointing to, as well as the bootable kernel and initrd file to point to the root partition. If the desire is to netboot, instead of install, use the "netboot" parameter
 
 ###Additional Notes:
 #Ensure that the  SDCard that will be sued on the new RPI is not bootable. Otherwise there will be conflicts due to the  bootable files existing in the card. 
