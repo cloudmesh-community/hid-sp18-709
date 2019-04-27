@@ -1,6 +1,12 @@
 # Instructions for Capturing the image
 
-For academic purposes, I have used the latest light image provided from rasppberrypi.org: 2017-11-29-raspbian-stretch-lite.
+For this project we use the light image provided from rasppberrypi.org: 2017-11-29-raspbian-stretch-lite.
+
+:o: link is missing
+
+:o: does not contrast what cm-burn does which was a project done prior and mentioned for this
+could cm-burn not be used or extended if it does not have these features?
+
 This can be used as is or modified either with PiBakery or using the following manual instructions:
 
 This part I have not scripted, But here are the instructions I followed
@@ -60,7 +66,7 @@ Now we can use that resulting number to mount the image:
 sudo mount -o loop,offset=48234496 2017-11-29-raspbian-stretch-lite.img /mnt/tmp
 ```
 
-After mounting it, once can modify the mounted image at will, by working on the mounted image:
+After mounting it, one can modify the mounted image at will, by working on the mounted image:
 
 ```bash
 cd /mnt/tmp
