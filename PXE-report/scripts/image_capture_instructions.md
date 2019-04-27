@@ -56,6 +56,8 @@ Device                                Boot Start     End Sectors  Size Id Type
 2017-11-29-raspbian-stretch-lite.img2      94208 3629055 3534848  1.7G 83 Linux
 ```
 
+:o: this can be completely automated so the user does not have to type in the number
+
 With this information, the 
 
 Then, use the information -Boot start- and multiply it by 512 to obtain the offset required: 512×94208=48234496
