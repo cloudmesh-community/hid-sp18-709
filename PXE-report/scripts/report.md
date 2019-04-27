@@ -1,8 +1,13 @@
-****
 :o: Disclaimer: This is just a draft, and contains segents that I have not written, and it is my intention to quote them, referencing appropiately.
+
 :o: This file is also missing the bibliography (bibtex) and references
-****
+
+:o: project does not use cloudmesh-inventory, ideally we should print stickers for the pi;s with hostnames and switch on the led to locate the pi, so we can put the sticker for the hostname on, or rename the hostname based on the location in the cluster than we can make assignment of the hostname based on mac address of the pi in the PXE server. This has the advantage that we can physically look at the cluster and know which py is where
+
+:o: the pxe server should not just be done in ubuntu, but actually a pi should be used for it. those buying pies may not be able to affor buying a compuer just to do a pxe server. It is unclear form the documentation if the pxe server in ubuntu is actually on a pi
+
 # PXE and RPI
+
 Using PXE to deploy Image to RPI3
 According to the official documentationfor [Raspberry Pi](https://github.com/raspberrypi/documentation), [PXE Servers](http://www.pix.net/software/pxeboot/), and even though partially unrelated, the use of PXE servers to install [Sun Fire X2270](https://docs.oracle.com/cd/E19902-01/html/821-1367/pxeconfig.html), the most suited process  would follow four main stages:
 
@@ -12,6 +17,7 @@ According to the official documentationfor [Raspberry Pi](https://github.com/ras
 4. [Deploying the image](#deployment)
 
 ## PXE server
+
 Installation and configuration of the PXE server.
 Created a server in Linux Ubuntu Version....
 Following these steps: https://docs.oracle.com/cd/E19902-01/html/821-1367/pxeconfig.html
